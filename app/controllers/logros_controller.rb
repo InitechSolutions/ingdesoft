@@ -4,7 +4,7 @@ class LogrosController < ApplicationController
   # GET /logros
   # GET /logros.json
   def index
-    @logros = Logro.all
+    @logros = Logro.order(min: :asc).all
   end
 
   # GET /logros/1
@@ -28,7 +28,7 @@ class LogrosController < ApplicationController
 
     respond_to do |format|
       if @logro.save
-        format.html { redirect_to @logro, notice: 'Logro was successfully created.' }
+        format.html { redirect_to @logro, notice: 'El logro ha sido creado.' }
         format.json { render :show, status: :created, location: @logro }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class LogrosController < ApplicationController
   def update
     respond_to do |format|
       if @logro.update(logro_params)
-        format.html { redirect_to @logro, notice: 'Logro was successfully updated.' }
+        format.html { redirect_to @logro, notice: 'El logro ha sido editado.' }
         format.json { render :show, status: :ok, location: @logro }
       else
         format.html { render :edit }
@@ -56,14 +56,16 @@ class LogrosController < ApplicationController
   def destroy
     @logro.destroy
     respond_to do |format|
-      format.html { redirect_to logros_url, notice: 'Logro was successfully destroyed.' }
+      format.html { redirect_to logros_url, notice: 'El logro ha sido eliminado.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-
+    def set_logro
+      @logro = Logro.find(params[:id])
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def logro_params
