@@ -1,0 +1,1 @@
+json.partial! "logros/logro", logro: @logro

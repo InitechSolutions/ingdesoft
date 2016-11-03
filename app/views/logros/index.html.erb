@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Logros</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Min</th>
+      <th>Max</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @logros.each do |logro| %>
+      <tr>
+        <td><%= logro.nombre %></td>
+        <td><%= logro.min %></td>
+        <td><%= logro.max %></td>
+        <td><%= link_to 'Show', logro %></td>
+        <td><%= link_to 'Edit', edit_logro_path(logro) %></td>
+        <td><%= link_to 'Destroy', logro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Logro', new_logro_path %>

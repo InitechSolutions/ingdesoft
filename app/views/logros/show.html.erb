@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @logro.nombre %>
+</p>
+
+<p>
+  <strong>Min:</strong>
+  <%= @logro.min %>
+</p>
+
+<p>
+  <strong>Max:</strong>
+  <%= @logro.max %>
+</p>
+
+<%= link_to 'Edit', edit_logro_path(@logro) %> |
+<%= link_to 'Back', logros_path %>

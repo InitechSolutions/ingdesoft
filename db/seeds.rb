@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+logros = Logro.create ([{ nombre: 'Politico' ,min:-999 , max:-1}])
+logros = Logro.create ([{ nombre: 'Observador' , min:0 ,max:0}])
+logros = Logro.create ([{ nombre: 'Buen Tipo' ,  min:1 ,max:1}])
+logros = Logro.create ([{ nombre: 'Gran Tipo' ,  min:2 ,max:5}])
+logros = Logro.create ([{ nombre: 'Tipazo' ,  min:6 ,max:10}])
+logros = Logro.create ([{ nombre: 'Heroe' ,  min:11 ,max:20}])
+logros = Logro.create ([{ nombre: 'Nobleza Gaucha' ,  min:21 ,max:50}])
+logros = Logro.create ([{ nombre: 'Dios' ,  min:51 ,max:999}])

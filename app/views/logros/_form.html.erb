@@ -1,0 +1,32 @@
+<%= form_for(logro) do |f| %>
+  <% if logro.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(logro.errors.count, "error") %> prohibited this logro from being saved:</h2>
+
+      <ul>
+      <% logro.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= f.label :min %>
+    <%= f.number_field :min %>
+  </div>
+
+  <div class="field">
+    <%= f.label :max %>
+    <%= f.number_field :max %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

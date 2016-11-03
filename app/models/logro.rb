@@ -1,0 +1,2 @@
+class Logro < ApplicationRecord
+end
