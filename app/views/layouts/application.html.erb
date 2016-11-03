@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gauchada</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+ <%= render 'clean_blogs/shim' %>
+<%= render 'clean_blogs/navigation' %>
+<%= render 'clean_blogs/header' %>
+        <div align="center">
+           <body>
+  	<p class="notice"><%= notice %></p>
+	  <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+
+ </div> 
+ <%= render 'clean_blogs/footer' %>
+</html>
