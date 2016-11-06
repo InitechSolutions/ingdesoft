@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Favores</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Foto</th>
+      <th>Titulo</th>
+      <th>Descripcion</th>
+      <th>Lugar</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @favors.each do |f| %>
+      <tr>
+        <td><%=  %></td>
+        <td><%= f.titulo %></td>
+        <td><%= f.descripcion %></td>
+        <td><%= f.lugar %></td>
+        <td><%= link_to 'Ver', f %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
