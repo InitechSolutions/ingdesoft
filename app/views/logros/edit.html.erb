@@ -1,4 +1,18 @@
-<h1>Editando Logro</h1>
+<h1>Editando Logro <%@logro.nombre%></h1>
+
+<h4>Primer Logro:  <%=@logro.primero.nombre%></h4>
+
+<h4>Ultimo Logro:  <%=@logro.ultimo.nombre%></h4>
+
+<% if @logro != @logro.primero %> 
+<h4> Logro Anterior =>   Nombre:<%=@logro.anterior.nombre%> / Min:<%=@logro.anterior.min%>  / Max:<%=@logro.anterior.max %></h4>
+<% end%>
+
+<% if @logro != @logro.ultimo %> 
+<h4> Logro Siguiente =>   Nombre:<%=@logro.siguiente.nombre%> / Min:<%=@logro.siguiente.min%>  / Max:<%=@logro.siguiente.max %></h4>
+<% end%>
+
+
 
 <%= render 'form', logro: @logro %>
 

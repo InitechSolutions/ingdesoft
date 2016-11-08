@@ -19,6 +19,7 @@ class LogrosController < ApplicationController
 
   # GET /logros/1/edit
   def edit
+    
   end
 
   # POST /logros
@@ -54,9 +55,13 @@ class LogrosController < ApplicationController
   # DELETE /logros/1
   # DELETE /logros/1.json
   def destroy
-    
-    
-    Logro.find(Logro.find(params[:id + 1])).max = logro.max 
+     @logro = Logro.find(params[:id])
+    if @logro.min < 0
+      @logro.siguiente.update_attribute(:min, @logro.min)
+    else
+     @logro.anterior.update_attribute(:max, @logro.max)
+    end
+
     @logro.destroy
     respond_to do |format|
       format.html { redirect_to logros_url, notice: 'El logro ha sido eliminado.' }
@@ -76,4 +81,6 @@ class LogrosController < ApplicationController
     def logro_params
       params.require(:logro).permit(:nombre, :min, :max)
     end
+
+
 end
