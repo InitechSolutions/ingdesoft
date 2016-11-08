@@ -18,6 +18,18 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        email: "email"
+        nombre: "nombre"
+
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "Se requiere un correo electronico"
+            nombre:
+              encrypted_password: "Se requiere una contraseña"
