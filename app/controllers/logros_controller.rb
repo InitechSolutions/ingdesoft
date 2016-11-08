@@ -54,10 +54,15 @@ class LogrosController < ApplicationController
   # DELETE /logros/1
   # DELETE /logros/1.json
   def destroy
+    
+    
+    Logro.find(Logro.find(params[:id + 1])).max = logro.max 
     @logro.destroy
     respond_to do |format|
       format.html { redirect_to logros_url, notice: 'El logro ha sido eliminado.' }
       format.json { head :no_content }
+
+
     end
   end
 
