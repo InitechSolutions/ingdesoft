@@ -8,7 +8,7 @@ body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 2000px;
   color: #000000 !important;
-  background-color: #274c5e !important;
+  background-color: #E6E6E6 !important;
 }
 p {
   line-height: 1.5;
@@ -17,12 +17,7 @@ p {
 p a {
   text-decoration: underline;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 800;
 }
@@ -76,6 +71,7 @@ hr.small {
   .navbar-custom .navbar-brand:hover,
   .navbar-custom .navbar-brand:focus {
     color: rgba(255, 255, 255, 0.8);
+
   }
   .navbar-custom .nav li a {
     color: white;
@@ -407,4 +403,9 @@ body {
     overflow: hidden;
     text-align: center;
     img { width: 100% }
+}
+
+/** Permite resaltar la linea de la tabla con un color especifico*/
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #FAAC58;
 }

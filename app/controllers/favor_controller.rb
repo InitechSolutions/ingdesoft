@@ -4,18 +4,7 @@ class FavorController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    <% @posts.each do |post| %>
-      <%= render :partial => post %>
-      <%= render :partial => post.comments.reverse %>
-      <% end %>
-
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @posts }
-      format.json { render :json => @posts }
-      format.atom
-    end
+    @favors = Favor.order(min: :asc).all
   end
 
   # GET /posts/1
