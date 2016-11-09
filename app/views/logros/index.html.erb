@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <h1 style="color:#FF8000;">Tabla de Logros</h1>
 <div class="table-responsive">
@@ -20,7 +20,7 @@
         <td><%= logro.max %></td>
         <td><%= link_to 'Ver', logro %>
         <%= link_to 'Editar', edit_logro_path(logro) %>
-        <%= link_to 'eliminar', logro, method: :delete, data: {notice: '@logro.nombre', confirm: 'Esta seguro que desea eliminar ese logro? ' } %></td>
+        <%= link_to 'eliminar', logro, method: :delete, data: {confirm: 'Esta seguro que desea eliminar el logro  ? ' } %></td>
       </tr>
     <% end %>
   </tbody>
