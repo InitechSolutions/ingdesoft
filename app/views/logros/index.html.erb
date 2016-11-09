@@ -11,7 +11,6 @@
       <th> </th>
       <th>Opciones</th>
       <th> </th>
-
     </tr>
   </thead>
 
@@ -21,9 +20,9 @@
         <td><%= logro.nombre %></td>
         <td><%= logro.min %></td>
         <td><%= logro.max %></td>
-        <td><%= link_to 'Ver', logro %></td>
-        <td><%= link_to 'Editar', edit_logro_path(logro) %></td>
-        <td><%= link_to 'eliminar', logro, method: :delete, data: { confirm: 'Esta seguro que desea eliminar ese logro?' } %></td>
+        <td><%= link_to 'Ver', logro %>
+        <%= link_to 'Editar', edit_logro_path(logro) %>
+        <%= link_to 'eliminar', logro, method: :delete, data: {notice: '@logro.nombre', confirm: 'Esta seguro que desea eliminar ese logro? ' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,4 +30,5 @@
 </div>
 <br>
 
-<%= link_to 'Nuevo Logro', new_logro_path %>
+
+<font size="6"><%= link_to 'Nuevo Logro', new_logro_path %></font>

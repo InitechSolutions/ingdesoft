@@ -1,5 +1,9 @@
 class Logro < ApplicationRecord
-	 
+
+  validates :nombre , :presence => {:message => "Usted debe ingresar un nombre"} 
+  validates :nombre, uniqueness: {case_sensitive: false ,message: "ya hay un logro con ese nombre"}
+  validates :min , :presence => {:message => "Usted debe ingresar un puntaje minimo"} 
+  validates :max , :presence => {:message => "Usted debe ingresar un puntaje maximo"} 
 
   def siguiente
     Logro.where("min > ?", min).order("min ASC").first || Logro.first
