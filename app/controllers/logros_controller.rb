@@ -26,7 +26,7 @@ class LogrosController < ApplicationController
   # POST /logros.json
   def create
     @logro = Logro.new(logro_params)
-
+  if @logro.min <= @logro.max 
     respond_to do |format|
       if @logro.save
         format.html { redirect_to @logro, :notice => 'El logro ha '+ @logro.nombre + ' sido creado.' }
@@ -36,6 +36,12 @@ class LogrosController < ApplicationController
         format.json { render json: @logro.errors, status: :unprocessable_entity }
       end
     end
+  else
+    respond_to do |format|
+    format.html { redirect_to new_logro_path, :notice => 'El logro no ha sido creado.El Puntaje Minimo debe ser menor al Puntaje Maximo' }
+    format.json { head :no_content }
+    end   
+  end
   end
 
   # PATCH/PUT /logros/1
