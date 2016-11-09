@@ -1,6 +1,8 @@
 class FavorsController < ApplicationController
   before_action :set_favor, only: [:show, :edit, :update, :destroy]
 
+
+
   # GET /favors
   # GET /favors.json
   def index
@@ -19,13 +21,14 @@ class FavorsController < ApplicationController
 
   # GET /favors/1/edit
   def edit
+
   end
 
   # POST /favors
   # POST /favors.json
   def create
     @favor = Favor.new(favor_params)
-
+    @favor.user_id = current_user.id
     respond_to do |format|
       if @favor.save
         format.html { redirect_to @favor, notice: 'Favor creado con exito.' }

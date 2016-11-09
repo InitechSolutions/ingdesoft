@@ -1,27 +1,38 @@
-
 <h1>Favores recientes</h1>
-
+<br>
+<br>
 <div class="container">
   <div class="col-sm-10 col-sm-offset-1 col-xs-12 blog-content">
+
     <% @favors.each do |favor| %>
-    <div class="col-xs-12">
+        <div class="col-xs-12">
+            <div class="text-center">
+              <h2><%= favor.titulo %></h2>
+              <%= (favor.descripcion).truncate_words(10) %> <%= link_to 'Ver mas', favor %>
+
+
+            </div>
+          <br>
+        </div>
       <div class="text-center">
-        <h2><%= favor.titulo %></h2>
+        #verificacion de editar/eliminar favor solo usuario dueño
+        <%if (user_signed_in? && current_user.id == favor.user_id)%>
+        <td><%= link_to 'Editar', edit_favor_path(favor) %></td>
+        &nbsp
+        &nbsp
+        <td><%= link_to 'Eliminar', favor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
 
+        <p>--------------------------------------------------------</p>
       </div>
-
-
-
-
-      <br>
-      <td><%= link_to 'Show', favor %></td>
-      <td><%= link_to 'Edit', edit_favor_path(favor) %></td>
-      <td><%= link_to 'Destroy', favor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </div>
     <% end %>
+
   </div>
 </div>
 
-
-
-<%= link_to 'New Favor', new_favor_path %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<%= link_to 'Nuevo favor', new_favor_path %>
