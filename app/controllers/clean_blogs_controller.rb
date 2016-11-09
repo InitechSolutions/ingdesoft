@@ -2,6 +2,7 @@ class CleanBlogsController < ApplicationController
 	layout "clean_blog"
 
 	def index
+		 @favor = Favor.order('created_at DESC').all
 	end
 
 	def about

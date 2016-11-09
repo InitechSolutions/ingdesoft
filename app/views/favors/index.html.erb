@@ -1,0 +1,30 @@
+
+<h1>Favors</h1>
+
+<table class= table>
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Lugar</th>
+      <th>Titulo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @favors.each do |favor| %>
+      <tr>
+        <td><%= favor.titulo %></td>
+        <td><%= favor.lugar %></td>
+
+        <td><%= link_to 'Show', favor %></td>
+        <td><%= link_to 'Edit', edit_favor_path(favor) %></td>
+        <td><%= link_to 'Destroy', favor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Favor', new_favor_path %>
