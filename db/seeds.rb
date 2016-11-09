@@ -8,14 +8,14 @@
 # Se agregan por defecto los logros que pueden tener los usuarios, en un futuro
 # estos logros pueden ser cambiados segun necesiten los administradores de la
 # pagina web
-#logros = Logro.create ([{ nombre: 'Politico' , min:-999 ,max:-1}])
-#logros = Logro.create ([{ nombre: 'Observador' , min:0 ,max:0}])
-#logros = Logro.create ([{ nombre: 'Buen Tipo' ,  min:1 ,max:1}])
-#logros = Logro.create ([{ nombre: 'Gran Tipo' ,  min:2 ,max:5}])
-#logros = Logro.create ([{ nombre: 'Tipazo' ,  min:6 ,max:10}])
-#logros = Logro.create ([{ nombre: 'Heroe' ,  min:11 ,max:20}])
-#logros = Logro.create ([{ nombre: 'Nobleza Gaucha' ,  min:21 ,max:50}])
-#logros = Logro.create ([{ nombre: 'Dios' ,  min:51 ,max:999}])
+logros = Logro.create ([{ nombre: 'Politico' , min:-999 ,max:-1}])
+logros = Logro.create ([{ nombre: 'Observador' , min:0 ,max:0}])
+logros = Logro.create ([{ nombre: 'Buen Tipo' ,  min:1 ,max:1}])
+logros = Logro.create ([{ nombre: 'Gran Tipo' ,  min:2 ,max:5}])
+logros = Logro.create ([{ nombre: 'Tipazo' ,  min:6 ,max:10}])
+logros = Logro.create ([{ nombre: 'Heroe' ,  min:11 ,max:20}])
+logros = Logro.create ([{ nombre: 'Nobleza Gaucha' ,  min:21 ,max:50}])
+logros = Logro.create ([{ nombre: 'Dios' ,  min:51 ,max:999}])
 #Se agregan los favores existentes en el blog anterior
 Favor.create ([{ descripcion: 'La imagen de la izquierda es la original y la de la derecha mi intento por restaurarla. ¿Alguien me haría la gauchada de acomodarla para que se parezca más a la original?', lugar: '-', titulo: 'Restaurar obra de arte'}])
 Favor.create ([{ descripcion: 'Karl es mi perrito y necesita de alguien que lo cuide durante la primera quincena de enero que me voy de vacaciones. Es muy juguetón y muy buena compañía.', lugar: '-', titulo: 'Karl'}])
