@@ -1,19 +1,36 @@
+
+<% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
-
+<strong>Titulo:</strong>
 <p>
-  <strong>Descripcion:</strong>
-  <%= @favor.descripcion %>
-</p>
 
-<p>
-  <strong>Lugar:</strong>
-  <%= @favor.lugar %>
-</p>
 
-<p>
-  <strong>Titulo:</strong>
   <%= @favor.titulo %>
 </p>
 
-<%= link_to 'Edit', edit_favor_path(@favor) %> |
-<%= link_to 'Back', favors_path %>
+<strong>descripcion:</strong>
+<p>
+
+  <%= @favor.descripcion %>
+</p>
+<strong>Lugar:</strong>
+<p>
+
+  <%= @favor.lugar %>
+</p>
+
+<%= link_to 'Editar', edit_favor_path(@favor) %> |
+<%= link_to 'Volver', favors_path %>
+
+<% else %>
+  <p>Ud. Debe registrarse o iniciar sesion para continuar</p>
+
+  <%= link_to "Iniciar sesion", new_user_session_path %>
+&nbsp
+&nbsp
+&nbsp
+
+  <%= link_to "Registrarse", new_user_registration_path %>
+
+
+<% end %>
