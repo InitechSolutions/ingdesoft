@@ -4,11 +4,11 @@
 
 <h2>Ultimo Logro =>  <%=@logro.ultimo.nombre%></h2>
 
-<% if @logro != @logro.primero %> 
+<% if @logro != @logro.primero %>
 <h3> Logro Anterior =>   Nombre:<%=@logro.anterior.nombre%> / Puntaje Minimo:<%=@logro.anterior.min%>  / Puntaje Maximo:<%=@logro.anterior.max %></h3>
 <% end%>
 
-<% if @logro != @logro.ultimo %> 
+<% if @logro != @logro.ultimo %>
 <h3> Logro Siguiente =>   Nombre:<%=@logro.siguiente.nombre%> / Puntaje Minimo:<%=@logro.siguiente.min%>  / Puntaje Maximo:<%=@logro.siguiente.max %></h3>
 <% end%>
 
