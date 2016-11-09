@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+<<<<<<< HEAD
   descripcion: MyString
   lugar: MyString
   titulo: MyString
@@ -9,3 +10,19 @@ two:
   descripcion: MyString
   lugar: MyString
   titulo: MyString
+=======
+  titulo: MyString
+  descrpcion: MyString
+  fecha: 2016-11-09
+  lugar: MyString
+  user_id: 1
+  postulacion_id: 1
+
+two:
+  titulo: MyString
+  descrpcion: MyString
+  fecha: 2016-11-09
+  lugar: MyString
+  user_id: 1
+  postulacion_id: 1
+>>>>>>> 5cbd43ffc90f616d327d4e3c71e6b19fca71a148

@@ -10,17 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161109140113) do
+=======
+ActiveRecord::Schema.define(version: 20161109142629) do
+>>>>>>> 5cbd43ffc90f616d327d4e3c71e6b19fca71a148
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "favors", force: :cascade do |t|
+<<<<<<< HEAD
     t.string   "descripcion"
     t.string   "lugar"
     t.string   "titulo"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+=======
+    t.string   "titulo"
+    t.string   "descrpcion"
+    t.date     "fecha"
+    t.string   "lugar"
+    t.integer  "user_id"
+    t.integer  "postulacion_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+>>>>>>> 5cbd43ffc90f616d327d4e3c71e6b19fca71a148
   end
 
   create_table "logros", force: :cascade do |t|
@@ -29,6 +44,15 @@ ActiveRecord::Schema.define(version: 20161109140113) do
     t.integer  "max"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "respuesta", force: :cascade do |t|
+    t.string   "cuerpo"
+    t.date     "fecha"
+    t.integer  "comentario_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|

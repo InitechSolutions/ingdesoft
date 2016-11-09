@@ -29,7 +29,7 @@ class LogrosController < ApplicationController
 
     respond_to do |format|
       if @logro.save
-        format.html { redirect_to @logro, notice: 'El logro ha sido creado.' }
+        format.html { redirect_to @logro, :notice => 'El logro ha '+ @logro.nombre + ' sido creado.' }
         format.json { render :show, status: :created, location: @logro }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class LogrosController < ApplicationController
   def update
     respond_to do |format|
       if @logro.update(logro_params)
-        format.html { redirect_to @logro, notice: 'El logro  ha sido editado.' }
+        format.html { redirect_to @logro, :notice => 'El logro '+ @logro.nombre + '  ha sido editado.' }
         format.json { render :show, status: :ok, location: @logro }
       else
         format.html { render :edit }
@@ -57,16 +57,17 @@ class LogrosController < ApplicationController
   def destroy
      @logro = Logro.find(params[:id])
     if @logro == @logro.primero
-      @logro.siguiente.update_attribute(:min, @logro.min)
+      respond_to do |format|
+      format.html { redirect_to logros_url, :notice =>'El primer logro no se puede eliminar.' }
+      format.json { head :no_content }
+    end
     else
      @logro.anterior.update_attribute(:max, @logro.max)
-    end
-
-    @logro.destroy
-    respond_to do |format|
-      format.html { redirect_to logros_url, notice: 'El logro ha sido eliminado.' }
+     @logro.destroy
+     respond_to do |format|
+      format.html { redirect_to logros_url, :notice =>'El logro '+@logro.nombre+' ha sido eliminado.' }
       format.json { head :no_content }
-
+    end
 
     end
   end
