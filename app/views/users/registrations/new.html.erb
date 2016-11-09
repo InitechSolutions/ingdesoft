@@ -9,7 +9,7 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true ,required: true %>
   </div>
 
   <div class="field">
@@ -17,37 +17,37 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> caracteres como minimo)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off" ,required: true %>
   </div>
 
   <div class="field">
     <%= f.label :confirmar_contraseña %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off" ,required: true %>
   </div>
 
     <div class="field">
     <%= f.label :nombre %><br />
-    <%= f.text_field :nombre, autocomplete: "off" %>
+    <%= f.text_field :nombre, autocomplete: "off" ,required: true %>
   </div>
 
       <div class="field">
     <%= f.label :apellido %><br />
-    <%= f.text_field :apellido, autocomplete: "off" %>
+    <%= f.text_field :apellido, autocomplete: "off" ,required: true %>
   </div>
 
     <div class="field">
     <%= f.label :telefono %><br />
-    <%= f.telephone_field :telefono, autocomplete: "off" %>
+    <%= f.telephone_field :telefono, autocomplete: "off" ,required: true %>
   </div>
 
     <div class="field">
     <%= f.label :nacimiento %><br />
-    <%= f.date_select :nacimiento, start_year: 2016, end_year: 1920 %>
+    <%= f.date_select :nacimiento, start_year: 2016, end_year: 1920 ,required: true %>
   </div>
 
       <div class="field">
     <%= f.label :localidad %><br />
-    <%= f.text_field :localidad, autocomplete: "off" %>
+    <%= f.text_field :localidad, autocomplete: "off" ,required: true %>
   </div>
 
   <div class="actions">

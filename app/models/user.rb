@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
          has_many :favors
          has_many :comentarios
+         has_many :respuestas
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
@@ -14,5 +15,5 @@ class User < ApplicationRecord
     :in => Date.new(1900)..Time.now.years_ago(18).to_date,
     :message => 'Tienes que ser mayor de 18 para registrarte!'
 
-    
+
 end
