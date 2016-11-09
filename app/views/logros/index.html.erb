@@ -1,16 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<font color="lime" size="8" face="times new roman">Tabla de Logros</font>
+<font color="orange" size="8" face="times new roman">Tabla de Logros</font>
 
-<table  >
+<table  class="table">
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Min</th>
-      <th>Max</th>
+      <th>Puntaje Minimo</th>
+      <th>Puntaje Maximo</th>
       <th>Opciones</th>
-      <th> </th>
-      <th> </th>
+   
 
     </tr>
   </thead>
@@ -21,9 +20,9 @@
         <td><%= logro.nombre %></td>
         <td><%= logro.min %></td>
         <td><%= logro.max %></td>
-        <td><%= link_to 'Ver', logro %></td>
-        <td><%= link_to 'Editar', edit_logro_path(logro) %></td>
-        <td><%= link_to 'eliminar', logro, method: :delete, data: { confirm: 'Esta seguro que desea eliminar ese logro?' } %></td>
+        <td><%= link_to 'Ver', logro %>
+        <%= link_to 'Editar', edit_logro_path(logro) %>
+        <%= link_to 'eliminar', logro, method: :delete, data: {notice: '@logro.nombre', confirm: 'Esta seguro que desea eliminar ese logro? ' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,4 +30,5 @@
 
 <br>
 
-<%= link_to 'Nuevo Logro', new_logro_path %>
+
+<font size="6"><%= link_to 'Nuevo Logro', new_logro_path %></font>

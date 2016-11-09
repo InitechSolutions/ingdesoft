@@ -19,7 +19,7 @@ class LogrosController < ApplicationController
 
   # GET /logros/1/edit
   def edit
-    
+
   end
 
   # POST /logros
@@ -43,7 +43,7 @@ class LogrosController < ApplicationController
   def update
     respond_to do |format|
       if @logro.update(logro_params)
-        format.html { redirect_to @logro, notice: 'El logro ha sido editado.' }
+        format.html { redirect_to @logro, notice: 'El logro  ha sido editado.' }
         format.json { render :show, status: :ok, location: @logro }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class LogrosController < ApplicationController
   # DELETE /logros/1.json
   def destroy
      @logro = Logro.find(params[:id])
-    if @logro.min < 0
+    if @logro == @logro.primero
       @logro.siguiente.update_attribute(:min, @logro.min)
     else
      @logro.anterior.update_attribute(:max, @logro.max)

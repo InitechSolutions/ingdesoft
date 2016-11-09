@@ -33,3 +33,5 @@ en:
               blank: "Se requiere un correo electronico"
             nombre:
               encrypted_password: "Se requiere una contraseña"
+
+  

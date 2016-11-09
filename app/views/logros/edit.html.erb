@@ -1,15 +1,15 @@
-<h1>Editando Logro <%@logro.nombre%></h1>
+<font color="orange" size="9" face="times new roman">Editando Logro <%= @logro.nombre %></font>
 
-<h4>Primer Logro:  <%=@logro.primero.nombre%></h4>
+<h2>Primer Logro =>  <%=@logro.primero.nombre%></h2>
 
-<h4>Ultimo Logro:  <%=@logro.ultimo.nombre%></h4>
+<h2>Ultimo Logro =>  <%=@logro.ultimo.nombre%></h2>
 
 <% if @logro != @logro.primero %> 
-<h4> Logro Anterior =>   Nombre:<%=@logro.anterior.nombre%> / Min:<%=@logro.anterior.min%>  / Max:<%=@logro.anterior.max %></h4>
+<h3> Logro Anterior =>   Nombre:<%=@logro.anterior.nombre%> / Puntaje Minimo:<%=@logro.anterior.min%>  / Puntaje Maximo:<%=@logro.anterior.max %></h3>
 <% end%>
 
 <% if @logro != @logro.ultimo %> 
-<h4> Logro Siguiente =>   Nombre:<%=@logro.siguiente.nombre%> / Min:<%=@logro.siguiente.min%>  / Max:<%=@logro.siguiente.max %></h4>
+<h3> Logro Siguiente =>   Nombre:<%=@logro.siguiente.nombre%> / Puntaje Minimo:<%=@logro.siguiente.min%>  / Puntaje Maximo:<%=@logro.siguiente.max %></h3>
 <% end%>
 
 
