@@ -10,18 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161109203810) do
+=======
+ActiveRecord::Schema.define(version: 20161109180436) do
+>>>>>>> d20cb3e4c3a9977cf7af4af405b09c3f3835cffb
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "favors", force: :cascade do |t|
+    t.string   "titulo"
     t.string   "descripcion"
     t.string   "lugar"
+<<<<<<< HEAD
     t.string   "titulo"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+=======
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.date     "fecha"
+    t.integer  "user_id"
+    t.integer  "postulacion_id"
+>>>>>>> d20cb3e4c3a9977cf7af4af405b09c3f3835cffb
   end
 
   create_table "logros", force: :cascade do |t|

@@ -1,10 +1,15 @@
 
 <% if user_signed_in? %>
 <p id="notice"><%= notice %></p>
+<<<<<<< HEAD
 <strong>Titulo:</strong>
 <p>
 
 
+=======
+<p>
+  <strong>Titulo:</strong>
+>>>>>>> d20cb3e4c3a9977cf7af4af405b09c3f3835cffb
   <%= @favor.titulo %>
 </p>
 
@@ -19,6 +24,7 @@
   <%= @favor.lugar %>
 </p>
 
+<<<<<<< HEAD
 <%= link_to 'Editar', edit_favor_path(@favor) %> |
 <%= link_to 'Volver', favors_path %>
 
@@ -31,6 +37,8 @@
 &nbsp
 
   <%= link_to "Registrarse", new_user_registration_path %>
+=======
+>>>>>>> d20cb3e4c3a9977cf7af4af405b09c3f3835cffb
 
 
 <% end %>
