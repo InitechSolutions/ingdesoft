@@ -1,12 +1,14 @@
-<h2>Editar <%= resource_name.to_s.humanize %></h2>
+<h2>Editar Perfil</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
   <%= devise_error_messages! %>
 
-        <div class="field">
-        <%= f.label :avatar %><br />
-        <%= f.file_field :avatar %>     
-    </div>
+  <div><%= image_tag(current_user.avatar.url, height: 200, width: 200)%></div>
+  <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>     
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -30,7 +32,6 @@
     <%= f.label :confirmar_contraseña %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
   <div class="field">
     <%= f.label :contraseña_actual %> <i>(Necesitamos su contraseña actual para confirmar los cambios)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
