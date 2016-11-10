@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protected
   # parametros permitidos para el registro de usuarios
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nombre, :apellido, :nacimiento, :telefono, :localidad, :puntos, :avatar])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:nombre, :apellido, :nacimiento, :telefono, :localidad, :puntos, :avatar])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nombre, :apellido, :nacimiento, :telefono, :localidad, :puntos, :avatar, :imagen])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nombre, :apellido, :nacimiento, :telefono, :localidad, :puntos, :avatar, :imagen])
   end
 end

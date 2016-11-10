@@ -15,5 +15,7 @@ class User < ApplicationRecord
     :in => Date.new(1900)..Time.now.years_ago(18).to_date,
     :message => 'Tienes que ser mayor de 18 para registrarte!'
 
-
+  #validates_format_of :avatar,
+  #:with    => /\.(png|jpg|jpeg)\Z/i,
+  #:message => "Debe tener un formato de imagen"
 end
