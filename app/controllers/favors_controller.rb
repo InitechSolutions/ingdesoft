@@ -72,6 +72,6 @@ class FavorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def favor_params
-      params.require(:favor).permit(:descripcion, :lugar, :titulo)
+      params.require(:favor).permit(:descripcion, :lugar, :titulo, :imagen)
     end
 end
