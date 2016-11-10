@@ -5,22 +5,22 @@
 <table class="table table-striped table-hover table-success">
   <thead>
     <tr>
-      <th>Nombre</th>
+      <th>&nbsp;&nbsp;Nombre</th>
       <th>Min</th>
       <th>Max</th>
-      <th>Opciones</th>
+      <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Opciones</th>
     </tr>
   </thead>
 
   <tbody>
     <% @logros.each do |logro| %>
       <tr>
-        <td><%= logro.nombre %></td>
+        <td>&nbsp;&nbsp;<%= logro.nombre %></td>
         <td><%= logro.min %></td>
         <td><%= logro.max %></td>
-        <td><%= link_to 'Ver', logro %>
-        <%= link_to 'Editar', edit_logro_path(logro) %>
-        <%= link_to 'eliminar', logro, method: :delete, data: {confirm: 'Esta seguro que desea eliminar el logro  ? ' } %></td>
+        <td><%= link_to 'Ver  ', logro %>&nbsp; &nbsp;
+        <%= link_to 'Editar  ', edit_logro_path(logro) %>&nbsp; &nbsp;
+        <%= link_to 'Eliminar  ', logro, method: :delete, data: {confirm: 'Esta seguro que desea eliminar el logro  ? ' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +29,4 @@
 <br>
 
 
-<font size="6"><%= link_to 'Nuevo Logro', new_logro_path %></font>
+<font size="5"><%= link_to 'Crear Nuevo Logro', new_logro_path %></font>

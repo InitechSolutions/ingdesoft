@@ -25,8 +25,7 @@ class LogrosController < ApplicationController
   # POST /logros
   # POST /logros.json
   def create
-    @logro = Logro.new(logro_params)
-  if @logro.min <= @logro.max 
+  @logro = Logro.new(logro_params) 
     respond_to do |format|
       if @logro.save
         format.html { redirect_to @logro, :notice => 'El logro ha '+ @logro.nombre + ' sido creado.' }
@@ -36,25 +35,20 @@ class LogrosController < ApplicationController
         format.json { render json: @logro.errors, status: :unprocessable_entity }
       end
     end
-  else
-    respond_to do |format|
-    format.html { redirect_to new_logro_path, :notice => 'El logro no ha sido creado.El Puntaje Minimo debe ser menor al Puntaje Maximo' }
-    format.json { head :no_content }
-    end   
-  end
   end
 
   # PATCH/PUT /logros/1
   # PATCH/PUT /logros/1.json
   def update
-    respond_to do |format|
-      if @logro.update(logro_params)
-        format.html { redirect_to @logro, :notice => 'El logro '+ @logro.nombre + '  ha sido editado.' }
-        format.json { render :show, status: :ok, location: @logro }
-      else
-        format.html { render :edit }
-        format.json { render json: @logro.errors, status: :unprocessable_entity }
-      end
+    
+      respond_to do |format|
+        if @logro.update(logro_params)
+          format.html { redirect_to @logro, :notice => 'El logro '+ @logro.nombre + '  ha sido editado.' }
+          format.json { render :show, status: :ok, location: @logro }
+        else
+          format.html { render :edit }
+          format.json { render json: @logro.errors, status: :unprocessable_entity }
+        end
     end
   end
 
