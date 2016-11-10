@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20161110222337) do
   enable_extension "plpgsql"
 
   create_table "favors", force: :cascade do |t|
-    t.string   "titulo"
     t.string   "descripcion"
     t.string   "lugar"
+    t.string   "titulo"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
@@ -62,7 +62,11 @@ ActiveRecord::Schema.define(version: 20161110222337) do
     t.boolean  "admin",                  default: false
     t.string   "telefono"
     t.string   "localidad"
-    t.string   "avatar"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "imagen"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
