@@ -16,7 +16,7 @@
             <ul class="nav navbar-nav navbar-right">
 
         <% if user_signed_in? %>
-
+        <li class="round-image-50"><%= image_tag("#{current_user.imagen}") %></li>
         <li><%= link_to 'Editar Perfil',edit_user_registration_path %></li>
         <li><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete %></li>
         <% if current_user.admin? %>

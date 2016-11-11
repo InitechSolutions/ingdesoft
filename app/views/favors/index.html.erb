@@ -8,10 +8,10 @@
         <div class="col-xs-12">
             <div class="text-center">
               <h2><%= favor.titulo %></h2>
-              <h2>Escrito por: <%= favor.user.nombre %></h2>
-              <%= (favor.descripcion).truncate_words(10) %> <%= link_to 'Ver mas', favor %>
+              <li><%= (favor.descripcion).truncate_words(10) %> <%= link_to 'Ver mas', favor %></li>
 
-                <td><%= image_tag("#{favor.imagen}",height: 500, width: 500) %></td>
+              <td><%= image_tag("#{favor.imagen}",height: 500, width: 500) %></td>
+              <h5>Escrito por: <%= favor.user.nombre %></h5>
             </div>
           <br>
         </div>
