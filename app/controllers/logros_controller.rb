@@ -63,7 +63,7 @@ class LogrosController < ApplicationController
       format.json { head :no_content }
     end
     else
-     @logro.anterior.update_attribute(:max, @logro.max)
+     
      @logro.destroy
      respond_to do |format|
       format.html { redirect_to logros_url, :notice =>'El logro '+@logro.nombre+' ha sido eliminado.' }
