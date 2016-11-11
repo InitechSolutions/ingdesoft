@@ -1,6 +1,6 @@
 class FavorsController < ApplicationController
   before_action :set_favor, only: [:show, :edit, :update, :destroy]
-
+  #before_filter :authorize_owner, only: [:edit, :create, :new, :update, :destroy]
 
 
   # GET /favors
@@ -16,14 +16,23 @@ class FavorsController < ApplicationController
 
   # GET /favors/new
   def new
-    @favor = Favor.new
+    if user_signed_in?
+        @favor = Favor.new
+    else
+      redirect_to (root_path), error: "No tenes permiso."
+    end
   end
 
   # GET /favors/1/edit
   def edit
-
+    if !user_signed_in?
+      redirect_to (root_path), error: "No tenes permiso."
+    elsif current_user.id != @favor.user_id
+      redirect_to (root_path), error: "No tenes permiso."
+    else
+      
   end
-
+  end
   # POST /favors
   # POST /favors.json
   def create
@@ -57,10 +66,14 @@ class FavorsController < ApplicationController
   # DELETE /favors/1
   # DELETE /favors/1.json
   def destroy
-    @favor.destroy
-    respond_to do |format|
-      format.html { redirect_to favors_url, notice: 'Favor eliminado con exito.' }
-      format.json { head :no_content }
+    if current_user.id == @favor.user_id
+      @favor.destroy
+      respond_to do |format|
+          format.html { redirect_to favors_url, notice: 'Favor eliminado con exito.' }
+          format.json { head :no_content }
+      end
+    else
+      redirect_to (root_path), error: "No tenes permiso."
     end
   end
 
