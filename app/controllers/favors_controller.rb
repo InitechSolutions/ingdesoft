@@ -1,6 +1,6 @@
 class FavorsController < ApplicationController
   before_action :set_favor, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authorize_owner, only: [:edit, :create, :new, :update, :destroyu]
 
 
   # GET /favors
@@ -57,6 +57,7 @@ class FavorsController < ApplicationController
   # DELETE /favors/1
   # DELETE /favors/1.json
   def destroy
+    @favor = current_user.favors.find(params[:id])
     @favor.destroy
     respond_to do |format|
       format.html { redirect_to favors_url, notice: 'Favor eliminado con exito.' }

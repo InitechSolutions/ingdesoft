@@ -1,5 +1,5 @@
 class LogrosController < ApplicationController
-  before_filter :authorize_admin, only: :index
+  before_filter :authorize_admin, only: [:index, :show, :new, :edit, :create]
   before_action :set_logro, only: [:show, :edit, :update, :destroy]
 
   # GET /logros

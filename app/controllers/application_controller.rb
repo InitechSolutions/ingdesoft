@@ -6,6 +6,9 @@ def authorize_admin
     redirect_to(root_path) unless current_user && current_user.admin?
     #redirects to previous page
 end
+def authorize_owner
+	redirect_to (root_path) unless current_user.favors.find_by_user_id(params[:id])
+end
   protected
   # parametros permitidos para el registro de usuarios
   def configure_permitted_parameters
