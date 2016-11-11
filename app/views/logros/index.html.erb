@@ -1,32 +1,40 @@
 
 
 <h1 style="color:#FF8000;">Tabla de Logros</h1>
+<div class='container'>
+<div class="row">
+<div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
 <div class="table-responsive">
 <table class="table table-striped table-hover table-success">
   <thead>
     <tr>
-      <th width="25%">&nbsp;&nbsp;Nombre</th>
-      <th width="25%">Min</th>
-      <th width="25%">Max</th>
-      <th width="25%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Opciones</th>
+      <th>Imagen</th>
+      <th>Nombre</th>
+      <th>Mínimo</th>
+      <th>Máximo</th>
+      <th>Opciones</th>
     </tr>
   </thead>
 
   <tbody>
     <% @logros.each do |logro| %>
       <tr>
-        <td>&nbsp;&nbsp;<%= logro.nombre %></td>
+      <td><%= image_tag("#{logro.imagen}", height: 50, width: 50) %></td>
+        <td><%= logro.nombre %></td>
         <td><%= logro.min %></td>
         <td><%= logro.max %></td>
-        <td><%= link_to 'Ver  ', logro %>&nbsp; &nbsp;
-        <%= link_to 'Editar  ', edit_logro_path(logro) %>&nbsp; &nbsp;
-        <%= link_to 'Eliminar  ', logro, method: :delete, data: {confirm: 'Esta seguro que desea eliminar el logro  ? ' } %></td>
+        <td><%= link_to 'Ver', logro %>&nbsp;
+        <%= link_to 'Editar', edit_logro_path(logro) %>&nbsp;
+        <%= link_to 'Eliminar', logro, method: :delete, data: {confirm: 'Esta seguro que desea eliminar el logro  ? ' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 </div>
+</div>
+</div>
+</div>
 <br>
 
+<button type="button" class="btn btn-custom"><%= link_to 'Crear Nuevo Logro', new_logro_path %></button>
 
-<font size="5"><%= link_to 'Crear Nuevo Logro', new_logro_path %></font>

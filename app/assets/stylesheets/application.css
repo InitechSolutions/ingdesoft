@@ -15,3 +15,22 @@
  *= require bootstrap
  *= require font_awesome
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+.btn-custom {
+  background-color: hsl(29, 100%, 51%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fea856", endColorstr="#ff7d05");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#fea856), to(#ff7d05));
+  background-image: -moz-linear-gradient(top, #fea856, #ff7d05);
+  background-image: -ms-linear-gradient(top, #fea856, #ff7d05);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fea856), color-stop(100%, #ff7d05));
+  background-image: -webkit-linear-gradient(top, #fea856, #ff7d05);
+  background-image: -o-linear-gradient(top, #fea856, #ff7d05);
+  background-image: linear-gradient(#fea856, #ff7d05);
+  border-color: #ff7d05 #ff7d05 hsl(29, 100%, 47%);
+  color: #333 !important;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.26);
+  -webkit-font-smoothing: antialiased;
+}
+Some Examples! (you can probably do better than these, though)

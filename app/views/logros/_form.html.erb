@@ -26,6 +26,15 @@
     <%= f.number_field :max, placeholder: "Puntaje maximo" %>
   </div>
 
+  <% if params[:action] == 'edit' %>
+    <%= image_tag("#{@logro.imagen}", height: 75, width: 75) %>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :imagen %><br />
+    <%= f.text_field :imagen %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Confirmar" %>
   </div>

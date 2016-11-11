@@ -81,7 +81,7 @@ class LogrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def logro_params
-      params.require(:logro).permit(:nombre, :min, :max)
+      params.require(:logro).permit(:nombre, :min, :max,:imagen)
     end
 
 
