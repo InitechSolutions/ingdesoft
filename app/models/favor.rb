@@ -6,4 +6,9 @@ class Favor < ApplicationRecord
   #belongs_to :user, required: true
   # con esta linea tira otro error
   #validates :user, presence: true, allow_nil: true
+    def if_owner?
+    if Favor.user_id == current_user.id
+      return true
+    end
+end
 end

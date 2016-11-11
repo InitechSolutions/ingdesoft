@@ -7,7 +7,7 @@ def authorize_admin
     #redirects to previous page
 end
 def authorize_owner
-	redirect_to (root_path) unless current_user.favors.find_by_user_id(params[:id])
+	redirect_to (root_path) unless Favor.user_id == current_user.is.to_s
 end
   protected
   # parametros permitidos para el registro de usuarios
