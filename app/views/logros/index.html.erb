@@ -19,7 +19,7 @@
   <tbody>
     <% @logros.each do |logro| %>
       <tr>
-      <td><%= image_tag("#{logro.imagen}", height: 50, width: 50) %></td>
+      <td><%= image_tag("#{logro.imagen}", height: 70, width: 70) %></td>
         <td><%= logro.nombre %></td>
         <td><%= logro.min %></td>
         <td><%= logro.max %></td>
@@ -36,5 +36,5 @@
 </div>
 <br>
 
-<button type="button" class="btn btn-custom"><%= link_to 'Crear Nuevo Logro', new_logro_path %></button>
+<button type="button" class="btn-lg btn-warning"><i class="glyphicon glyphicon-plus"></i><%= link_to 'Crear Nuevo Logro', new_logro_path %></button>
 
