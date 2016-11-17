@@ -11,7 +11,16 @@ class FavorsController < ApplicationController
 
   # GET /favors/1
   # GET /favors/1.json
-  def show
+  def lugar
+    @favors = Favor.lugar(params[:busqueda]).order('created_at DESC').all
+    render action: :index
+  end  
+
+  def titulo_descripcion
+    @favors = Favor.titulo_descripcion(params[:busqueda]).order('created_at DESC').all
+    render action: :index
+  end
+def show
   end
 
   # GET /favors/new
