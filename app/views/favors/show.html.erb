@@ -26,31 +26,26 @@
 
   <td><%= image_tag("#{@favor.imagen}",height: 250, width: 250) %></td>
 </p>
-</div>
-</div>
-</div>
-</div>
+
 
 <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i><%= link_to ' Volver', favors_path %></button></td>
+</div>
+</div>
+</div>
+</div>
 
-&nbsp
-&nbsp
-&nbsp
 <%if (user_signed_in? && current_user.id == @favor.user_id)%>
 
 <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i><%= link_to ' Editar', edit_favor_path(@favor) %></button></td>
 
 
-
 <% else %>
  
+<td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-user"></i><%= link_to " Iniciar sesion", new_user_session_path %></button></td>
+ 
+<td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-align-justify"></i><%= link_to " Registrarse", new_user_registration_path %></button></td>
 
-  <%= link_to "Iniciar sesion", new_user_session_path %>
-&nbsp
-&nbsp
-&nbsp
 
-  <%= link_to "Registrarse", new_user_registration_path %>
 
 
 
