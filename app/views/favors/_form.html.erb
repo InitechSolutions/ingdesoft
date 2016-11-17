@@ -13,23 +13,23 @@
 
   <div class="field">
     <%= f.label :titulo %><br>
-    <%= f.text_field :titulo ,  size: "40x10" %>
+    <%= f.text_field :titulo ,  size: "40x10", placeholder: "Titulo del favor" %>
   </div>
 
   <div class="field">
     <%= f.label :descripcion %><br>
-    <%= f.text_area :descripcion,  size: "60x10" %>
+    <%= f.text_area :descripcion,  size: "60x10" , placeholder: "Descripcion del favor" %>
   </div>
 
   <div class="field">
     <%= f.label :lugar %><br>
-    <%= f.text_field :lugar,  size: "40x10" %>
+    <%= f.text_field :lugar,  size: "40x10" , placeholder: "Lugar del favor" %>
   </div>
 
     <%= f.label :imagen %><br>
 <td><%= image_tag("#{@favor.imagen}",height: 250, width: 250) %></td>
   <div class="field">
-    <%= f.text_field :imagen ,  size: "40x10" %>
+    <%= f.text_field :imagen ,  size: "40x10" , placeholder: "URL de la imagen del favor"%>
   </div>
 
  

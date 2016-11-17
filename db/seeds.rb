@@ -10,11 +10,11 @@
 # pagina web
 logros = Logro.create ([{ nombre: 'Politico' , min:-999 ,max:-1, imagen: 'https://pbs.twimg.com/profile_images/1980294624/DJT_Headshot_V2_400x400.jpg'}])
 logros = Logro.create ([{ nombre: 'Observador' , min:0 ,max:0, imagen: 'http://2.bp.blogspot.com/-TM3r37t9RWo/Vkpesi-QjbI/AAAAAAAAAEY/fftagBpcKao/s1600/Pirata-Mirando-Por-Telescopio-60501.gif'}])
-logros = Logro.create ([{ nombre: 'Buen Tipo' ,  min:1 ,max:1}])
-logros = Logro.create ([{ nombre: 'Gran Tipo' ,  min:2 ,max:5}])
-logros = Logro.create ([{ nombre: 'Tipazo' ,  min:6 ,max:10}])
-logros = Logro.create ([{ nombre: 'Heroe' ,  min:11 ,max:20}])
-logros = Logro.create ([{ nombre: 'Nobleza Gaucha' ,  min:21 ,max:50}])
+logros = Logro.create ([{ nombre: 'Buen Tipo' ,  min:1 ,max:1, imagen: 'http://ak-hdl.buzzfed.com/static/2014-11/28/19/enhanced/webdr10/enhanced-7080-1417221856-3.jpg'}])
+logros = Logro.create ([{ nombre: 'Gran Tipo' ,  min:2 ,max:5, imagen: ''}])
+logros = Logro.create ([{ nombre: 'Tipazo' ,  min:6 ,max:10, imagen: 'http://images2.wikia.nocookie.net/__cb20120121185130/simpsons/it/images/8/84/Ned_Flanders.png'}])
+logros = Logro.create ([{ nombre: 'Heroe' ,  min:11 ,max:20, imagen: 'http://vignette3.wikia.nocookie.net/superman/images/2/27/Superman-dcuo.jpg/revision/latest?cb=20110901025125'}])
+logros = Logro.create ([{ nombre: 'Nobleza Gaucha' ,  min:21 ,max:50, imagen: 'http://www.bigbangnews.com/__export/1470838530585/sites/bigbang/img/2016/08/10/asado_4.jpg'}])
 logros = Logro.create ([{ nombre: 'Dios' ,  min:51 ,max:999, imagen: 'http://k33.kn3.net/8/3/B/7/2/A/A65.png'}])
 #Se agregan los favores existentes en el blog anterior
 
