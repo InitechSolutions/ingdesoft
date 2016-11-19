@@ -1,20 +1,33 @@
 class ComentariosController < ApplicationController
-  before_Action :find_favor
-  def create
-    @comentario=@favor.comentarios.create(params[:comentario].permit(:coment))
-    @comentario.user_id = current_user.id
-    @comentario.save
 
-    if @comentario.save
-        redirect_to favor_path(@favor_path)
-    else
-        render 'new'
-    end
+def index
+  @comentarios = Comentario.all
+end
+
+def new
+  @comentario = Comentario.new
+end
+
+def create
+  @favor = Favor.find(params[:favor_id])
+  @comentario = Comentario.new(comentario_params)
+  @comentario = @favor.comentarios.create(comentario_params)
+  @comentario.user_id = current_user.id
+  if @comentario.save
+    flash[:success] = "Comment successfully added"
+    redirect_to comentarios_path(@comentario)
+  else
+    render 'new'
   end
+end
 
-  private
-  def find_favor
-    @favor = Favor.find(params[:user_id])
+def show
+  @comentario = Comentario.find(params[:id])
+end
 
+private
+
+  def comentario_params
+    params.require(:coment).permit(:user_id, :favor_id)
   end
 end
