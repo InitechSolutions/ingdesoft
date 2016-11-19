@@ -65,12 +65,12 @@ hr.small {
     border-bottom: 1px solid transparent;
   }
   .navbar-custom .navbar-brand {
-    color: white;
+    color: transparent;
     padding: 20px;
   }
   .navbar-custom .navbar-brand:hover,
   .navbar-custom .navbar-brand:focus {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 136, 0,  0.9) !important;
 
   }
   .navbar-custom .nav li a {
@@ -79,7 +79,8 @@ hr.small {
   }
   .navbar-custom .nav li a:hover,
   .navbar-custom .nav li a:focus {
-    color: rgba(255, 255, 255, 0.8);
+  /* Color letras nav mouse por arriba */
+    color: rgba(255, 136, 0,  0.9) !important;
   }
 }
 @media only screen and (min-width: 1170px) {
@@ -401,10 +402,42 @@ body {
     height: 50px;
     width: 50px;
     overflow: hidden;
+    margin-top: 5px;
+    margin-right: 10px;
     text-align: center;
     img { width: 130% }
 }
+.round-image-150 {
+    background-color: grey;
+    border: 0px solid #FF9100;
+    border-radius: 60px;
+    -moz-border-radius: 60px;
+    -webkit-border-radius: 60px;
+    height: 120px;
+    width: 120px;
+    overflow: hidden;
+    margin-top: 0px;
+    margin-right: 0px;
+    text-align: center;
+    img { width: 130% }
+}
+
 /** Permite resaltar la linea de la tabla con un color especifico*/
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: #FAAC58;
+}
+th, td {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+
+.img-circular{
+ width: 80px;
+ height: 80px;
+ background-size: cover;
+ display: block;
+ border-radius: 100px;
+ -webkit-border-radius: 100px;
+ -moz-border-radius: 100px;
 }

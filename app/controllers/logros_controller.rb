@@ -63,7 +63,7 @@ class LogrosController < ApplicationController
       format.json { head :no_content }
     end
     else
-     @logro.anterior.update_attribute(:max, @logro.max)
+     
      @logro.destroy
      respond_to do |format|
       format.html { redirect_to logros_url, :notice =>'El logro '+@logro.nombre+' ha sido eliminado.' }
@@ -81,7 +81,7 @@ class LogrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def logro_params
-      params.require(:logro).permit(:nombre, :min, :max)
+      params.require(:logro).permit(:nombre, :min, :max,:imagen)
     end
 
 

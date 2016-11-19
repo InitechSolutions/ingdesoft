@@ -1,22 +1,109 @@
-<font color="orange" size="9" face="times new roman">Editando Logro <%= @logro.nombre %></font>
+<font color="orange" size="9" >Editando Logro <%= @logro.nombre %></font>
+<br>
+<br>
 
-<h3>Primer Logro =>  Nombre:<%=@logro.primero.nombre%> / Puntaje Minimo:<%=@logro.primero.min%>  / Puntaje Maximo:<%=@logro.primero.max %></h3>
+<font color="orange" size="5" face="times new roman">Primer Logro </font>
+<div class='container'>
+<div class="row">
+<div class="col-lg-4 col-lg-offset-4 col-md-5 col-md-offset-3">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-success">
+  <thead>
+    <tr>
+      <th>Imagen</th><th>Nombre</th><th>Minimo</th><th>Máximo</th> 
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+      <td><%= image_tag("#{@logro.primero.imagen}",:class=> "img-circular" ,:style => "border: 3px solid orange",height: 70, width: 70) %></td>
+        <td><%= @logro.primero.nombre %></td>
+        <td><%= @logro.primero.min %></td>
+        <td><%= @logro.primero.max %></td>
+      </tr>
+    
+  </tbody>
+</table>
+</div></div></div></div>
+
 
 <% if @logro != @logro.primero %>
-<h4> Logro Anterior =>   Nombre:<%=@logro.anterior.nombre%> / Puntaje Minimo:<%=@logro.anterior.min%>  / Puntaje Maximo:<%=@logro.anterior.max %></h4>
+
+<font color="orange" size="5" face="times new roman">Logro Anterior </font>
+<div class='container'>
+<div class="row">
+<div class="col-lg-4 col-lg-offset-4 col-md-5 col-md-offset-3">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-success">
+  <thead>
+    <tr>
+      <th>Imagen</th><th>Nombre</th><th>Minimo</th><th>Máximo</th> 
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+      <td><%= image_tag("#{@logro.anterior.imagen}",:class=> "img-circular" ,:style => "border: 3px solid orange",height: 70, width: 70) %></td>
+        <td><%= @logro.anterior.nombre %></td>
+        <td><%= @logro.anterior.min %></td>
+        <td><%= @logro.anterior.max %></td>
+      </tr>  
+  </tbody>
+</table>
+</div></div></div></div>
+
 <% end%>
 
 <br>
-
+<font color="orange" size="5" face="times new roman">Editar </font>
 <%= render 'form', logro: @logro %>
 
 <br>
 
 <% if @logro != @logro.ultimo %>
-<h4> Logro Siguiente =>   Nombre:<%=@logro.siguiente.nombre%> / Puntaje Minimo:<%=@logro.siguiente.min%>  / Puntaje Maximo:<%=@logro.siguiente.max %></h4>
+
+<font color="orange" size="5" face="times new roman">Logro Siguiente </font>
+<div class='container'>
+<div class="row">
+<div class="col-lg-4 col-lg-offset-4 col-md-5 col-md-offset-3">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-success">
+  <thead>
+    <tr>
+      <th>Imagen</th><th>Nombre</th><th>Minimo</th><th>Máximo</th> 
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+      <td><%= image_tag("#{@logro.siguiente.imagen}",:class=> "img-circular" ,:style => "border: 3px solid orange",height: 70, width: 70) %></td>
+        <td><%= @logro.siguiente.nombre %></td>
+        <td><%= @logro.siguiente.min %></td>
+        <td><%= @logro.siguiente.max %></td>
+      </tr>  
+  </tbody>
+</table>
+</div></div></div></div>
 <% end%>
+<font color="orange" size="5" face="times new roman">Ultimo Logro </font>
+<div class='container'>
+<div class="row">
+<div class="col-lg-4 col-lg-offset-4 col-md-5 col-md-offset-3">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-success">
+  <thead>
+    <tr>
+      <th>Imagen</th><th>Nombre</th><th>Minimo</th><th>Máximo</th> 
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+      <td><%= image_tag("#{@logro.ultimo.imagen}",:class=> "img-circular" ,:style => "border: 3px solid orange",height: 70, width: 70) %></td>
+        <td><%= @logro.ultimo.nombre %></td>
+        <td><%= @logro.ultimo.min %></td>
+        <td><%= @logro.ultimo.max %></td>
+      </tr>  
+  </tbody>
+</table>
+</div></div></div></div>
 
-<h3>Ultimo Logro =>  Nombre:<%=@logro.ultimo.nombre%> / Puntaje Minimo:<%=@logro.ultimo.min%>  / Puntaje Maximo:<%=@logro.ultimo.max %></h3>
 
-<%= link_to 'Ver', @logro %> |
-<%= link_to 'Logros', logros_path %>
+<button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-search"></i><%= link_to ' Ver', @logro %></button></td>
+<button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-certificate"></i><%= link_to ' Logros', logros_path %></button></td>
