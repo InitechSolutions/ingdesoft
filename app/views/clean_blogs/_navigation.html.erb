@@ -14,8 +14,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "FAQs", about_path %></li>
-        <li><%= link_to "Contacto", contact_path, data: { no_turbolink: true }%></li>
+        <% if user_signed_in? %>
+        <li><%= link_to "Comprar Puntos", new_compra_path %></li>
+        <% end %>
         <% if user_signed_in? %>
             <% if current_user.admin? %>
                 <li><%= link_to 'Logros', logros_path %></li>
@@ -27,7 +28,7 @@
             <li><%= link_to "Iniciar sesion", new_user_session_path %></li>
             <li> <%= link_to "Registrarse", new_user_registration_path %> </li>
         <% end %>
-        
+
         </ul>
         </div>
         <!-- /.navbar-collapse -->

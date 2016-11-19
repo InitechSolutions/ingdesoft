@@ -10,7 +10,7 @@
 
 <%= f.label :imagen %><br />
   <div><%= image_tag("#{current_user.imagen}", height: 200, width: 200)%></div>
-<br> 
+<br>
   <div class="field">
     <%= f.text_field :imagen %></div>
 
@@ -31,7 +31,7 @@
     <%= f.label :Localidad %><br />
     <%= f.text_field :localidad %></div>
 
-<br> 
+<br>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Todavía esperando confirmación de: <%= resource.unconfirmed_email %></div>
@@ -50,21 +50,25 @@
     <%= f.label :confirmar_contraseña %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-  <br> 
+  <br>
   <div class="field">
     <%= f.label :contraseña_actual %> <br> <i>(Necesitamos su contraseña actual para confirmar los cambios)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
-<br> 
+<br>
 
 <%= f.submit "Actualizar", class:"btn-lg btn-warning" %>
 
+
+<h2>Mis Puntos </h2>
+<p><%= @user.puntos %> </p>
 <% end %>
 </div>
 </div>
 </div>
 </div>
+
 
  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-remove-sign"></i><%= link_to " Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "Esta seguro?" }, method: :delete %></button></td>
 

@@ -27,6 +27,18 @@
   <td><%= image_tag("#{@favor.imagen}",height: 250, width: 250) %></td>
 </p>
 
+<br>
+<br>
+
+<h3>Comentarios</h3>
+
+
+<p> El favor tiene <%= @favor.comentarios.count  %> comentarios </p>
+
+
+
+<br>
+<br>
 
 <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i><%= link_to ' Volver', favors_path %></button></td>
 </div>
@@ -40,9 +52,9 @@
 
 
 <% else %>
- 
+
 <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-user"></i><%= link_to " Iniciar sesion", new_user_session_path %></button></td>
- 
+
 <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-align-justify"></i><%= link_to " Registrarse", new_user_registration_path %></button></td>
 
 
