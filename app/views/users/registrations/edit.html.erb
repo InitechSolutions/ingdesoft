@@ -12,7 +12,7 @@
   <div><%= image_tag("#{current_user.imagen}", height: 200, width: 200)%></div>
 <br>
   <div class="field">
-    <%= f.text_field :imagen %></div>
+    <%= f.text_field :imagen,size: "40x10", placeholder: "URL de la imagen de perfil" %></div>
 
   <div class="field">
     <%= f.label :Nombre %><br />
@@ -45,7 +45,6 @@
       <em><%= @minimum_password_length %> caracteres como minimo</em>
     <% end %>
   </div>
-<br />
   <div class="field">
     <%= f.label :confirmar_contraseña %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
