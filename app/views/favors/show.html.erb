@@ -1,66 +1,30 @@
 <div class="container" style="margin-top:20px;">
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class="well" style="border-radius: 35px;">
- <div class="media">
-
-<strong>Titulo</strong>
-<p>
-
-
-  <%= @favor.titulo %>
-</p>
-
-<strong>Descripcion</strong>
-<p>
-
-  <%= @favor.descripcion %>
-</p>
-<strong>Lugar</strong>
-<p>
-
-  <%= @favor.lugar %>
-</p>
-
-<strong>Imagen</strong>
-<p>
-
-  <td><%= image_tag("#{@favor.imagen}",height: 250, width: 250) %></td>
-</p>
-
-<br>
-<br>
-
-<h3>Comentarios</h3>
-<p> El favor tiene <%= @favor.comentarios.count  %> comentarios </p>
-<%= render @favor.comentarios %>
-
-
-
-
-
-
-<br>
-<br>
-
-<td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i><%= link_to ' Volver', favors_path %></button></td>
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <div class="well" style="border-radius: 35px;">
+        <div class="media">
+          <strong>Titulo</strong>
+          <p><%= @favor.titulo %></p>
+          <strong>Descripcion</strong>
+          <p><%= @favor.descripcion %></p>
+          <strong>Lugar</strong>
+          <p><%= @favor.lugar %></p>
+          <strong>Imagen</strong>
+          <p><td><%= image_tag("#{@favor.imagen}",height: 250, width: 250) %></td></p>
+          <br>
+          <br>
+          <h3>Comentarios</h3>
+          <p> El favor tiene <%= @favor.comentarios.count  %> comentarios </p>
+          <%= render @favor.comentarios %>
+          <br>
+          <br>
+          <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i><%= link_to ' Volver', favors_path %></button></td>
+        </div>
+      </div>
+    </div>
 </div>
-</div>
-</div>
-</div>
-
 <%if (user_signed_in? && current_user.id == @favor.user_id)%>
-
-<td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i><%= link_to ' Editar', edit_favor_path(@favor) %></button></td>
-
-
+  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i><%= link_to ' Editar', edit_favor_path(@favor) %></button></td>
 <% else %>
-
-<td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-user"></i><%= link_to " Iniciar sesion", new_user_session_path %></button></td>
-
-<td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-align-justify"></i><%= link_to " Registrarse", new_user_registration_path %></button></td>
-
-
-
-
-
+  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-user"></i><%= link_to " Iniciar sesion", new_user_session_path %></button></td>
+  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-align-justify"></i><%= link_to " Registrarse", new_user_registration_path %></button></td>
 <% end %>
