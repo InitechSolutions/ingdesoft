@@ -1,0 +1,4 @@
+<% @postulations each do |p| %>
+	<%=p.descripcion %>
+	<%=Favor.find(p.favor_id).titulo%>
+<%end%>

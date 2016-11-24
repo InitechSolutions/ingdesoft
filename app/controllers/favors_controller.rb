@@ -20,7 +20,8 @@ class FavorsController < ApplicationController
     @favors = Favor.titulo_descripcion(params[:busqueda]).order('created_at DESC').all
     render action: :index
   end
-def show
+
+  def show
   end
 
   # GET /favors/new
@@ -45,8 +46,8 @@ def show
   # POST /favors
   # POST /favors.json
   def create
-    @favor = Favor.new(favor_params)
-    @favor.user_id = current_user.id
+    @favor = current_user.favors.build(favor_params)
+    
     respond_to do |format|
       if @favor.save
         format.html { redirect_to @favor, notice: 'Favor creado con exito.' }
