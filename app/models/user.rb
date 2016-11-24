@@ -6,10 +6,8 @@ class User < ApplicationRecord
          has_many :favors
          has_many :comentarios
          has_many :respuestas
+         has_many :postulations
          has_many :compras
-
-  mount_uploader :avatar, AvatarUploader
-
   ##validates :email, presence: { message: ": El mail no puede estar vacío" }
   ##validates :encrypted_password, presence: { message: ": La constraseña no puede estar vacío" }
   validates_inclusion_of :nacimiento,

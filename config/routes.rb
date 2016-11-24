@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
-  resources :compras
+  devise_for :users
+  resources :users, only: [:show]
+
   resources :favors do
-  	collection do
-  		get :lugar
-  		get :titulo_descripcion
-  	end
+    collection do
+      get :lugar
+      get :titulo_descripcion
+    end
   end
   resources :logros
-  devise_for :users
+  resources :postulations do
+    collection do
+      get :elegir
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'favors#index'
 get  'about'    => 'clean_blogs#about'

@@ -1,7 +1,7 @@
 class PostulationsController < ApplicationController
 	before_action :verificar_estado_favor, only: [:new]
 	before_action :verificar_elegido, only: [:elegir]
-	before_action :autorizado, only: [:show, :elegir]
+	before_action :autorizado, only: [:show]
 
 
 def verificar_estado_favor

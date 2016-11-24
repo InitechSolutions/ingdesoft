@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161118013754) do
+ActiveRecord::Schema.define(version: 20161124172439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,14 +25,25 @@ ActiveRecord::Schema.define(version: 20161118013754) do
     t.index ["user_id"], name: "index_comentarios_on_user_id", using: :btree
   end
 
+  create_table "compras", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "puntos"
+    t.string   "tarjeta"
+    t.integer  "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "favors", force: :cascade do |t|
     t.string   "titulo"
     t.string   "descripcion"
     t.string   "lugar"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "imagen"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.date     "fecha"
     t.integer  "user_id"
+    t.integer  "postulacion_id"
+    t.string   "imagen"
   end
 
   create_table "logros", force: :cascade do |t|
@@ -42,6 +53,15 @@ ActiveRecord::Schema.define(version: 20161118013754) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "imagen"
+  end
+
+  create_table "postulations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "favor_id"
+    t.text     "descripcion"
+    t.string   "estado"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "respuesta", force: :cascade do |t|
@@ -73,6 +93,7 @@ ActiveRecord::Schema.define(version: 20161118013754) do
     t.boolean  "admin",                  default: false
     t.string   "telefono"
     t.string   "localidad"
+    t.string   "avatar"
     t.string   "imagen"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
