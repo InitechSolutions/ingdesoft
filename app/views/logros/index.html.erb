@@ -25,11 +25,8 @@
         <td><%= logro.max %></td>
         <td>
         <button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-search"></i><%= link_to ' Ver', logro %></button>
-         
-         <button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i><%= link_to ' Editar', edit_logro_path(logro) %></button>
-        
+        <button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i><%= link_to ' Editar', edit_logro_path(logro) %></button>
         <button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-remove"></i><%= link_to ' Eliminar',  logro, method: :delete, data: {confirm: 'Esta seguro que desea eliminar el logro  ? ' } %></button>
-
         </td>
 
       </tr>
@@ -43,4 +40,4 @@
 <br>
 
 <button type="button" class="btn-lg btn-warning"><i class="glyphicon glyphicon-plus"></i><%= link_to ' Crear Nuevo Logro', new_logro_path %></button>
-
+<button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-arrow-left"></i><%= link_to "Volver", redirect_to :back %></button>

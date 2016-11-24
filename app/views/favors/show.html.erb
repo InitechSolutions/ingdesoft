@@ -30,8 +30,12 @@
       </div>
     </div>
 </div>
-<%if (user_signed_in? && current_user.id == @favor.user_id)%>
-  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i><%= link_to ' Editar', edit_favor_path(@favor) %></button></td>
+<%if (user_signed_in? %>
+  <% if current_user.id == @favor.user_id)%>
+    <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i><%= link_to ' Editar', edit_favor_path(@favor) %></button></td>
+  <% end %>
+  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-arrow-left"></i><%= link_to "Volver", redirect_to :back %></button></td>
+  <td><button type="button" class="btn btn-warning"><i class="glyphicon"></i><%= link_to "Comentar" %></button></td>
 <% else %>
   <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-user"></i><%= link_to " Iniciar sesion", new_user_session_path %></button></td>
   <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-align-justify"></i><%= link_to " Registrarse", new_user_registration_path %></button></td>
