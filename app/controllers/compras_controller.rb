@@ -10,7 +10,6 @@ class ComprasController < ApplicationController
   # GET /compras/1
   # GET /compras/1.json
   def show
-
   end
 
   # GET /compras/new
@@ -30,16 +29,16 @@ class ComprasController < ApplicationController
   # POST /compras.json
   def create
         @compra = current_user.compras.build(compra_params)
-        #@compra.user.update_attributes!(:puntos => @compra.user.puntos += @compra.puntos)
-        @compra.user.puntos = @compra.user.puntos + @compra.puntos
+        @compra.user.update_attributes(:puntos => @compra.user.puntos += @compra.puntos)
+        #@compra.user.puntos = @compra.user.puntos + @compra.puntos
 
-    respond_to do |format|
       if @compra.save
-        #current_user.puntos += @compra.puntos
-
+       respond_to do |format|
         format.html { redirect_to @compra, notice: 'Compra was successfully created.' }
         format.json { render :show, status: :created, location: @compra }
+      end
       else
+        respond_to do |format|
         format.html { render :new }
         format.json { render json: @compra.errors, status: :unprocessable_entity }
       end
@@ -79,6 +78,6 @@ class ComprasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def compra_params
-      params.require(:compra).permit(:puntos, :precio, :tarjeta, :code)
+      params.require(:compra).permit(:puntos, :precio, :tarjeta, :code, :vencimiento, :name, :user_id)
     end
 end

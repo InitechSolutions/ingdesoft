@@ -33,6 +33,12 @@
                         <td><%=@user.last_sign_in_at%></td>
                       </tr>
                         <tr>
+                         <tr>
+                             <tr>
+                        <td>Puntos</td>
+                        <td><%=@user.puntos%></td>
+                      </tr>
+                        <tr>
                      
                     </tbody>
                   </table>
@@ -52,9 +58,9 @@
             <div class="panel-heading">
             <h3 class="panel-title">Postulaciones pendientes</h3>
             </div></div>
-                    <% @user.postulations.where(:estado => "pendiente").all.each do |p|%>
-            		<%= link_to p.favor.titulo, p.favor %><br>
-            		<%end%>
+              <% @user.postulations.where(:estado => "pendiente").all.each do |p|%>
+            		<%= link_to p.favor.titulo , p.favor %><br>
+            	<%end%>
             <div class="panel panel-info">
             <div class="panel-heading">
             <h3 class="panel-title">Postulaciones aceptadas</h3>

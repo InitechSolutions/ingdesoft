@@ -1,7 +1,7 @@
 class PostulationsController < ApplicationController
-	before_action :verificar_estado_favor, only: [:new]
-	before_action :verificar_elegido, only: [:elegir]
-	before_action :autorizado, only: [:show]
+before_action :verificar_estado_favor, only: [:new]
+before_action :verificar_elegido, only: [:elegir]
+before_action :autorizado, only: [:show]
 
 
 def verificar_estado_favor
@@ -32,7 +32,8 @@ end
   	if @postulation.save
   		redirect_to Favor.find(@postulation.favor_id) , :notice => 'Te has postulado para realizar el siguiente favor.'
   	else
-  		render 'new'
+      flash[:alert] = @postulation.errors.full_messages.to_sentence
+      redirect_to root_path
 	end
   end
 
