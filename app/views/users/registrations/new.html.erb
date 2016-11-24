@@ -2,64 +2,62 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-<div class="container" style="margin-top:20px;">
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-<div class="well">
-<div class="media">
+  <div class="container" style="margin-top:20px;">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <div class="well">
+        <div class="media">
 
-  <div class="field">
-    <%= f.label :Email %><br />
-    <%= f.email_field :email, autofocus: true ,required: true, placeholder: "ejemplo@ejemplo.com" %>
-  </div>
+          <div class="field">
+            <%= f.label :Email %><br />
+            <%= f.email_field :email, autofocus: true ,required: true, placeholder: "ejemplo@ejemplo.com" %>
+          </div>
 
-  <div class="field">
-    <%= f.label :contraseña %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> caracteres como minimo)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" ,required: true, placeholder: "*********"%>
-  </div>
+          <div class="field">
+            <%= f.label :contraseña %>
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> caracteres como minimo)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "off" ,required: true, placeholder: "*********"%>
+          </div>
 
-  <div class="field">
-    <%= f.label :confirmar_contraseña %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" ,required: true, placeholder: "*********" %>
-  </div>
+          <div class="field">
+            <%= f.label :confirmar_contraseña %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off" ,required: true, placeholder: "*********" %>
+          </div>
 
-    <div class="field">
-    <%= f.label :Nombre %><br />
-    <%= f.text_field :nombre, autocomplete: "off" ,required: true, placeholder: "Nombre" %>
-  </div>
+          <div class="field">
+            <%= f.label :Nombre %><br />
+            <%= f.text_field :nombre, autocomplete: "off" ,required: true, placeholder: "Nombre" %>
+          </div>
 
-      <div class="field">
-    <%= f.label :Apellido %><br />
-    <%= f.text_field :apellido, autocomplete: "off" ,required: true, placeholder: "Apellido" %>
-  </div>
+          <div class="field">
+            <%= f.label :Apellido %><br />
+            <%= f.text_field :apellido, autocomplete: "off" ,required: true, placeholder: "Apellido" %>
+          </div>
 
-    <div class="field">
-    <%= f.label :telefono %><br />
-    <%= f.telephone_field :telefono, autocomplete: "off" ,required: true, placeholder: "1234567890" %>
-  </div>
+          <div class="field">
+            <%= f.label :telefono %><br />
+            <%= f.telephone_field :telefono, autocomplete: "off" ,required: true, placeholder: "1234567890" %>
+          </div>
 
-    <div class="field">
-    <%= f.label :nacimiento %><br />
-    <%= f.date_select :nacimiento, start_year: 2016, end_year: 1920 ,required: true %>
-  </div>
+          <div class="field">
+            <%= f.label :nacimiento %><br />
+            <%= f.date_select :nacimiento, start_year: 2016, end_year: 1920 ,required: true %>
+          </div>
 
-      <div class="field">
-    <%= f.label :localidad %><br />
-    <%= f.text_field :localidad, autocomplete: "off" ,required: true, placeholder: "Ciudad,Provincia" %>
-  </div>
+          <div class="field">
+            <%= f.label :localidad %><br />
+            <%= f.text_field :localidad, autocomplete: "off" ,required: true, placeholder: "Ciudad,Provincia" %>
+          </div>
 
-    <div class="field">
-        <%= f.label :imagen %><br />
-        <%= f.text_field :imagen , default:"http://silevante.es/recursos/iconos/persona1.png" %>
+          <div class="field">
+            <%= f.label :imagen %><br />
+            <%= f.text_field :imagen %>
+          </div>
+          <%= f.submit "Registrarse", class:"btn-lg btn-warning" %>
+        </div>
+      </div>
     </div>
-<%= f.submit "Registrarse", class:"btn-lg btn-warning" %>
-
+  </div>
 <% end %>
-
-</div>
-</div>
-</div>
-</div>
 <%= render "users/shared/links" %>

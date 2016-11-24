@@ -23,7 +23,7 @@
             <% end %>
             <li><%= link_to 'Editar Perfil',edit_user_registration_path %></li>
             <li><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete %></li>
-            <li class="round-image-50 img-responsive"><%= image_tag("#{current_user.imagen}") %></li>
+            <li class="round-image-50"><%= image_tag("#{current_user.imagen}") %></li>
         <% else %>
             <li><%= link_to "Iniciar sesion", new_user_session_path %></li>
             <li><%= link_to "Registrarse", new_user_registration_path %> </li>
