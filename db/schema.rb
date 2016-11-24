@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20161118013754) do
     t.string   "lugar"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "imagen"
     t.integer  "user_id"
   end
 
@@ -72,6 +73,7 @@ ActiveRecord::Schema.define(version: 20161118013754) do
     t.boolean  "admin",                  default: false
     t.string   "telefono"
     t.string   "localidad"
+    t.string   "imagen"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
