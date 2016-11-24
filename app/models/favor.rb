@@ -4,8 +4,9 @@ class Favor < ApplicationRecord
   validates :lugar, :presence => {:message => "Usted debe ingresar un lugar"}
   belongs_to :user
   has_many :comentarios
-  scope :lugar, -> (busqueda){where('lugar like ?', "%#{busqueda}%")}
-  scope :titulo_descripcion, -> (busqueda){where('titulo like ? or descripcion like ?', "%#{busqueda}%", "%#{busqueda}%")}
+  has_many :postulations
+  scope :lugar, -> (busqueda){where('lower(lugar) like lower(?)', "%#{busqueda}%")}
+  scope :titulo_descripcion, -> (busqueda){where('lower(titulo) like lower(?) or lower(descripcion) like lower(?)', "%#{busqueda}%", "%#{busqueda}%")}
   # belongs_to :user, required: true
   # con esta linea tira otro error
   #validates :user, presence: true, allow_nil: true
