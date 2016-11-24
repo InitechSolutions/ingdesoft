@@ -30,7 +30,7 @@
           <div class="media-body">
             <h2 class="media-heading" style="margin-top:15px; margin-bottom:30px;"><%=favor.titulo%></h2>
               <p style="margin-bottom:30px;"><%= (favor.descripcion).truncate_words(10) %> <%= link_to 'Ver mas', favor %></p>
-              <p><%= image_tag("#{favor.imagen}",height: 250, width: 250) %></p>
+              <p class="img-responsive"><%= image_tag("#{favor.imagen}",height: 250, width: 250) %></p>
               <ul class="list-inline list-unstyled">
               <li><span><i class="glyphicon glyphicon-calendar"></i> <%= favor.created_at%> </span></li>
               <li>|</li>
