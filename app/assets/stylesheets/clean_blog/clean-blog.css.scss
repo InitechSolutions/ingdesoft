@@ -7,8 +7,8 @@
 body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 2000px;
-  color: #000000 !important;
-  background-color: #E6E6E6 !important;
+  color: #000000 !important;  /**color letras**/
+  background-color: #DFDFDF  !important;    /**color fondo principal**/
 }
 p {
   line-height: 1.5;
@@ -40,7 +40,7 @@ hr.small {
   max-width: 100px;
   margin: 15px auto;
   border-width: 4px;
-  border-color: white;
+  border-color: orange;
 }
 .navbar-custom {
   position: absolute;
@@ -102,7 +102,7 @@ hr.small {
     position: fixed;
     top: -61px;
     /* aca */
-    background-color: rgba(0, 78, 102,  0.9);
+    background-color: #FFE400  ;
     border-bottom: 0px solid #f2f2f2;
     -webkit-transition: -webkit-transform 0.3s;
     -moz-transition: -moz-transform 0.3s;
@@ -133,14 +133,14 @@ hr.small {
 }
 
 .intro-header {
-  background-color: #274c5e !important;
+  background-color: #ADBDF1 !important; /**barra abajo de la imagen**/
   background: no-repeat center center;
   background-attachment: scroll;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: 100% 90%;
   -o-background-size: cover;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 .intro-header .site-heading,
 .intro-header .post-heading,

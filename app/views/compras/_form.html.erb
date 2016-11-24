@@ -1,0 +1,54 @@
+<%= form_for(compra) do |f| %>
+  <% if compra.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(compra.errors.count, "error") %> prohibited this compra from being saved:</h2>
+
+      <ul>
+      <% compra.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :Cantidad %>
+    <%= f.number_field :puntos   %>
+  </div>
+
+  <h3>Datos de tarjeta de credito </h3>
+<br>
+<%=  link_to image_tag("http://www.pezzatiturismo.com/img/banner-pago.png", border: 0) %>
+
+<div class="field">
+  <%= f.label :Nombre_del_titular %> <br>
+  <%= f.text_field :precio %>
+</div>
+
+  <div class="field">
+    <%= f.label :Numero_de_tarjeta %> <br>
+    <%= f.text_field :tarjeta %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Codigo_de_seguridad %><br>
+    <%= f.text_field :code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Vencimiento %><br>
+    <%= f.date_select :precio, start_year: 2016, end_year: 1920 ,required: true %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+<br>
+<%= link_to 'volver', root_path %>
+
+<% end %>

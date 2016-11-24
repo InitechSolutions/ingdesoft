@@ -6,6 +6,7 @@ class User < ApplicationRecord
          has_many :favors
          has_many :comentarios
          has_many :respuestas
+         has_many :compras
 
   mount_uploader :avatar, AvatarUploader
 
