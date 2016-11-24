@@ -1,0 +1,595 @@
+/*!
+ * Clean Blog v1.0.0 (http://startbootstrap.com)
+ * Copyright 2014 Start Bootstrap
+ * Licensed under Apache 2.0 (https://github.com/IronSummitMedia/startbootstrap/blob/gh-pages/LICENSE)
+ */
+/* line 8, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+body {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-size: 2000px;
+  color: #000000 !important;
+  /**color letras**/
+  background-color: #DFDFDF  !important;
+  /**color fondo principal**/
+}
+
+/* line 14, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+p {
+  line-height: 1.5;
+  margin: 30px 0;
+}
+
+/* line 18, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+p a {
+  text-decoration: underline;
+}
+
+/* line 21, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 800;
+}
+
+/* line 25, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+a {
+  color: #000;
+}
+
+/* line 28, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+a:hover,
+a:focus {
+  color: #0085a1;
+}
+
+/* line 32, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+a img:hover,
+a img:focus {
+  cursor: zoom-in;
+}
+
+/* line 36, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+blockquote {
+  color: #808080;
+  font-style: italic;
+}
+
+/* line 40, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+hr.small {
+  max-width: 100px;
+  margin: 15px auto;
+  border-width: 4px;
+  border-color: orange;
+}
+
+/* line 46, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.navbar-custom {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* line 54, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.navbar-custom .navbar-brand {
+  font-weight: 800;
+}
+
+/* line 57, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.navbar-custom .nav li a {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+@media only screen and (min-width: 768px) {
+  /* line 64, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .navbar-custom {
+    background: transparent;
+    border-bottom: 1px solid transparent;
+  }
+
+  /* line 68, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .navbar-custom .navbar-brand {
+    color: transparent;
+    padding: 20px;
+  }
+
+  /* line 72, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .navbar-custom .navbar-brand:hover,
+  .navbar-custom .navbar-brand:focus {
+    color: rgba(255, 136, 0, 0.9) !important;
+  }
+
+  /* line 77, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .navbar-custom .nav li a {
+    color: white;
+    padding: 20px;
+  }
+
+  /* line 81, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .navbar-custom .nav li a:hover,
+  .navbar-custom .nav li a:focus {
+    /* Color letras nav mouse por arriba */
+    color: rgba(255, 136, 0, 0.9) !important;
+  }
+}
+@media only screen and (min-width: 1170px) {
+  /* line 88, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .navbar-custom {
+    -webkit-transition: background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    transition: background-color 0.3s;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* line 101, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .navbar-custom.is-fixed {
+    /* when the user scrolls down, we hide the header right above the viewport */
+    position: fixed;
+    top: -61px;
+    /* aca */
+    background-color: #FFE400;
+    border-bottom: 0px solid #f2f2f2;
+    -webkit-transition: -webkit-transform 0.3s;
+    -moz-transition: -moz-transform 0.3s;
+    transition: transform 0.3s;
+  }
+
+  /* line 112, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .navbar-custom.is-fixed .navbar-brand {
+    color: #fc913a;
+  }
+
+  /* line 115, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .navbar-custom.is-fixed .navbar-brand:hover,
+  .navbar-custom.is-fixed .navbar-brand:focus {
+    color: #0085a1;
+  }
+
+  /* line 119, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .navbar-custom.is-fixed .nav li a {
+    color: #FFFFFF;
+  }
+
+  /* line 122, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .navbar-custom.is-fixed .nav li a:hover,
+  .navbar-custom.is-fixed .nav li a:focus {
+    color: #0085a1;
+  }
+
+  /* line 126, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .navbar-custom.is-visible {
+    /* if the user changes the scrolling direction, we show the header */
+    -webkit-transform: translate3d(0, 100%, 0);
+    -moz-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    -o-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+/* line 136, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.intro-header {
+  background-color: #ADBDF1 !important;
+  /**barra abajo de la imagen**/
+  background: no-repeat center center;
+  background-attachment: scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: 100% 90%;
+  -o-background-size: cover;
+  margin-bottom: 30px;
+}
+
+/* line 146, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.intro-header .site-heading,
+.intro-header .post-heading,
+.intro-header .page-heading {
+  padding: 100px 0 50px;
+  color: white;
+}
+
+@media only screen and (min-width: 768px) {
+  /* line 153, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .intro-header .site-heading,
+  .intro-header .post-heading,
+  .intro-header .page-heading {
+    padding: 150px 0;
+  }
+}
+/* line 159, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.intro-header .site-heading,
+.intro-header .page-heading {
+  text-align: center;
+}
+
+/* line 163, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.intro-header .site-heading h1,
+.intro-header .page-heading h1 {
+  margin-top: 0;
+  font-size: 50px;
+}
+
+/* line 168, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.intro-header .site-heading .subheading,
+.intro-header .page-heading .subheading {
+  font-size: 24px;
+  line-height: 1.1;
+  display: block;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  margin: 10px 0 0;
+}
+
+@media only screen and (min-width: 768px) {
+  /* line 178, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .intro-header .site-heading h1,
+  .intro-header .page-heading h1 {
+    font-size: 80px;
+  }
+}
+/* line 183, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.intro-header .post-heading h1 {
+  font-size: 35px;
+}
+
+/* line 186, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.intro-header .post-heading .subheading,
+.intro-header .post-heading .meta {
+  line-height: 1.1;
+  display: block;
+}
+
+/* line 191, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.intro-header .post-heading .subheading {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  margin: 10px 0 30px;
+  font-weight: 600;
+}
+
+/* line 197, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.intro-header .post-heading .meta {
+  font-family: 'Lora', 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+/* line 203, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.intro-header .post-heading .meta a {
+  color: white;
+}
+
+@media only screen and (min-width: 768px) {
+  /* line 207, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .intro-header .post-heading h1 {
+    font-size: 55px;
+  }
+
+  /* line 210, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .intro-header .post-heading .subheading {
+    font-size: 30px;
+  }
+}
+/* line 214, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.post-preview > a {
+  color: #404040;
+}
+
+/* line 217, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.post-preview > a:hover,
+.post-preview > a:focus {
+  text-decoration: none;
+  color: #0085a1;
+}
+
+/* line 222, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.post-preview > a > .post-title {
+  font-size: 30px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+/* line 227, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.post-preview > a > .post-subtitle {
+  margin: 0;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+/* line 232, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.post-preview > .post-meta {
+  color: #808080;
+  font-size: 18px;
+  font-style: italic;
+  margin-top: 0;
+}
+
+/* line 238, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.post-preview > .post-meta > a {
+  text-decoration: none;
+  color: #404040;
+}
+
+/* line 242, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.post-preview > .post-meta > a:hover,
+.post-preview > .post-meta > a:focus {
+  color: #0085a1;
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 768px) {
+  /* line 248, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+  .post-preview > a > .post-title {
+    font-size: 36px;
+  }
+}
+/* line 252, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.section-heading {
+  font-size: 36px;
+  margin-top: 60px;
+  font-weight: 700;
+}
+
+/* line 257, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.caption {
+  text-align: center;
+  font-size: 14px;
+  padding: 10px;
+  font-style: italic;
+  margin: 0;
+  display: block;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+/* line 267, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+footer {
+  padding: 50px 0 65px;
+}
+
+/* line 270, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+footer .list-inline {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 274, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+footer .copyright {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+/* line 279, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.floating-label-form-group {
+  font-size: 14px;
+  position: relative;
+  margin-bottom: 0;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* line 286, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.floating-label-form-group input,
+.floating-label-form-group textarea {
+  z-index: 1;
+  position: relative;
+  padding-right: 0;
+  padding-left: 0;
+  border: none;
+  border-radius: 0;
+  font-size: 1.5em;
+  background: none;
+  box-shadow: none !important;
+  resize: none;
+}
+
+/* line 299, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.floating-label-form-group label {
+  display: block;
+  z-index: 0;
+  position: relative;
+  top: 2em;
+  margin: 0;
+  font-size: 0.85em;
+  line-height: 1.764705882em;
+  vertical-align: middle;
+  vertical-align: baseline;
+  opacity: 0;
+  -webkit-transition: top 0.3s ease,opacity 0.3s ease;
+  -moz-transition: top 0.3s ease,opacity 0.3s ease;
+  -ms-transition: top 0.3s ease,opacity 0.3s ease;
+  transition: top 0.3s ease,opacity 0.3s ease;
+}
+
+/* line 315, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.floating-label-form-group:not(:first-child) {
+  padding-left: 14px;
+  border-left: 1px solid #eeeeee;
+}
+
+/* line 319, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.floating-label-form-group-with-value label {
+  top: 0;
+  opacity: 1;
+}
+
+/* line 323, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.floating-label-form-group-with-focus label {
+  color: #0085a1;
+}
+
+/* line 326, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+form .row:first-child .floating-label-form-group {
+  border-top: 1px solid #eeeeee;
+}
+
+/* line 329, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.btn {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border-radius: 0;
+  padding: 15px 25px;
+}
+
+/* line 338, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.btn-lg {
+  font-size: 16px;
+  padding: 25px 35px;
+}
+
+/* line 342, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.btn-default:hover,
+.btn-default:focus {
+  background-color: #0085a1;
+  border: 1px solid #0085a1;
+  color: white;
+}
+
+/* line 348, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.pager {
+  margin: 20px 0 0;
+}
+
+/* line 351, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.pager li > a,
+.pager li > span {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 15px 25px;
+  background-color: white;
+  border-radius: 0;
+}
+
+/* line 362, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.pager li > a:hover,
+.pager li > a:focus {
+  color: white;
+  background-color: #0085a1;
+  border: 1px solid #0085a1;
+}
+
+/* line 368, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.pager .disabled > a,
+.pager .disabled > a:hover,
+.pager .disabled > a:focus,
+.pager .disabled > span {
+  color: #808080;
+  background-color: #404040;
+  cursor: not-allowed;
+}
+
+/* line 376, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+::-moz-selection {
+  color: white;
+  text-shadow: none;
+  background: #0085a1;
+}
+
+/* line 381, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+::selection {
+  color: white;
+  text-shadow: none;
+  background: #0085a1;
+}
+
+/* line 386, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+img::selection {
+  color: white;
+  background: transparent;
+}
+
+/* line 390, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+img::-moz-selection {
+  color: white;
+  background: transparent;
+}
+
+/* line 394, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+body {
+  webkit-tap-highlight-color: #0085a1;
+}
+
+/* line 397, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.round-image-50 {
+  background-color: white;
+  border: 1px solid #d9d9d9;
+  border-radius: 25px;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  margin-top: 5px;
+  margin-right: 10px;
+  text-align: center;
+}
+/* line 409, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.round-image-50 img {
+  width: 130%;
+}
+
+/* line 411, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.round-image-150 {
+  background-color: grey;
+  border: 0px solid #FF9100;
+  border-radius: 60px;
+  -moz-border-radius: 60px;
+  -webkit-border-radius: 60px;
+  height: 120px;
+  width: 120px;
+  overflow: hidden;
+  margin-top: 0px;
+  margin-right: 0px;
+  text-align: center;
+}
+/* line 423, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.round-image-150 img {
+  width: 130%;
+}
+
+/** Permite resaltar la linea de la tabla con un color especifico*/
+/* line 427, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: #FAAC58;
+}
+
+/* line 430, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+th, td {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+/* line 436, C:/Sites/ingdesoft/app/assets/stylesheets/clean_blog/clean-blog.css.scss */
+.img-circular {
+  width: 80px;
+  height: 80px;
+  background-size: cover;
+  display: block;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+}
+/*
+
+
+*/
+
+
