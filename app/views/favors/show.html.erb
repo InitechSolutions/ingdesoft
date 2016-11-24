@@ -3,13 +3,21 @@
     <div class="well" style="border-radius: 35px;">
         <div class="media">
           <strong>Titulo</strong>
-          <p><%= @favor.titulo %></p>
+          <p>
+            <%= @favor.titulo %>
+          </p>
           <strong>Descripcion</strong>
-          <p><%= @favor.descripcion %></p>
+          <p>
+            <%= @favor.descripcion %>
+          </p>
           <strong>Lugar</strong>
-          <p><%= @favor.lugar %></p>
+          <p>
+            <%= @favor.lugar %>
+          </p>
           <strong>Imagen</strong>
-          <p><td><%= image_tag("#{@favor.imagen}",height: 250, width: 250) %></td></p>
+          <p>
+            <td><%= image_tag("#{@favor.imagen}",height: 250, width: 250) %></td>
+          </p>
           <br>
           <br>
           <h3>Comentarios</h3>
