@@ -74,6 +74,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+
   # Mailer configuration
   config.action_mailer.default_url_options = { :host => 'mighty-inlet-16686.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
@@ -81,12 +82,12 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
-    :address => "smtp.gmail.com",
-    :port => 25,
-    :domain => "mighty-inlet-16686.herokuapp.com",
-    :user_name => "solutionsinitech@gmail.com",
-    :password => "initech2016",
-    :authentication => "plain",
-    :enable_starttls_auto => true
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "mighty-inlet-16686.herokuapp.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: "solutionsinitech@gmail.com",
+    password: "initech2016"
   }
 end
