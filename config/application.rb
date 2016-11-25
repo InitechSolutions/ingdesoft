@@ -14,5 +14,8 @@ module Gauchada2
     # -- all .rb files in that directory are automatically loaded.
 
   config.assets.initialize_on_precompile = false
+  config.i18n.default_locale = :es
+  config.i18n.default_locale = "es"
   end
+
 end

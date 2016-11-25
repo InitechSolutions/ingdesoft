@@ -1,5 +1,4 @@
 # Additional translations at https://github.com/plataformatec/devise/wiki/I18n
-
 en:
   devise:
     confirmations:
@@ -7,24 +6,24 @@ en:
       send_instructions: "Recibirá un correo electrónico con instrucciones sobre cómo confirmar su dirección de correo electrónico en unos minutos"
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
-      already_authenticated: "You are already signed in."
-      inactive: "Your account is not activated yet."
-      invalid: "Invalid %{authentication_keys} or password."
-      locked: "Your account is locked."
-      last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid %{authentication_keys} or password."
-      timeout: "Your session expired. Please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
-      unconfirmed: "You have to confirm your email address before continuing."
+      already_authenticated: "Ya estas conectado."
+      inactive: "Tu cuenta todavia no esta activa."
+      invalid: "Email o contraseña incorrecta."
+      locked: "Tu cuenta esta bloqueada."
+      last_attempt: "Tenes un intento mas hasta que tu cuenta sea bloqueada."
+      not_found_in_database: "Email o contraseña incorrecta."
+      timeout: "Tu sesion expiró. Conectese para continuar"
+      unauthenticated: "Debes conectarte o registrarte para tener acceso."
+      unconfirmed: "Debes confirmar tu email para continuar."
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
+        subject: "Instrucciones de confirmacion"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Instrucciones para reestablecer contraseña"
       unlock_instructions:
         subject: "Unlock instructions"
       password_change:
-        subject: "Password Changed"
+        subject: "Contraseña actualizada"
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
@@ -32,20 +31,20 @@ en:
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
-      updated: "Your password has been changed successfully. You are now signed in."
-      updated_not_active: "Your password has been changed successfully."
+      updated: "Tu contraseña se cambio correctamente. Ahora estas conectado."
+      updated_not_active: "Tu contraseña se cambió correctamente."
     registrations:
       destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
-      signed_up: "Welcome! You have signed up successfully."
+      signed_up: "Bienvenido a Gauchada! Te has registrado correctamente."
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
       signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
       signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
-      updated: "Your account has been updated successfully."
+      updated: "Tu cuenta fue actualizada correctamente."
     sessions:
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
-      already_signed_out: "Signed out successfully."
+      signed_in: "¡Bienvenido de nuevo! Te has conectado."
+      signed_out: "¡Hasta luego! Te has desconectado."
+      already_signed_out: "Te has desconectado."
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
@@ -55,8 +54,10 @@ en:
       already_confirmed: "was already confirmed, please try signing in"
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
       expired: "has expired, please request a new one"
-      not_found: "not found"
+      not_found: "no encontrado"
       not_locked: "was not locked"
       not_saved:
         one: "1 error prohibe que %{resource} se guarde:"
         other: "%{count} errores prohiben que %{resource} se guarde:"
+
+

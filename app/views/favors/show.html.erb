@@ -2,6 +2,7 @@
   <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <div class="well" style="border-radius: 35px;">
         <div class="media">
+
           <strong>Titulo</strong>
           <p>
             <%= @favor.titulo %>
@@ -24,39 +25,39 @@
           </p>
           <br>
           <br>
+
           <h3>Comentarios</h3>
-
-
           <div class="container2" style="margin-top:0px;">
           <div class="col-lg-0 col-lg-offset-0 col-md-30 col-md-offset-10">
           <div class="well" style="border-radius: 0px;">
           <div class="media">
-          <p> Hola, quisiera postularme para este favor</p>
+          <p> Quisiera saber si puedo realizarlo con mi perro que me sigue a todos lados</p>
+          <p align="right">Enviado por: Juan Gomez</p>
           </div></div></div></div>
           <div class="container2" style="margin-top:0px;">
           <div class="col-lg-0 col-lg-offset-0 col-md-30 col-md-offset-10">
           <div class="well" style="border-radius: 0px;">
           <div class="media">
-          <p>Hola, estoy interesado en resolver este favor</p>
-          </div></div></div></div>
-          <div class="container2" style="margin-top:0px;">
-          <div class="col-lg-0 col-lg-offset-0 col-md-30 col-md-offset-10">
-          <div class="well" style="border-radius: 0px;">
-          <div class="media">
-          <p>Este favor es para mi, quiero ser elegido para resolverlo</p>
+          <p>Hola, el 30 voy a estar por ahi, te interesa igual?</p>
+          <p align="right">Enviado por: Daniel Perez</p>
           </div></div></div></div>
           <br>
           <br>
           <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i><%= link_to ' Volver', favors_path %></button></td>
+          <%if (user_signed_in?) %>
+          <% if (current_user.id == @favor.user_id)%>
+          <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i><%= link_to ' Editar', edit_favor_path(@favor) %></button></td>
+          <% else %>
+          <td><button type="button" class="btn btn-warning"><%= link_to 'Postularme', new_postulation_path(:favor_id => @favor.id) %></button></td>
+          <%end%>
+          <% else %>
+          <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-user"></i><%= link_to " Iniciar sesion", new_user_session_path %></button></td>
+            <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-align-justify"></i><%= link_to " Registrarse", new_user_registration_path %></button></td>
+            <% end %>
+                      <br>
+          <br>
         </div>
       </div>
     </div>
 </div>
-<%if (user_signed_in?) %>
-  <% if (current_user.id == @favor.user_id)%>
-    <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i><%= link_to ' Editar', edit_favor_path(@favor) %></button></td>
-  <% end %>
-<% else %>
-  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-user"></i><%= link_to " Iniciar sesion", new_user_session_path %></button></td>
-  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-align-justify"></i><%= link_to " Registrarse", new_user_registration_path %></button></td>
-<% end %>
+
