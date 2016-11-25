@@ -71,6 +71,6 @@ config.action_mailer.delivery_method = :smtp
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"],
+    password: ENV["GMAIL_PASSWORD"]
   }
 end
