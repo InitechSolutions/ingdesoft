@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates_inclusion_of :nacimiento,
     :in => Date.new(1900)..Time.now.years_ago(18).to_date,
     :message => 'Tienes que ser mayor de 18 para registrarte!'
-
+  validates :telefono, :numericality => { :greater_than => 0, :message => "Es un campo solo numerico" }
   #validates_format_of :avatar,
   #:with    => /\.(png|jpg|jpeg)\Z/i,
   #:message => "Debe tener un formato de imagen"
