@@ -87,6 +87,7 @@ Rails.application.configure do
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: "solutionsinitech@gmail.com",
-    password: "initech2016"
+    password: "initech2016",
+    openssl_verify_mode: 'none'
   }
 end
