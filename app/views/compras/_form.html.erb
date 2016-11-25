@@ -1,48 +1,64 @@
+<div class="container" style="margin-top:20px;">
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class="well" style="border-radius: 35px;">
+<div class="media">
+
 <%= form_for(compra) do |f| %>
   <% if compra.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(compra.errors.count, "error") %> prohibited this compra from being saved:</h2>
 
       <ul>
-        <% compra.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+      <% compra.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
 
+
   <div class="field">
-    <%= f.label :Cantidad %>
-    <%= f.number_field :puntos ,required: true %>
+    <%= f.label :Cantidad_de_Puntos %>
+    <%= f.number_field :puntos   %>
   </div>
 
   <h3>Datos de tarjeta de credito </h3>
-  <br>
-  <%=  link_to image_tag("http://www.pezzatiturismo.com/img/banner-pago.png", border: 0) %>
+<br>
+<%=  link_to image_tag("http://www.pezzatiturismo.com/img/banner-pago.png", border: 0) %>
 
-  <div class="field">
-    <%= f.label :Nombre_del_titular %> <br>
-    <%= f.text_field :name, required: true, placeholder: "Nombre"  %>
-  </div>
+<div class="field">
+  <%= f.label :Nombre_del_titular %> <br>
+  <%= f.text_field :name %>
+</div>
 
   <div class="field">
     <%= f.label :Numero_de_tarjeta %> <br>
-    <%= f.text_field :tarjeta ,required: true, placeholder: "1234 1234 1234 1234"  %>
+    <%= f.text_field :tarjeta %>
   </div>
 
   <div class="field">
     <%= f.label :Codigo_de_seguridad %><br>
-    <%= f.text_field :code ,required: true, placeholder: "123" %>
+    <%= f.text_field :code %>
   </div>
 
   <div class="field">
     <%= f.label :Vencimiento %><br>
-    <%= f.date_select :vencimiento, start_year: 2026, end_year: 1920 ,required: true , placeholder: "10/2019"%>
+    <%= f.date_select :vencimiento, start_year: 2025, end_year: 2016 ,required: true %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+
+<%= f.submit " Comprar", class:"btn-lg btn-warning" %>
+
+
   </div>
-  <br>
-  <%= link_to 'volver', root_path %>
+  </div>
+  </div>
+  </div>
+
+
+
+<br>
+<button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i><%= link_to ' Volver', root_path%></button></td>
+
+
 <% end %>

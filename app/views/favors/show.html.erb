@@ -18,11 +18,33 @@
           <p>
             <td><%= image_tag("#{@favor.imagen}",height: 250, width: 250) %></td>
           </p>
+           <strong>Fecha limite</strong>
+          <p>
+            <td><%= @favor.fecha %></td>
+          </p>
           <br>
           <br>
           <h3>Comentarios</h3>
-          <p> El favor tiene <%= @favor.comentarios.count  %> comentarios </p>
-          <%= render @favor.comentarios %>
+
+
+          <div class="container2" style="margin-top:0px;">
+          <div class="col-lg-0 col-lg-offset-0 col-md-30 col-md-offset-10">
+          <div class="well" style="border-radius: 0px;">
+          <div class="media">
+          <p> Hola, quisiera postularme para este favor</p>
+          </div></div></div></div>
+          <div class="container2" style="margin-top:0px;">
+          <div class="col-lg-0 col-lg-offset-0 col-md-30 col-md-offset-10">
+          <div class="well" style="border-radius: 0px;">
+          <div class="media">
+          <p>Hola, estoy interesado en resolver este favor</p>
+          </div></div></div></div>
+          <div class="container2" style="margin-top:0px;">
+          <div class="col-lg-0 col-lg-offset-0 col-md-30 col-md-offset-10">
+          <div class="well" style="border-radius: 0px;">
+          <div class="media">
+          <p>Este favor es para mi, quiero ser elegido para resolverlo</p>
+          </div></div></div></div>
           <br>
           <br>
           <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i><%= link_to ' Volver', favors_path %></button></td>
@@ -30,12 +52,10 @@
       </div>
     </div>
 </div>
-<%if (user_signed_in? %>
-  <% if current_user.id == @favor.user_id)%>
+<%if (user_signed_in?) %>
+  <% if (current_user.id == @favor.user_id)%>
     <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i><%= link_to ' Editar', edit_favor_path(@favor) %></button></td>
   <% end %>
-  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-arrow-left"></i><%= link_to "Volver", redirect_to :back %></button></td>
-  <td><button type="button" class="btn btn-warning"><i class="glyphicon"></i><%= link_to "Comentar" %></button></td>
 <% else %>
   <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-user"></i><%= link_to " Iniciar sesion", new_user_session_path %></button></td>
   <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-align-justify"></i><%= link_to " Registrarse", new_user_registration_path %></button></td>

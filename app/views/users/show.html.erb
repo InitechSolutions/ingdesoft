@@ -50,10 +50,25 @@
             <div class="panel-heading">
             <h4 class="panel-title">Favores Publicados</h4>
             </div></div>
-                 	<% @user.favors.all.each do |favor|%>
+                 	<% @user.favors.where(:estado => "activo").all.each do |favor|%>
             		<td><%= link_to favor.titulo, favor %></td>
             		<td><%= link_to 'Ver Postulados', postulation_path(favor) %></td><br>
             		<%end%>
+             <div class="panel panel-info">
+            <div class="panel-heading">
+            <h4 class="panel-title">Favores Realizandose</h4>
+            </div></div>
+                  <% @user.favors.where(:estado => "procesando").all.each do |favor|%>
+                <td><%= link_to favor.titulo, favor %></td><br>
+                <td><%= link_to 'Ver Postulado', user_path(favor.postulations.first.user_id) %></td><br>
+                <%end%>
+            <div class="panel panel-info">
+            <div class="panel-heading">
+            <h4 class="panel-title">Favores Cancelados</h4>
+            </div></div>
+                  <% @user.favors.where(:estado => "cancelado").all.each do |favor|%>
+                <td><%= link_to favor.titulo, favor %></td><br>
+                <%end%>
            	<div class="panel panel-info">
             <div class="panel-heading">
             <h3 class="panel-title">Postulaciones pendientes</h3>

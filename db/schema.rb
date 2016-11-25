@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161124203350) do
+ActiveRecord::Schema.define(version: 20161124225020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,12 +40,13 @@ ActiveRecord::Schema.define(version: 20161124203350) do
     t.string   "titulo"
     t.string   "descripcion"
     t.string   "lugar"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.date     "fecha"
     t.integer  "user_id"
     t.integer  "postulacion_id"
     t.string   "imagen"
+    t.string   "estado",         default: "activo"
   end
 
   create_table "logros", force: :cascade do |t|

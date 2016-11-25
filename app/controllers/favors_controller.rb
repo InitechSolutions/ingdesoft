@@ -1,14 +1,19 @@
 class FavorsController < ApplicationController
   before_action :set_favor, only: [:show, :edit, :update, :destroy]
   #before_filter :authorize_owner, only: [:edit, :create, :new, :update, :destroy]
-
+  before_action :verificar_estado, only: [:destroy]
 
   # GET /favors
   # GET /favors.json
   def index
-    @favors = Favor.order('created_at DESC').all
+    @favors = Favor.where(:estado=> 'activo').order('created_at DESC').all
   end
 
+  def verificar_estado
+    if (@favor.estado != 'activo')
+      redirect_to root_url, alert: "Solo podes cancelar favores activos"
+    end
+  end
   # GET /favors/1
   # GET /favors/1.json
   def lugar
@@ -77,9 +82,9 @@ class FavorsController < ApplicationController
   # DELETE /favors/1.json
   def destroy
     if current_user.id == @favor.user_id
-      @favor.destroy
+      @favor.update_attribute(:estado, "cancelado")
       respond_to do |format|
-          format.html { redirect_to favors_url, notice: 'Favor eliminado con exito.' }
+          format.html { redirect_to favors_url, notice: 'Favor cancelado con exito.' }
           format.json { head :no_content }
       end
     else
@@ -95,6 +100,6 @@ class FavorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def favor_params
-      params.require(:favor).permit(:descripcion, :lugar, :titulo, :imagen)
+      params.require(:favor).permit(:descripcion, :lugar, :titulo, :imagen, :fecha)
     end
 end

@@ -40,6 +40,7 @@ end
   def elegir
   	@postulation = Postulation.where(:favor_id => params[:favor_id]).where(:user_id => params[:user_id]).first
   	@postulation.update_attribute(:estado, "seleccionado")
+    Favor.where(:id => params[:favor_id]).first.update_attribute(:estado, "procesando")
   	Postulation.where(:favor_id => params[:favor_id]).where.not(:user_id => params[:user_id]).delete_all
   end
 

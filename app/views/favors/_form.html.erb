@@ -32,8 +32,11 @@
     <%= f.text_field :imagen ,  size: "40x10" , placeholder: "URL de la imagen del favor"%>
   </div>
 
- 
+   <div class="field">
+    <%= f.label :Fecha_Limite %><br>
+    <%= f.date_select :fecha, start_year: 2016, end_year: 2020, required: true %>
+  </div>
 
-<%= f.submit " Confirmar", class:"btn-lg btn-warning" %>
+<%= f.submit "Confirmar", class:"btn-lg btn-warning" %>
  <br><br>
 <% end %>
