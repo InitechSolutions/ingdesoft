@@ -43,7 +43,7 @@
                 <% if (current_user.id == favor.user_id)%>
                   <br>
                   <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i><%= link_to 'Editar', edit_favor_path(favor) %></button></td>
-                  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-remove"></i><%=link_to 'Eliminar', favor, method: :delete, data: { confirm: 'Estas seguro?' } %></button></td>
+                  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-remove"></i><%=link_to 'Cancelar', favor, method: :delete, data: { confirm: 'Estas seguro?' } %></button></td>
                    <td><button type="button" class="btn btn-warning"><%= link_to 'Ver Postulados', postulation_path(favor) %></button></td>
                   </br>
 

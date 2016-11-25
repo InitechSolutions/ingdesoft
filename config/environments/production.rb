@@ -86,8 +86,7 @@ Rails.application.configure do
     domain: "mighty-inlet-16686.herokuapp.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "solutionsinitech@gmail.com",
-    password: "initech2016",
-    openssl_verify_mode: 'none'
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"],
   }
 end
