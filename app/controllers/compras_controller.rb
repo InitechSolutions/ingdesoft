@@ -30,9 +30,10 @@ class ComprasController < ApplicationController
   def create
         @compra = current_user.compras.build(compra_params)
         if (@compra.puntos != nil)
+          if @compra.valid?
             @compra.user.update_attribute(:puntos, @compra.user.puntos += @compra.puntos)
         end
-        #@compra.user.puntos = @compra.user.puntos + @compra.puntos
+      end
 
       if @compra.save
        respond_to do |format|
