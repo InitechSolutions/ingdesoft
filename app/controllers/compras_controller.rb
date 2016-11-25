@@ -29,7 +29,9 @@ class ComprasController < ApplicationController
   # POST /compras.json
   def create
         @compra = current_user.compras.build(compra_params)
-        @compra.user.update_attributes(:puntos => @compra.user.puntos += @compra.puntos)
+        if (@compra.puntos != nil)
+            @compra.user.update_attribute(:puntos, @compra.user.puntos += @compra.puntos)
+        end
         #@compra.user.puntos = @compra.user.puntos + @compra.puntos
 
       if @compra.save

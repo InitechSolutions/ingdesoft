@@ -70,7 +70,7 @@ config.action_mailer.delivery_method = :smtp
     domain: "mighty-inlet-16686.herokuapp.com",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    user_name: "solutionsinitech@gmail.com",
+    password: "initech2016"
   }
 end
