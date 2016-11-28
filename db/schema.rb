@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161125042129) do
+ActiveRecord::Schema.define(version: 20161128154930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,18 +34,19 @@ ActiveRecord::Schema.define(version: 20161125042129) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.float    "monto"
   end
 
   create_table "favors", force: :cascade do |t|
     t.string   "titulo"
     t.string   "descripcion"
     t.string   "lugar"
-    t.datetime "created_at",                                                                        null: false
-    t.datetime "updated_at",                                                                        null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.date     "fecha"
     t.integer  "user_id"
     t.integer  "postulacion_id"
-    t.string   "imagen",         default: "http://68.media.tumblr.com/avatar_28012e5b8492_128.png"
+    t.string   "imagen"
     t.string   "estado",         default: "activo"
   end
 
@@ -67,6 +68,12 @@ ActiveRecord::Schema.define(version: 20161125042129) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "precios", force: :cascade do |t|
+    t.float    "valor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "respuesta", force: :cascade do |t|
     t.string   "cuerpo"
     t.date     "fecha"
@@ -77,18 +84,18 @@ ActiveRecord::Schema.define(version: 20161125042129) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",                                                                                                               null: false
-    t.string   "encrypted_password",     default: "",                                                                                                               null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,                                                                                                                null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                                                                                                                        null: false
-    t.datetime "updated_at",                                                                                                                                        null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "nombre"
     t.string   "apellido"
     t.date     "nacimiento"
@@ -97,7 +104,7 @@ ActiveRecord::Schema.define(version: 20161125042129) do
     t.string   "telefono"
     t.string   "localidad"
     t.string   "avatar"
-    t.string   "imagen",                 default: "http://makerepo.com/assets/default-avatar-19cf8cebb96b4d8beff4ef9cad0e5903d288c778c503777332a57085a65371be.png"
+    t.string   "imagen"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

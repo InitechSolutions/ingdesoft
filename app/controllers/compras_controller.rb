@@ -32,19 +32,20 @@ class ComprasController < ApplicationController
         if (@compra.puntos != nil)
           if @compra.valid?
             @compra.user.update_attribute(:puntos, @compra.user.puntos += @compra.puntos)
+            @compra.monto = @compra.puntos * Precio.last.valor
         end
       end
 
       if @compra.save
-       respond_to do |format|
-        format.html { redirect_to @compra, notice: 'Compra was successfully created.' }
-        format.json { render :show, status: :created, location: @compra }
-      end
+        respond_to do |format|
+          format.html { redirect_to @compra, notice: 'Ha comprado puntos exitosamente.' }
+          format.json { render :show, status: :created, location: @compra }
+        end
       else
         respond_to do |format|
-        format.html { render :new }
-        format.json { render json: @compra.errors, status: :unprocessable_entity }
-      end
+          format.html { render :new }
+          format.json { render json: @compra.errors, status: :unprocessable_entity }
+        end
     end
 
   end
@@ -54,7 +55,7 @@ class ComprasController < ApplicationController
   def update
     respond_to do |format|
       if @compra.update(compra_params)
-        format.html { redirect_to @compra, notice: 'Compra was successfully updated.' }
+        format.html { redirect_to @compra, notice: 'Ha comprado puntos exitosamente.' }
         format.json { render :show, status: :ok, location: @compra }
       else
         format.html { render :edit }
@@ -68,7 +69,7 @@ class ComprasController < ApplicationController
   def destroy
     @compra.destroy
     respond_to do |format|
-      format.html { redirect_to compras_url, notice: 'Compra was successfully destroyed.' }
+      format.html { redirect_to compras_url, notice: 'Su compra ha sido cancelada.' }
       format.json { head :no_content }
     end
   end
@@ -81,6 +82,6 @@ class ComprasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def compra_params
-      params.require(:compra).permit(:puntos, :precio, :tarjeta, :code, :vencimiento, :name, :user_id)
+      params.require(:compra).permit(:puntos, :tarjeta, :code, :vencimiento, :name, :user_id)
     end
 end

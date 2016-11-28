@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :precios
   devise_for :users
   resources :users, only: [:show]
   resources :compras
+  resources :precios
   resources :favors do
     collection do
       get :lugar

@@ -1,4 +1,5 @@
 class Compra < ApplicationRecord
+  has_many :precio
   belongs_to :user
   validates_format_of :name, :with => /\A[^0-9`!@#\$%\^&*+_=]+\z/, :message=>"Nombre incorrecto"
   validates :puntos, :presence => {:message => "Debe ingresar la cantidad de puntos a comprar"}

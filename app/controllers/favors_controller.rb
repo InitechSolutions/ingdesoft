@@ -19,7 +19,7 @@ class FavorsController < ApplicationController
   def lugar
     @favors = Favor.lugar(params[:busqueda]).order('created_at DESC').all
     render action: :index
-  end  
+  end
 
   def titulo_descripcion
     @favors = Favor.titulo_descripcion(params[:busqueda]).order('created_at DESC').all
@@ -32,7 +32,11 @@ class FavorsController < ApplicationController
   # GET /favors/new
   def new
     if user_signed_in?
+      if current_user.puntos > 0
         @favor = Favor.new
+      else
+        redirect_to (new_compra_path), error: "No tienes suficientes puntos."
+      end
     else
       redirect_to (root_path), error: "No tenes permiso."
     end
@@ -45,18 +49,20 @@ class FavorsController < ApplicationController
     elsif current_user.id != @favor.user_id
       redirect_to (root_path), error: "No tenes permiso."
     else
-      
+
   end
   end
   # POST /favors
   # POST /favors.json
   def create
     @favor = current_user.favors.build(favor_params)
-    
+
     respond_to do |format|
       if @favor.save
         format.html { redirect_to @favor, notice: 'Favor creado con exito.' }
         format.json { render :show, status: :created, location: @favor }
+        current_user.puntos=current_user.puntos-1
+        current_user.save
       else
         format.html { render :new }
         format.json { render json: @favor.errors, status: :unprocessable_entity }

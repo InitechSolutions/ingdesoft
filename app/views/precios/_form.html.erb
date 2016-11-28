@@ -1,0 +1,27 @@
+
+<div class="container" style="margin-top:20px;">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <div class="well" style="border-radius: 35px;">
+      <div class="media">
+
+        <%= form_for(precio) do |f| %>
+          <% if precio.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(precio.errors.count, "error") %> prohibited this precio from being saved:</h2>
+              <ul>
+                <% precio.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="field">
+            <%= f.label :Valor %><br />
+            <%= f.number_field :valor, placeholder: "10",required: true%>
+          </div>
+          <%= f.submit " Confirmar", class:"btn-lg btn-warning" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

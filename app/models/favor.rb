@@ -7,6 +7,7 @@ class Favor < ApplicationRecord
   belongs_to :user
   has_many :comentarios
   has_many :postulations
+  default_scope -> { order("created_at desc") }
   scope :lugar, -> (busqueda){where('lower(lugar) like lower(?)', "%#{busqueda}%")}
   scope :titulo_descripcion, -> (busqueda){where('lower(titulo) like lower(?) or lower(descripcion) like lower(?)', "%#{busqueda}%", "%#{busqueda}%")}
   # belongs_to :user, required: true
@@ -19,5 +20,5 @@ end
     if fecha.present? && fecha < Date.today
       errors.add(:fecha, "no puede ser anterior a la fecha actual")
     end
-  end    
+  end
 end
