@@ -10,36 +10,38 @@
             <div class="col-md-3 col-lg-3 " align="center">
               <td><%= image_tag("#{@user.imagen}",:class=> "img-circular-perfil" ,:style => "border: 3px solid lightblue",height: 70, width: 70) %></td>
             </div>
-            <div class=" col-md-9 col-lg-9 ">
+            <div class=" col-md-9 col-lg-9" align="left">
               <table class="table table-user-information">
+                <thead>
+                </thead>
               <tbody>
                 <tr>
-                  <td>E-mail:</td>
-                  <td><%=@user.email%></td>
+                  <td class="text-right"><span class="glyphicon glyphicon-envelope"></span> E-mail:</td>
+                  <td class="text-left"><%=@user.email%></td>
                 </tr>
                 <tr>
-                  <td>Telefono:</td>
-                  <td><%=@user.telefono%></td>
+                  <td class="text-right"><span class="glyphicon glyphicon-earphone"></span> Telefono:</td>
+                  <td class="text-left"><%=@user.telefono%></td>
                 </tr>
                 <tr>
-                  <td>Localidad:</td>
-                  <td><%=@user.localidad%></td>
+                  <td class="text-right"><span class="glyphicon glyphicon-map-marker"></span> Localidad:</td>
+                  <td class="text-left"><%=@user.localidad%></td>
                 </tr>
                 <tr>
-                  <td>Fecha de nacimiento:</td>
-                  <td><%=@user.nacimiento%></td>
+                  <td class="text-right"><span class="glyphicon glyphicon-calendar"></span> Fecha de nacimiento:</td>
+                  <td class="text-left"><%=@user.nacimiento%></td>
                 </tr>
                 <tr>
-                  <td>Fecha de registro</td>
-                  <td><%=@user.created_at%></td>
+                  <td class="text-right"><span class="glyphicon glyphicon-calendar"></span> Fecha de registro</td>
+                  <td class="text-left"><%=@user.created_at%></td>
                 </tr>
                 <tr>
-                  <td>Ultima Conexion</td>
-                  <td><%=@user.last_sign_in_at%></td>
+                  <td class="text-right"><span class="glyphicon glyphicon-calendar"></span> Ultima Conexion</td>
+                  <td class="text-left"><%=@user.last_sign_in_at%></td>
                 </tr>
                 <tr>
-                  <td>Puntos</td>
-                  <td><%=@user.puntos%></td>
+                  <td class="text-right"><span class="glyphicon glyphicon-calendarglyphicon glyphicon-star"></span> Puntos</td>
+                  <td class="text-left"><%=@user.puntos%></td>
                 </tr>
               </tbody>
               </table>
@@ -51,23 +53,35 @@
             <h4 class="panel-title">Favores Publicados</h4>
         </div></div>
         <% @user.favors.where(:estado => "activo").all.each do |favor|%>
-          <td><%= link_to favor.titulo, favor %></td>
-          <td><%= link_to 'Ver Postulados', postulation_path(favor) %></td><br>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-6 col-lg-" align="right">
+                <td><%= link_to favor.titulo, favor %></td>
+              </div>
+              <div class="col-md-6 col-lg-6" align="left">
+                <td><%= link_to 'Ver Postulados', postulation_path(favor) %></td>
+              </div></div></div>
         <%end%>
         <div class="panel panel-info">
           <div class="panel-heading">
             <h4 class="panel-title">Favores Realizandose</h4>
         </div></div>
         <% @user.favors.where(:estado => "procesando").all.each do |favor|%>
-          <td><%= link_to favor.titulo, favor %></td><br>
-          <td><%= link_to 'Ver Postulado', user_path(favor.postulations.first.user_id) %></td><br>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-6 col-lg-" align="right">
+                <td><%= link_to favor.titulo, favor %></td>
+              </div>
+              <div class="col-md-6 col-lg-6" align="left">
+                <td><%= link_to 'Ver Postulado', user_path(favor.postulations.first.user_id) %></td>
+            </div></div></div>
         <%end%>
         <div class="panel panel-info">
           <div class="panel-heading">
             <h4 class="panel-title">Favores Cancelados</h4>
         </div></div>
         <% @user.favors.where(:estado => "cancelado").all.each do |favor|%>
-            <td><%= link_to favor.titulo, favor %></td><br>
+          <td><%= link_to favor.titulo, favor %></td><br>
         <%end%>
         <div class="panel panel-info">
           <div class="panel-heading">
