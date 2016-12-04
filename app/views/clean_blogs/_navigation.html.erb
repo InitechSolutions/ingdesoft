@@ -19,7 +19,9 @@
                 <li><%= link_to 'Logros', logros_path %></li>
             <% end %>
             <li><%= link_to 'Comprar Puntos',new_compra_path %></li>
-            <li><%= link_to 'Precios de puntos',precios_path %></li>
+            <% if current_user.admin? %>
+              <li><%= link_to 'Precios de puntos',precios_path %></li>
+            <% end %>
             <li><%= link_to 'Ver Perfil',user_path(current_user.id) %></li>
             <li><%= link_to 'Editar Perfil',edit_user_registration_path %></li>
             <li><%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete %></li>
