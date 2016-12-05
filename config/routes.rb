@@ -8,6 +8,13 @@ Rails.application.routes.draw do
     end
   end
   resources :logros
+  resources :estadisticas do
+    collection do
+      get :visitas
+      get :ganancias
+      get :favores_resueltos
+    end
+  end
   resources :precios
   resources :postulations do
     collection do
