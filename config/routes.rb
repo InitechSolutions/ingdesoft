@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  resources :answers
   resources :compras
+  resources :comentarios
   resources :favors do
     collection do
       get :lugar

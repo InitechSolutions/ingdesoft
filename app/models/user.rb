@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
          has_many :favors
          has_many :comentarios
-         has_many :respuestas
+         has_many :answers
          has_many :postulations
          has_many :compras
     before_save :set_imagen_default
