@@ -33,7 +33,14 @@
 
         </ul>
         </div>
-        <!-- /.navbar-collapse -->
+        <% if user_signed_in? %>
+        <% current_user.favors.all.each do |p| %>
+            <% if p.postulations.first != nil %>
+                <li><%= link_to 'Usted tiene postulaciones pendientes!',user_path(current_user.id) %> </li>
+            <% end %>
+         <% end %>
+         <% end %>
+
     </div>
-    <!-- /.container -->
+    
 </nav>

@@ -3,6 +3,7 @@ class FavorsController < ApplicationController
   #before_filter :authorize_owner, only: [:edit, :create, :new, :update, :destroy]
   before_action :verificar_estado, only: [:destroy]
 
+
   # GET /favors
   # GET /favors.json
   def index
@@ -26,6 +27,8 @@ class FavorsController < ApplicationController
     render action: :index
   end
 
+
+
   def show
   end
 
@@ -35,7 +38,7 @@ class FavorsController < ApplicationController
       if current_user.puntos > 0
         @favor = Favor.new
       else
-        redirect_to (new_compra_path), error: "No tienes suficientes puntos."
+        redirect_to (root_path), error: "No tienes suficientes puntos."
         flash[:notice] = "No tienes suficientes puntos para pedir una gauchada"
       end
     else
@@ -56,6 +59,7 @@ class FavorsController < ApplicationController
   # POST /favors
   # POST /favors.json
   def create
+
     @favor = current_user.favors.build(favor_params)
     respond_to do |format|
       if @favor.save
@@ -95,6 +99,16 @@ class FavorsController < ApplicationController
       end
     else
       redirect_to (root_path), error: "No tenes permiso."
+    end
+  end
+  def eliminar
+    if current_user.admin?
+      @favor = Favor.find(params[:favor_id])
+      @favor.destroy
+      respond_to do |format|
+       format.html { redirect_to root_path, notice: 'Se ha borrado el favor correctamente.' }
+       format.json { head :no_content }
+      end
     end
   end
 
