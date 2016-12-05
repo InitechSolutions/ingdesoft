@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :compras
+  resources :answers
   resources :favors do
     collection do
       get :eliminar
