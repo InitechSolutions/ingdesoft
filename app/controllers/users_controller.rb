@@ -4,7 +4,8 @@ class UsersController < ApplicationController
     if user_signed_in?
       @user = User.find(params[:id])
       puedo_ver=false
-      #El dueño puede ver el perfil del postulado elegido y el postulado puede ver el perfil del dueño del favor
+      #El dueño puede ver el perfil del postulado elegid
+      #El postulado puede ver el perfil del dueño del favor
       if current_user.favors.where(:estado => "procesando").count > 0
         current_user.favors.where(:estado => "procesando").all.each do |favor|
           if (favor.postulacion_id == @user.id) || (current_user.id == favor.postulacion_id)
