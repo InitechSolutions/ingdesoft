@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :compras
   resources :favors do
     collection do
+      get :eliminar
       get :lugar
       get :titulo_descripcion
     end
