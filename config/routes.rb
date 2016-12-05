@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :compras
   resources :answers
+  resources :comentarios
   resources :favors do
     collection do
       get :eliminar

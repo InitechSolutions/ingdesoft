@@ -34,7 +34,9 @@
                 <p><%= c.coment %></p>
                  <p align="left"><%= link_to 'Responder', new_answer_path(:favor_id => @favor.id, :comentario_id => c.id) %></p>
                   <p align="right"><%= "Enviado por: " + User.find(c.user_id).nombre + " " + User.find(c.user_id).apellido%></p>
+                  <% if c.answer != nil %>
                   <div><%= "Respuesta: " + c.answer.cuerpo %></div>
+                  <% end %>
           </div></div></div></div>
           <%end%>
           <br>
