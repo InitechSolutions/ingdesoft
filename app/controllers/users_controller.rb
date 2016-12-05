@@ -17,15 +17,4 @@ class UsersController < ApplicationController
     end
   end
 
-  # def contacto
-  #   if user_signed_in?
-  #     @user = User.find(params[:id])
-  #     if (favor.find()postulations.first.user_id != @user.id) || (Favor.user_id != current_user.id)
-  #       redirect_to (contacto_path), error: "No tienes permiso"
-  #     end
-  #   else
-  #     redirect_to (contacto_path), error: "Debe iniciar sesion o registrarse"
-  #   end
-  # end
-
 end
