@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     collection do
       get :elegir
       get :calificar
+      get :positivo
     end
   end
   devise_for :users do

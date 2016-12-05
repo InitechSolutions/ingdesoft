@@ -46,11 +46,11 @@ class FavorsController < ApplicationController
   # GET /favors/1/edit
   def edit
     if !user_signed_in?
-      redirect_to (root_path), error: "No tenes permiso."
+      redirect_to (root_path), error: "Debe iniciar sesion o registrarse"
+      flash[:notice] = "Debe iniciar sesion o registrarse"
     elsif current_user.id != @favor.user_id
       redirect_to (root_path), error: "No tenes permiso."
-    else
-      redirect_to (root_path), error: "Debe iniciar sesion o registrarse"
+      flash[:notice] = "No tenes permiso."
     end
   end
   # POST /favors

@@ -32,7 +32,7 @@ class ComprasController < ApplicationController
         if (@compra.puntos != nil)
           if @compra.valid?
             @compra.user.update_attribute(:puntos, @compra.user.puntos += @compra.puntos)
-            @compra.monto = @compra.puntos * Precio.last.valor
+            @compra.monto = @compra.puntos * Precio.first.valor
         end
       end
 

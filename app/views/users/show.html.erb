@@ -82,7 +82,8 @@
                   <td><%= link_to 'Ver Postulado', user_path(favor.postulacion_id) %></td>
                 </div>
                 <div class="col-md-4 col-lg-4" align="left">
-                  <td><button type="button" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-ok"></i><%= link_to ' Calificar', calificar_postulations_path(:favor_id => favor.id, :postulacion_id => favor.postulacion_id) %></button></td>
+                  <td><button type="button" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-ok"></i><%= link_to ' Aceptar', positivo_postulations_path(:postulacion_id => favor.postulations.first.id) %></button></td>
+                  <td><button type="button" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i><%= link_to ' Rechazar', calificar_postulations_path(:postulacion_id => favor.postulations.first.id) %></button></td>
               </div></div></div>
           <%end%>
           <div class="panel panel-info">

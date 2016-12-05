@@ -41,7 +41,7 @@ end
   	@postulation = Postulation.where(:favor_id => params[:favor_id]).where(:user_id => params[:user_id]).first
   	@postulation.update_attribute(:estado, "seleccionado")
     Favor.where(:id => params[:favor_id]).first.update_attribute(:estado, "procesando")
-		Favor.where(:id => params[:favor_id]).first.update_attribute(:postulacion_id, @postulation.id)
+		Favor.where(:id => params[:favor_id]).first.update_attribute(:postulacion_id, @postulation.user_id)
   	Postulation.where(:favor_id => params[:favor_id]).where.not(:user_id => params[:user_id]).delete_all
   end
 
@@ -54,13 +54,17 @@ end
   	params.require(:postulation).permit(:descripcion, :estado, :favor_id)
   end
 
+	def positivo
+		@postulation = Postulation.find(params[:id])
+		@postulation.update_attribute(:estado, "aceptado")
+		User.find(@postulation.user_id).puntos=User.find(@postulation.user_id).puntos+1
+		@postulation.favor.update_attribute(:estado, "terminado")
+		redirect_to (user_path(current_user.id))
+		flash[:notice] = "Has calificado positivamente al postulado elegido"
+
 	def calificar
-		@postulations = Postulation.find()
-		# Aca tengo que ver si la calificacion fue positiva o negativa
-		# 1)Si fue positiva:
-		# 		a)El favor se pone como terminado
-		# 		b)El postulante se califica positivo
-		#   	c) Al usuario se le suma un punto
+		@postulation = Postulation.find(params[:id])
+
 		# 2)Si fue negativa:
 		# 		a)El favor se pone como cerrado (para reabrirlo luego)
 		# 		b) El postulante se califica negativo

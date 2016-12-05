@@ -17,7 +17,7 @@
           <% end %>
           <div class="field">
             <%= f.label :Valor %><br />
-            <%= f.number_field :valor, placeholder: "10",required: true%>
+            <%= f.number_field :valor, :step => 0.10, placeholder: "10.50",required: true%>
           </div>
           <%= f.submit " Confirmar", class:"btn-lg btn-warning" %>
         <% end %>

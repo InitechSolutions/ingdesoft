@@ -3,20 +3,14 @@
   <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <div class="well" style="border-radius: 35px;">
       <div class="media">
-        <h2>Aca va un formulario para calificar</h2>
-        <label class="radio-inline">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-          Si, pudo resolver mi problema
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-          No, mi problema quedo sin resolver
-        </label>
-        <br><br>
-        <%= radio_button_tag(:calif, "true") %>
-        <%= label_tag(:calif_true, "Si, pudo resolver mi problema") %>
-        <%= radio_button_tag(:calif, "false") %>
-        <%= label_tag(:calif_false, "No, mi problema quedo sin resolver") %>
+        <%= form_for(@postulation) do |p| %>
+          <div class="field">
+            <%= p.label :explicacion %><br>
+            <%= p.text_area :explicacion,  size: "60x10" , placeholder: "Describa el motivo de su calificacion" %>
+          </div>
+        	<%= p.submit "Confirmar", class:"btn-lg btn-warning" %>
+         <br><br>
+        <% end %>
       </div>
     </div>
   </div>
