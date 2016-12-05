@@ -98,7 +98,8 @@
               <h3 class="panel-title">Postulaciones aceptadas</h3>
           </div></div>
           <% @user.postulations.where(:estado => "seleccionado").all.each do |p|%>
-            <%= link_to p.favor.titulo, p.favor %><br>
+            <%= link_to p.favor.titulo, p.favor %>
+            <%= link_to 'Ver Dueño', user_path(p.favor.user_id) %>
           <%end%>
         <% end %>
       </div>
