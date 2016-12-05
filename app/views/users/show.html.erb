@@ -17,7 +17,7 @@
               <tbody>
                 <tr>
                   <td class="text-right"><span class="glyphicon glyphicon-envelope"></span> E-mail:</td>
-                  <td class="text-left"><%=@user.email%></td>
+                  <td align="left"class="text-left"><%=@user.email%></td>
                 </tr>
                 <tr>
                   <td class="text-right"><span class="glyphicon glyphicon-earphone"></span> Telefono:</td>
@@ -58,10 +58,13 @@
           <% @user.favors.where(:estado => "activo").all.each do |favor|%>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-6 col-lg-" align="right">
+                <div class="col-md-4 col-lg-4" align="right">
                   <td><%= link_to favor.titulo, favor %></td>
                 </div>
-                <div class="col-md-6 col-lg-6" align="left">
+                <div class="col-md-4 col-lg-4" align="center">
+                  <td>Tiene <%= Postulation.where(:favor_id => favor.id).count %> postulados</td>
+                </div>
+                <div class="col-md-4 col-lg-4" align="left">
                   <td><%= link_to 'Ver Postulados', postulation_path(favor) %></td>
                 </div></div></div>
           <%end%>
@@ -72,11 +75,14 @@
           <% @user.favors.where(:estado => "procesando").all.each do |favor|%>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-6 col-lg-" align="right">
+                <div class="col-md-4 col-lg-4" align="right">
                   <td><%= link_to favor.titulo, favor %></td>
                 </div>
-                <div class="col-md-6 col-lg-6" align="left">
+                <div class="col-md-4 col-lg-4" align="center">
                   <td><%= link_to 'Ver Postulado', user_path(favor.postulacion_id) %></td>
+                </div>
+                <div class="col-md-4 col-lg-4" align="left">
+                  <td><button type="button" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-ok"></i><%= link_to ' Calificar', calificar_postulations_path(:favor_id => favor.id, :postulacion_id => favor.postulacion_id) %></button></td>
               </div></div></div>
           <%end%>
           <div class="panel panel-info">
@@ -84,22 +90,35 @@
               <h4 class="panel-title">Favores Cancelados</h4>
           </div></div>
           <% @user.favors.where(:estado => "cancelado").all.each do |favor|%>
-            <td><%= link_to favor.titulo, favor %></td><br>
+            <div class="panel-body">
+              <div class="row">
+                <td><%= link_to favor.titulo, favor %></td>
+            </div></div>
           <%end%>
           <div class="panel panel-info">
             <div class="panel-heading">
               <h3 class="panel-title">Postulaciones pendientes</h3>
           </div></div>
           <% @user.postulations.where(:estado => "pendiente").all.each do |p|%>
-            <%= link_to p.favor.titulo , p.favor %><br>
+            <div class="panel-body">
+              <div class="row">
+                <td><%= link_to p.favor.titulo , p.favor %></td>
+            </div></div>
           <%end%>
           <div class="panel panel-info">
             <div class="panel-heading">
               <h3 class="panel-title">Postulaciones aceptadas</h3>
           </div></div>
           <% @user.postulations.where(:estado => "seleccionado").all.each do |p|%>
-            <%= link_to p.favor.titulo, p.favor %>
-            <%= link_to 'Ver Dueño', user_path(p.favor.user_id) %>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-6 col-lg-6" align="right">
+                  <td><%= link_to p.favor.titulo, p.favor %></td>
+                </div>
+                <div class="col-md-6 col-lg-6" align="left">
+                  <td><%= link_to 'Ver Dueño', user_path(p.favor.user_id) %></td>
+                </div>
+            </div></div>
           <%end%>
         <% end %>
       </div>

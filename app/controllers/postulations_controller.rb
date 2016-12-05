@@ -53,4 +53,8 @@ end
   def postulation_params
   	params.require(:postulation).permit(:descripcion, :estado, :favor_id)
   end
+
+	def calificar
+
+	end
 end

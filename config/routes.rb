@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :postulations do
     collection do
       get :elegir
+      get :calificar
     end
   end
   devise_for :users do

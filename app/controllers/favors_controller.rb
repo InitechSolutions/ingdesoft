@@ -39,7 +39,7 @@ class FavorsController < ApplicationController
         flash[:notice] = "No tienes suficientes puntos para pedir una gauchada"
       end
     else
-      redirect_to (root_path), error: "No tenes permiso."
+      redirect_to (root_path), error: "Debe iniciar sesion o registrarse"
     end
   end
 
@@ -50,14 +50,13 @@ class FavorsController < ApplicationController
     elsif current_user.id != @favor.user_id
       redirect_to (root_path), error: "No tenes permiso."
     else
-
-  end
+      redirect_to (root_path), error: "Debe iniciar sesion o registrarse"
+    end
   end
   # POST /favors
   # POST /favors.json
   def create
     @favor = current_user.favors.build(favor_params)
-
     respond_to do |format|
       if @favor.save
         format.html { redirect_to @favor, notice: 'Favor creado con exito.' }

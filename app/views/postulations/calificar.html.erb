@@ -1,0 +1,23 @@
+<h1 style="color:#FF8000">Calificar postulado</h1>
+<div class="container" style="margin-top:20px;">
+  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <div class="well" style="border-radius: 35px;">
+      <div class="media">
+        <h2>Aca va un formulario para calificar</h2>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+          Si, pudo resolver mi problema
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+          No, mi problema quedo sin resolver
+        </label>
+        <br><br>
+        <%= radio_button_tag(:calif, "true") %>
+        <%= label_tag(:calif_true, "Si, pudo resolver mi problema") %>
+        <%= radio_button_tag(:calif, "false") %>
+        <%= label_tag(:calif_false, "No, mi problema quedo sin resolver") %>
+      </div>
+    </div>
+  </div>
+</div>
