@@ -53,7 +53,7 @@
         <% if current_user.id == @user.id %>
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h4 class="panel-title">Favores Publicados</h4>
+              <h4 class="panel-title">Favores publicados</h4>
           </div></div>
           <% @user.favors.where(:estado => "activo").all.each do |favor|%>
             <div class="panel-body">
@@ -70,7 +70,7 @@
           <%end%>
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h4 class="panel-title">Favores Realizandose</h4>
+              <h4 class="panel-title">Favores realizandose</h4>
           </div></div>
           <% @user.favors.where(:estado => "procesando").all.each do |favor|%>
             <div class="panel-body">
@@ -87,9 +87,19 @@
           <%end%>
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h4 class="panel-title">Favores Cancelados</h4>
+              <h4 class="panel-title">Favores cancelados</h4>
           </div></div>
           <% @user.favors.where(:estado => "cancelado").all.each do |favor|%>
+            <div class="panel-body">
+              <div class="row">
+                <td><%= link_to favor.titulo, favor %></td>
+            </div></div>
+          <%end%>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h4 class="panel-title">Favores terminados</h4>
+          </div></div>
+          <% @user.favors.where(:estado => "terminado").all.each do |favor|%>
             <div class="panel-body">
               <div class="row">
                 <td><%= link_to favor.titulo, favor %></td>

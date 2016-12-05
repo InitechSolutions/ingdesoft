@@ -6,54 +6,80 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <div class="well">
         <div class="media">
+          <div class="field">
+            <div class="col-lg-4 col-md-4" align="right">
+              <%= f.label :Email %>
+            </div>
+            <div class="col-lg-8 col-md-8" align="left">
+              <%= f.email_field :email, autofocus: true ,required: true, placeholder: "ejemplo@ejemplo.com" %>
+          </div></div><br><br>
 
           <div class="field">
-            <%= f.label :Email %><br />
-            <%= f.email_field :email, autofocus: true ,required: true, placeholder: "ejemplo@ejemplo.com" %>
-          </div>
+            <div class="col-lg-4 col-md-4" align="right">
+              <%= f.label :contraseña %>
+            </div>
+            <div class="col-lg-8 col-md-8" align="left">
+              <%= f.password_field :password, autocomplete: "off" ,required: true, placeholder: "*********"%>
+              <% if @minimum_password_length %>
+              <span id="helpBlock" class="help-block">(<%= @minimum_password_length %> caracteres como minimo)</span>
+              <% end %>
+            </div></div><br><br>
 
           <div class="field">
-            <%= f.label :contraseña %>
-            <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> caracteres como minimo)</em>
-            <% end %><br />
-            <%= f.password_field :password, autocomplete: "off" ,required: true, placeholder: "*********"%>
-          </div>
+            <div class="col-lg-4 col-md-4" align="right">
+              <%= f.label :confirmar_contraseña %>
+            </div>
+            <div class="col-lg-5 col-md-6" align="left">
+              <%= f.password_field :password_confirmation, autocomplete: "off" ,required: true, placeholder: "*********" %>
+          </div></div><br><br><br>
 
           <div class="field">
-            <%= f.label :confirmar_contraseña %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "off" ,required: true, placeholder: "*********" %>
-          </div>
+            <div class="col-lg-4 col-md-4" align="right">
+              <%= f.label :Nombre %>
+            </div>
+            <div class="col-lg-5 col-md-6" align="left">
+              <%= f.text_field :nombre, autocomplete: "off" ,required: true, placeholder: "Nombre" %>
+          </div></div><br><br>
 
           <div class="field">
-            <%= f.label :Nombre %><br />
-            <%= f.text_field :nombre, autocomplete: "off" ,required: true, placeholder: "Nombre" %>
-          </div>
+            <div class="col-lg-4 col-md-4" align="right">
+              <%= f.label :Apellido %>
+            </div>
+            <div class="col-lg-5 col-md-6" align="left">
+              <%= f.text_field :apellido, autocomplete: "off" ,required: true, placeholder: "Apellido" %>
+          </div></div><br><br>
 
           <div class="field">
-            <%= f.label :Apellido %><br />
-            <%= f.text_field :apellido, autocomplete: "off" ,required: true, placeholder: "Apellido" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :telefono %><br />
-            <%= f.telephone_field :telefono, autocomplete: "off" ,required: true, placeholder: "1234567890" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :nacimiento %><br />
+            <div class="col-lg-4 col-md-4" align="right">
+              <%= f.label :nacimiento %>
+            </div>
+            <div class="col-lg-5 col-md-6" align="left">
             <%= f.date_select :nacimiento, start_year: 2016, end_year: 1920 ,required: true %>
-          </div>
+          </div></div><br><br>
 
           <div class="field">
-            <%= f.label :localidad %><br />
+            <div class="col-lg-4 col-md-4" align="right">
+              <%= f.label :telefono %>
+            </div>
+            <div class="col-lg-5 col-md-6" align="left">
+            <%= f.telephone_field :telefono, autocomplete: "off" ,required: true, placeholder: "1234567890" %>
+          </div></div><br><br>
+
+          <div class="field">
+            <div class="col-lg-4 col-md-4" align="right">
+              <%= f.label :localidad %>
+            </div>
+            <div class="col-lg-5 col-md-6" align="left">
             <%= f.text_field :localidad, autocomplete: "off" ,required: true, placeholder: "Ciudad,Provincia" %>
-          </div>
+          </div></div><br><br>
 
           <div class="field">
-            <%= f.label :imagen %><br />
+            <div class="col-lg-4 col-md-4" align="right">
+              <%= f.label :imagen %>
+            </div>
+            <div class="col-lg-5 col-md-6" align="left">
             <%= f.text_field :imagen %>
-          </div>
+          </div></div><br><br>
           <%= f.submit "Registrarse", class:"btn-lg btn-warning" %>
         </div>
       </div>

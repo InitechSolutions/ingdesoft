@@ -41,7 +41,7 @@ end
   	@postulation = Postulation.where(:favor_id => params[:favor_id]).where(:user_id => params[:user_id]).first
   	@postulation.update_attribute(:estado, "seleccionado")
     Favor.where(:id => params[:favor_id]).first.update_attribute(:estado, "procesando")
-		Favor.where(:id => params[:favor_id]).first.update_attribute(:postulacion_id, @postulation.user_id)
+		Favor.where(:id => params[:favor_id]).first.update_attribute(:postulacion_id, @postulation.id)
   	Postulation.where(:favor_id => params[:favor_id]).where.not(:user_id => params[:user_id]).delete_all
   end
 
@@ -55,6 +55,17 @@ end
   end
 
 	def calificar
-
+		@postulations = Postulation.find()
+		# Aca tengo que ver si la calificacion fue positiva o negativa
+		# 1)Si fue positiva:
+		# 		a)El favor se pone como terminado
+		# 		b)El postulante se califica positivo
+		#   	c) Al usuario se le suma un punto
+		# 2)Si fue negativa:
+		# 		a)El favor se pone como cerrado (para reabrirlo luego)
+		# 		b) El postulante se califica negativo
+		#   	c) Al usuario se le restan dos puntos
+		#
+		# PARA QUE ESTA LA DESCRIPCION, SE PUEDE VER EN ALGUN LADO???
 	end
 end
