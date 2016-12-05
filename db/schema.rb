@@ -11,7 +11,11 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20161205203321) do
+=======
+ActiveRecord::Schema.define(version: 20161205195750) do
+>>>>>>> a94fe4b2f27970724ffe9f3351cefb7dd19fb6a8
 =======
 ActiveRecord::Schema.define(version: 20161205195750) do
 >>>>>>> a94fe4b2f27970724ffe9f3351cefb7dd19fb6a8
@@ -64,14 +68,20 @@ ActiveRecord::Schema.define(version: 20161205195750) do
     t.string   "descripcion"
     t.string   "lugar"
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.datetime "created_at",                                                                        null: false
     t.datetime "updated_at",                                                                        null: false
 =======
+=======
+>>>>>>> a94fe4b2f27970724ffe9f3351cefb7dd19fb6a8
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.string   "imagen"
     t.integer  "user_id"
     t.string   "estado",      default: "activo"
+<<<<<<< HEAD
+>>>>>>> a94fe4b2f27970724ffe9f3351cefb7dd19fb6a8
+=======
 >>>>>>> a94fe4b2f27970724ffe9f3351cefb7dd19fb6a8
     t.date     "fecha"
   end
@@ -81,10 +91,13 @@ ActiveRecord::Schema.define(version: 20161205195750) do
     t.integer  "impressionable_id"
     t.integer  "user_id"
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.integer  "postulacion_id"
     t.string   "imagen",         default: "http://68.media.tumblr.com/avatar_28012e5b8492_128.png"
     t.string   "estado",         default: "activo"
 =======
+=======
+>>>>>>> a94fe4b2f27970724ffe9f3351cefb7dd19fb6a8
     t.string   "controller_name"
     t.string   "action_name"
     t.string   "view_name"
@@ -105,6 +118,9 @@ ActiveRecord::Schema.define(version: 20161205195750) do
     t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index", using: :btree
     t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", using: :btree
     t.index ["user_id"], name: "index_impressions_on_user_id", using: :btree
+<<<<<<< HEAD
+>>>>>>> a94fe4b2f27970724ffe9f3351cefb7dd19fb6a8
+=======
 >>>>>>> a94fe4b2f27970724ffe9f3351cefb7dd19fb6a8
   end
 
@@ -153,9 +169,12 @@ ActiveRecord::Schema.define(version: 20161205195750) do
     t.string   "telefono"
     t.string   "localidad"
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.string   "avatar"
     t.string   "imagen",                 default: "http://makerepo.com/assets/default-avatar-19cf8cebb96b4d8beff4ef9cad0e5903d288c778c503777332a57085a65371be.png"
 =======
+=======
+>>>>>>> a94fe4b2f27970724ffe9f3351cefb7dd19fb6a8
     t.string   "imagen"
 >>>>>>> a94fe4b2f27970724ffe9f3351cefb7dd19fb6a8
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
