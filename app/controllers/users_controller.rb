@@ -7,15 +7,15 @@ class UsersController < ApplicationController
          #El dueño puede ver al postulado elegido
          if current_user.favors.where(:estado => "procesando").count > 0
            current_user.favors.where(:estado => "procesando").all.each do |favor|
-             if favor.postulations.first.user_id != @user.id
+             if favor.postulacion_id != @user.id
                redirect_to (user_path(current_user.id)), error: "No tienes permiso"
                flash[:notice] = "No tenes permiso para ver otro perfil"
              end
            end
          #El postulado puede ver al dueño del favor
-         elsif @user.favors.where(:estado => "procesando").count >0
+         elsif @user.favors.where(:estado => "procesando").count > 0
            @user.favors.where(:estado => "procesando").all.each do |favor|
-             if favor.postulations.first.user_id != current_user.id
+             if favor.postulacion_id != current_user.id
                redirect_to (user_path(current_user.id)), error: "No tienes permiso"
                flash[:notice] = "No tenes permiso para ver otro perfil"
              end

@@ -5,17 +5,13 @@ validate :user_id, :favor_id, :validar
 belongs_to :favor
 belongs_to :user
 
-
-
   def validar
      @postulations=Postulation.where(:user_id => user_id).all
-           
        @postulations.each do |p|
           if p.favor_id == favor_id
-            
-            errors.add(:base , "Ya se postulo a este favor ") 
-          end  
+            errors.add(:base , "Ya se postulo a este favor ")
+          end
         end
     end
-          
+
 end

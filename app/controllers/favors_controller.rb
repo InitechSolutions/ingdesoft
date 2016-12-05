@@ -36,6 +36,7 @@ class FavorsController < ApplicationController
         @favor = Favor.new
       else
         redirect_to (new_compra_path), error: "No tienes suficientes puntos."
+        flash[:notice] = "No tienes suficientes puntos para pedir una gauchada"
       end
     else
       redirect_to (root_path), error: "No tenes permiso."

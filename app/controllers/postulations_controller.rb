@@ -22,7 +22,7 @@ end
   end
   def index
   end
-  
+
   def new
   		@postulation = Postulation.new
   end
@@ -41,6 +41,7 @@ end
   	@postulation = Postulation.where(:favor_id => params[:favor_id]).where(:user_id => params[:user_id]).first
   	@postulation.update_attribute(:estado, "seleccionado")
     Favor.where(:id => params[:favor_id]).first.update_attribute(:estado, "procesando")
+		Favor.where(:id => params[:favor_id]).first.update_attribute(:postulacion_id, @postulation.user_id)
   	Postulation.where(:favor_id => params[:favor_id]).where.not(:user_id => params[:user_id]).delete_all
   end
 
