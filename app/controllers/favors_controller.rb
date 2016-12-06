@@ -115,6 +115,7 @@ class FavorsController < ApplicationController
     @favor = Favor.find(params[:id])
     if (@favor.estado=="rechazado")
       @favor.estado="activo"
+      @favor.postulacion_id=nil
       @favor.save
       if !(@favor.postulations.nil?)
          @favor.postulations.delete_all
