@@ -66,24 +66,19 @@ class PostulationsController < ApplicationController
 
 	def update
 		@postulation = Postulation.find(params[:id])
-		respond_to do |format|
-			if @postulation.update(postulation_params)
+			if @postulation.update_attribute(:explicacion, postulation_params[:explicacion])
 				flash[:notice] = "Bien"
-				format.html { redirect_to user_path(current_user.id), notice: 'Has calificado negativamente al postulado elegido' }
-				format.json { render :show, status: :ok, location: @postulation }
+				redirect_to user_path(current_user.id)
 			else
 				flash[:notice] = "Error"
-				format.html { render :calificar }
-				format.json { render json: @postulation.errors, status: :unprocessable_entity }
-			end
-		end
+		  end
 	end
 
 	#NO ESCRIBIR DEBAJO DE ESTA LINEA
 	private
 
 	def postulation_params
-			params.require(:postulation).permit(:descripcion, :estado, :explicacion, :favor_id, :user_id)
+			params.require(:postulation).permit(:user_id, :favor_id,:descripcion,:estado,:explicacion)
 	end
 
 end
