@@ -83,7 +83,7 @@ class PostulationsController < ApplicationController
 	private
 
 	def postulation_params
-			params.require(:postulation).permit(:descripcion, :estado, :explicacion, :favor_id, :id, :user_id)
+			params.require(:postulation).permit(:descripcion, :estado, :explicacion, :favor_id, :user_id)
 	end
 
 end
