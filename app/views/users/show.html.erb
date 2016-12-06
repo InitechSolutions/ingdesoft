@@ -131,6 +131,21 @@
                 </div>
             </div></div>
           <%end%>
+           <div class="panel panel-info">
+            <div class="panel-heading">
+              <h4 class="panel-title">Favores Realizados</h4>
+          </div></div>
+          <% @user.postulations.where(:estado => "aceptado").all.each do |p|%>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-6 col-lg-6" align="right">
+                  <td><%= link_to p.favor.titulo, p.favor %></td>
+                </div>
+                <div class="col-md-6 col-lg-6" align="left">
+                  <td><%= link_to 'Ver Dueño', user_path(p.favor.user_id) %></td>
+                </div>
+            </div></div>
+          <%end%>
         <% end %>
       </div>
     </div>

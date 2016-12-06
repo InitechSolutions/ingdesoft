@@ -9,10 +9,8 @@ def new
 end
 
 def create
-  @favor = Favor.find(params[:favor_id])
-  @comentario = Comentario.new(comentario_params)
-  @comentario = @favor.comentarios.create(comentario_params)
-  @comentario.user_id = current_user.id
+  @comentario = current_user.comentarios.build(comentario_params)
+  @comentario.favor_id = params[:comentario][:favor_id]
   if @comentario.save
     flash[:success] = "Comentario creado con exito"
     redirect_to comentarios_path(@comentario)
@@ -28,6 +26,6 @@ end
 private
 
   def comentario_params
-    params.require(:coment).permit(:user_id, :favor_id)
+    params.require(:comentario).permit(:user_id, :favor_id, :coment)
   end
 end

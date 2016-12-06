@@ -6,6 +6,7 @@ class Favor < ApplicationRecord
   before_save :set_imagen_default, only: [:create, :edit]
   belongs_to :user
   has_many :comentarios
+  has_many :answers
   has_many :postulations
   default_scope -> { order("created_at desc") }
   scope :lugar, -> (busqueda){where('lower(lugar) like lower(?)', "%#{busqueda}%")}

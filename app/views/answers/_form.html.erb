@@ -1,0 +1,11 @@
+<%= form_for(answer) do |f| %>
+
+  <div class="field">
+    <%= f.label :answer%><br>
+    <%= f.text_area :cuerpo , placeholder: "Ingrese su respuesta" %>
+  </div>
+  <%= f.hidden_field :favor_id, :value => params[:favor_id] %>
+  <%= f.hidden_field :comentario_id, :value => params[:comentario_id] %>
+<%= f.submit "Confirmar", class:"btn-lg btn-warning" %>
+ <br><br>
+<% end %>

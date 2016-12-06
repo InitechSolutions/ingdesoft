@@ -20,26 +20,25 @@
           </p>
            <strong>Fecha limite</strong>
           <p>
-            <td><%= @favor.fecha %></td>
+           
           </p>
           <br>
           <br>
-
+          <%= link_to 'Crear comentario', new_comentario_path(:favor_id => @favor.id) %>
           <h3>Comentarios</h3>
+            <% @favor.comentarios.each do |c| %>
           <div class="container2" style="margin-top:0px;">
             <div class="col-lg-0 col-lg-offset-0 col-md-30 col-md-offset-10">
               <div class="well" style="border-radius: 0px;">
                 <div class="media">
-                  <p> Quisiera saber si puedo realizarlo con mi perro que me sigue a todos lados</p>
-                  <p align="right">Enviado por: Juan Gomez</p>
+                <p><%= c.coment %></p>
+                 <p align="left"><%= link_to 'Responder', new_answer_path(:favor_id => @favor.id, :comentario_id => c.id) %></p>
+                  <p align="right"><%= "Enviado por: " + User.find(c.user_id).nombre + " " + User.find(c.user_id).apellido%></p>
+                  <% if c.answer != nil %>
+                  <div><%= "Respuesta: " + c.answer.cuerpo %></div>
+                  <% end %>
           </div></div></div></div>
-          <div class="container2" style="margin-top:0px;">
-            <div class="col-lg-0 col-lg-offset-0 col-md-30 col-md-offset-10">
-              <div class="well" style="border-radius: 0px;">
-                <div class="media">
-                  <p>Hola, el 30 voy a estar por ahi, te interesa igual?</p>
-                  <p align="right">Enviado por: Daniel Perez</p>
-          </div></div></div></div>
+          <%end%>
           <br>
           <br>
           <!-- <td><%= link_to '<i class="glyphicon glyphicon-menu-left">Volver</i>'.html_safe, favors_path,class:"btn btn-warning"%></td> -->

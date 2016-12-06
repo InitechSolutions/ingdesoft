@@ -1,22 +1,14 @@
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" <%= link_to "Gauchada.com", root_path %></a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
+            <li> <%= link_to "Inicio", root_path %></li>
+        <!-- Collect the nav links, forms, and other content for toggling -->
         <% if user_signed_in? %>
             <% if current_user.admin? %>
                 <li><%= link_to 'Logros', logros_path %></li>
+                <li><%= link_to 'Estadisticas', estadisticas_path %></li>
             <% end %>
             <li><%= link_to 'Comprar Puntos',new_compra_path %></li>
             <% if current_user.admin? %>
@@ -32,8 +24,17 @@
         <% end %>
 
         </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
+        
+        <% if user_signed_in? %>
+        <% current_user.favors.all.each do |p| %>
+            <% if p.postulations.first != nil %>
+
+                <p align="center"><%= link_to 'Usted tiene postulaciones pendientes!',user_path(current_user.id) %> </p>
+                <% break %>
+            <% end %>
+         <% end %>
+         <% end %>
+
+    
+    
 </nav>

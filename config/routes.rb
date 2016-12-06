@@ -1,12 +1,22 @@
 Rails.application.routes.draw do
   resources :compras
+  resources :answers
+  resources :comentarios
   resources :favors do
     collection do
+      get :eliminar
       get :lugar
       get :titulo_descripcion
     end
   end
   resources :logros
+  resources :estadisticas do
+    collection do
+      get :visitas
+      get :ganancias
+      get :favores_resueltos
+    end
+  end
   resources :precios
   resources :postulations do
     collection do
