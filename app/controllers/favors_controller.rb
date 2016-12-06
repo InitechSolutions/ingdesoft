@@ -114,9 +114,11 @@ class FavorsController < ApplicationController
   def reabrir
     @favor = Favor.find(params[:id])
     if (@favor.estado=="rechazado")
-      Postulation.where(:favor_id => @favor.id).delete_all
       @favor.estado="activo"
       @favor.save
+      if !(@favor.postulations.nil?)
+         @favor.postulations.delete_all
+      end
       redirect_to (favor_path(@favor.id))
       flash[:notice] = "Has reabrierto el favor"
     else

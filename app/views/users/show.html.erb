@@ -108,6 +108,20 @@
           <%end%>
           <div class="panel panel-info">
             <div class="panel-heading">
+              <h4 class="panel-title">Favores no realizados</h4>
+          </div></div>
+          <% @user.favors.where(:estado => "rechazado").all.each do |favor|%>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-6 col-lg-6" align="right">
+                  <td><%= link_to favor.titulo, favor %></td>
+                </div>
+                <div class="col-md-6 col-lg-6" align="center">
+                  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-refresh"></i><%= link_to ' Reabrir', reabrir_favors_path(:id => favor.id) %></button></td>
+            </div></div></div>
+          <%end%>
+          <div class="panel panel-info">
+            <div class="panel-heading">
               <h3 class="panel-title">Postulaciones pendientes</h3>
           </div></div>
           <% @user.postulations.where(:estado => "pendiente").all.each do |p|%>
