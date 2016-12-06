@@ -1,5 +1,6 @@
 class Postulation < ApplicationRecord
 validates :descripcion , :presence => {:message => "Usted debe ingresar una descripcion"}
+validates :explicacion , :presence => {:message => "Usted debe ingresar una explicacion"}
 #validates_uniqueness_of :user_id, conditions: => {:message=> "Usted ya se ha postulado para realizar este favor"}
 validate :user_id, :favor_id, :validar
 belongs_to :favor

@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :postulations do
     collection do
       get :elegir
-      get :calificar
       get :positivo
     end
   end
@@ -24,4 +23,5 @@ Rails.application.routes.draw do
 get  'about'    => 'clean_blogs#about'
 get  'post'     => 'clean_blogs#post'
 get  'contact'  => 'clean_blogs#contact'
+get  'postulation/:id/calificar' , to: 'postulations#calificar', :as => :calificar
 end
