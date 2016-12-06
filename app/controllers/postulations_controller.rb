@@ -67,10 +67,14 @@ class PostulationsController < ApplicationController
 	def update
 		@postulation = Postulation.find(params[:id])
 			if @postulation.update_attribute(:explicacion, postulation_params[:explicacion])
-				flash[:notice] = "Bien"
+				@postulation.favor.update_attribute(:estado, "rechazado")
+				@usuario=User.find(@postulation.user_id)
+				@usuario.puntos=@usuario.puntos-2
+				@usuario.save
+				flash[:notice] = "Has calificado negativamente al postulado elegido"
 				redirect_to user_path(current_user.id)
 			else
-				flash[:notice] = "Error"
+				flash[:notice] = "Ha sucedido un error"
 		  end
 	end
 
