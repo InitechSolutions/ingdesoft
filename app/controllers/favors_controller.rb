@@ -2,7 +2,7 @@ class FavorsController < ApplicationController
   before_action :set_favor, only: [:show, :edit, :update, :destroy]
   #before_filter :authorize_owner, only: [:edit, :create, :new, :update, :destroy]
   before_action :verificar_estado, only: [:destroy]
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
 
 
   # GET /favors

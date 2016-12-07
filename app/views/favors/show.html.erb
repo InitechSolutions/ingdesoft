@@ -21,8 +21,10 @@
           </p>
           <br>
           <br>
-          <%if (current_user.id != @favor.user_id)%>
-             <td><button type="button" class="btn btn-warning"><%= link_to 'Crear comentario', new_comentario_path(:favor_id => @favor.id) %></button></td>
+          <% if user_signed_in? %>
+            <%if (current_user.id != @favor.user_id)%>
+               <td><button type="button" class="btn btn-warning"><%= link_to 'Crear comentario', new_comentario_path(:favor_id => @favor.id) %></button></td>
+            <% end %>
           <% end %>
           <h3>Comentarios</h3>
             <% @favor.comentarios.each do |c| %>
@@ -35,9 +37,11 @@
                   <% if c.answer != nil %>
                   <div><%= "Respuesta: " + c.answer.cuerpo %></div>
                   <% else %>
-                    <%if (current_user.id == @favor.user_id)%>
-                    <td><button type="button" class="btn btn-warning"><%= link_to 'Responder', new_answer_path(:favor_id => @favor.id, :comentario_id => c.id) %></button></td>
-                    <% end  %>
+                    <% if user_signed_in? %>
+                      <%if (current_user.id == @favor.user_id)%>
+                        <td><button type="button" class="btn btn-warning"><%= link_to 'Responder', new_answer_path(:favor_id => @favor.id, :comentario_id => c.id) %></button></td>
+                      <% end  %>
+                    <% end %>
                   <% end %>
           </div></div></div></div>
           <%end%>
