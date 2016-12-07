@@ -24,17 +24,17 @@
         <% end %>
 
         </ul>
-        
-        <% if user_signed_in? %>
+
+    <% if user_signed_in? %>
         <% current_user.favors.all.each do |p| %>
-            <% if p.postulations.first != nil %>
-
-                <p align="center"><%= link_to 'Usted tiene postulaciones pendientes!',user_path(current_user.id) %> </p>
-                <% break %>
+            <% p.postulations.all.each do |c| %>
+                <%if (c.estado == "pendiente")%>
+                    <p align="center"><%= link_to 'Usted tiene postulaciones pendientes!',user_path(current_user.id) %> </p>
+                    <% break %>
+                <% end %>
             <% end %>
-         <% end %>
-         <% end %>
-
-    
+        <% end %>
+    <% end %>
+</div>
     
 </nav>

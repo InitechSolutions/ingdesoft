@@ -1,5 +1,5 @@
 class EstadisticasController < ApplicationController
-
+before_filter :authorize_admin, only: [:index, :show, :new, :edit, :create]
 
 def favores_resueltos
 	

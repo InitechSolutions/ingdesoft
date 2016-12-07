@@ -8,7 +8,9 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-md-3 col-lg-3 " align="center">
-              <td><%= image_tag("#{@user.imagen}",:class=> "img-circular-perfil" ,:style => "border: 3px solid lightblue",height: 70, width: 70) %></td>
+              <td><%= image_tag("#{@user.imagen}",:class=> "img-circular-perfil" ,:style => "border: 3px solid lightblue",height: 150, width: 150) %></td>
+              <br>  
+
             </div>
             <div class=" col-md-9 col-lg-9" align="left">
               <table class="table table-user-information">
@@ -17,7 +19,7 @@
               <tbody>
                 <tr>
                   <td class="text-right"><span class="glyphicon glyphicon-envelope"></span> E-mail:</td>
-                  <td align="left"class="text-left"><%=@user.email%></td>
+                  <td align="left" class="text-left"><%=@user.email%></td>
                 </tr>
                 <tr>
                   <td class="text-right"><span class="glyphicon glyphicon-earphone"></span> Telefono:</td>
@@ -27,7 +29,7 @@
                   <td class="text-right"><span class="glyphicon glyphicon-map-marker"></span> Localidad:</td>
                   <td class="text-left"><%=@user.localidad%></td>
                 </tr>
-                <% if current_user.id == @user.id %>
+                <% if current_user.id == @user.id or current_user.admin? %>
                 <tr>
                   <td class="text-right"><span class="glyphicon glyphicon-calendar"></span> Fecha de nacimiento:</td>
                   <td class="text-left"><%=@user.nacimiento%></td>
@@ -44,13 +46,17 @@
                   <td class="text-right"><span class="glyphicon glyphicon-calendarglyphicon glyphicon-star"></span> Puntos</td>
                   <td class="text-left"><%=@user.puntos%></td>
                 </tr>
+                <tr>
+                  <td align="left" class="text-left"><%= image_tag("#{@logro.first.imagen}" ,:style => "border: 3px solid orange",height: 100, width: 100,) %></td>
+                  <td class="text-left"><%=@logro.first.nombre%></td>
+                </tr>
                 <% end %>
               </tbody>
               </table>
             </div>
           </div>
         </div>
-        <% if current_user.id == @user.id %>
+        <% if current_user.id == @user.id or current_user.admin? %>
           <div class="panel panel-info">
             <div class="panel-heading">
               <h4 class="panel-title">Favores publicados</h4>
@@ -155,9 +161,7 @@
                 <div class="col-md-6 col-lg-6" align="right">
                   <td><%= link_to p.favor.titulo, p.favor %></td>
                 </div>
-                <div class="col-md-6 col-lg-6" align="left">
-                  <td><%= link_to 'Ver Dueño', user_path(p.favor.user_id) %></td>
-                </div>
+
             </div></div>
           <%end%>
         <% end %>

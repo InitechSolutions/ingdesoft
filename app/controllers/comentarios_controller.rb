@@ -12,8 +12,7 @@ def create
   @comentario = current_user.comentarios.build(comentario_params)
   @comentario.favor_id = params[:comentario][:favor_id]
   if @comentario.save
-    flash[:success] = "Comentario creado con exito"
-    redirect_to comentarios_path(@comentario)
+    redirect_to favor_path(@comentario.favor_id), notice: "Comentario creado con exito"
   else
     render 'new'
   end

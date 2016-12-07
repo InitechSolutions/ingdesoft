@@ -89,6 +89,14 @@ class FavorsController < ApplicationController
     end
   end
 
+  def eliminar
+    @favor = Favor.find(params[:id])
+    if (current_user.admin?)
+      @favor.destroy
+    else
+      redirect_to (root_path), error: "No tenes permiso."
+    end
+  end
   # DELETE /favors/1
   # DELETE /favors/1.json
   def destroy

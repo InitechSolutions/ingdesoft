@@ -3,9 +3,18 @@
   <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <div class="well" style="border-radius: 35px;">
       <div class="media">
+      
     <%= form_tag(fechas_compras_path, :method => "get") do %>
-		<%= date_select :inicial, start_year: 2025, end_year: 2016%>
-		<%= date_select :final, start_year: 2025, end_year: 2016%>
+      	<div class="field">
+      		<h5>Fecha Minima</h5>
+      		<%= date_select :inicial, start_year: 2025, end_year: 2016%>
+        </div>
+        <div class="field">
+        <br>
+        <h5>Fecha Maxima</h5>
+        	<%= date_select :final, start_year: 2025, end_year: 2016%>
+        </div>
+        <br>
 		<%= submit_tag 'Buscar', class:"btn btn-link"%>
 	<% end %>
 

@@ -2,8 +2,17 @@ class UsersController < ApplicationController
 
   def show
     if user_signed_in?
+
+      @logros = Logro.all
       @user = User.find(params[:id])
-      puedo_ver=false
+      puntos= @user.puntos
+      @logro = Logro.buscar_logro(puntos, puntos).order('created_at DESC').all
+      
+      if current_user.admin?
+        puedo_ver = true
+      else
+        puedo_ver=false
+      end
       #El dueño puede ver el perfil del postulado elegid
       #El postulado puede ver el perfil del dueño del favor
       if current_user.favors.where(:estado => "procesando").count > 0

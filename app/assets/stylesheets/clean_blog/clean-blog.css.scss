@@ -441,3 +441,27 @@ th, td {
  -webkit-border-radius: 100px;
  -moz-border-radius: 100px;
 }
+
+.img-circular-perfil{
+ width: 175px;
+ height: 175px;
+ background-size: cover;
+ display: block;
+ border-radius: 100px;
+ -webkit-border-radius: 100px;
+ -moz-border-radius: 100px;
+}
+
+.img-circular-logro-perfil{
+ width: 100px;
+ height: 100px;
+ background-size: cover;
+ display: block;
+ border-radius: 100px;
+ -webkit-border-radius: 100px;
+ -moz-border-radius: 100px;
+}
+
+.mover-derecha{
+  padding-left:120px
+}

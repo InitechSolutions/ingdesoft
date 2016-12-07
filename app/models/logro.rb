@@ -1,7 +1,7 @@
 class Logro < ApplicationRecord
 
 
-
+  scope :buscar_logro, ->(puntos, puntos2) {where('min <= ? AND max >= ?', puntos, puntos2)}
   validates :nombre , :presence => {:message => "Usted debe ingresar un nombre"}
   validates :nombre, uniqueness: {case_sensitive: false ,message: "Ya hay un logro con ese nombre"}
   validates :min , :presence => {:message => " Usted debe ingresar un puntaje minimo"}

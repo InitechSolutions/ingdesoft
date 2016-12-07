@@ -2,10 +2,10 @@
 
   <div class="field">
     <%= f.label :comentario %><br>
-    <%= f.text_area :coment , placeholder: "Ingrese su comentario" %>
+    <%= f.text_area :coment ,size: "50x10", placeholder: "Ingrese su comentario" %>
   </div>
-
   <%= f.hidden_field :favor_id, :value => params[:favor_id] %>
+  
 <%= f.submit "Confirmar", class:"btn-lg btn-warning" %>
  <br><br>
 <% end %>
