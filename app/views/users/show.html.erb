@@ -159,10 +159,17 @@
             <div class="panel-heading">
               <h3 class="panel-title">Postulaciones rechazadas</h3>
           </div></div>
-          <% @user.postulations.where(:estado => "rechazado").all.each do |p|%>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3" align="right">
+                <div class="col-md-3 col-lg-3" align="center">
+                  <strong>Favor</strong>
+                </div>
+                <div class="col-md-9 col-lg-9" align="left">
+                  <strong>Motivo</strong>
+                </div>
+                <hr>
+                <% @user.postulations.where(:estado => "rechazado").all.each do |p|%>
+                <div class="col-md-3 col-lg-3" align="center">
                   <td><%= link_to p.favor.titulo, p.favor %></td>
                 </div>
                 <div class="col-md-9 col-lg-9" align="left">
