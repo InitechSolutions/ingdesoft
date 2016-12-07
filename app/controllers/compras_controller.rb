@@ -6,7 +6,7 @@ class ComprasController < ApplicationController
     ini = params["inicial"].map{|k,v| v}.join("-").to_date
     fin = params["final"].map{|k,v| v}.join("-").to_date
     if (ini > fin)
-      redirect_to visitas_estadisticas_path, notice: "La fecha inicial no puede ser mayor que la final"
+      redirect_to ganancias_estadisticas_path, notice: "La fecha inicial no puede ser mayor que la final"
     else
       @compras = Compra.all
       @compras.each do |c|
