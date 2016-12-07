@@ -3,8 +3,9 @@
     <%= p.label :descripcion %><br>
     <%= p.text_area :descripcion,  size: "60x10" , placeholder: "Describa el motivo de su ayuda" %>
   </div>
-  	<%= p.hidden_field(:favor_id, :value=>params[:favor_id])%>
-  	<%= p.hidden_field(:user_id, :value=>current_user.id)%>
+  <%= p.hidden_field(:explicacion, :value=>" ") %>
+  <%= p.hidden_field(:favor_id, :value=>params[:favor_id])%>
+  <%= p.hidden_field(:user_id, :value=>current_user.id)%>
 	<%= p.submit " Confirmar", class:"btn-lg btn-warning" %>
  <br><br>
 <% end %>

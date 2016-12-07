@@ -16,6 +16,7 @@ end
       get :eliminar
       get :lugar
       get :titulo_descripcion
+      get :reabrir
     end
   end
   resources :logros

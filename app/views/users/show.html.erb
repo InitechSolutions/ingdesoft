@@ -83,77 +83,11 @@
                 </div>
                 <div class="col-md-4 col-lg-4" align="left">
                   <td><button type="button" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-ok"></i><%= link_to ' Aceptar', positivo_postulations_path(:id => favor.postulations.first.id) %></button></td>
-                  <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                  <meta charset="utf-8">
-                  <meta name="viewport" content="width=device-width, initial-scale=1">
-                  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-                  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-                </head>
-                <body>
-
-                <div class="container">
-                  <!-- Trigger the modal with a button -->
-                  <button type="button" class="btn btn-danger btn-xs" id="myBtn" ><i class="glyphicon glyphicon-remove"></i> Rechazar</button>
-
-                  <!-- Modal -->
-                  <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
-                    
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Explique el motivo de su calificacion negativa</h4>
-                        </div>
-                        <div class="modal-body">
-                          <p>
-                          <%= form_for favor.postulations.first, url: rechazar_postulation_path do |p| %>
-                            <div class="field">
-                              <%= p.label :explicacion %><br>
-                              <%= p.text_area :explicacion,  size: "60x10" , placeholder: "Describa el motivo de su calificacion", required:true %>
-                            </div>
-                            <%= p.submit "Confirmar", class:"btn-lg btn-warning" %>
-                            <% end %>
-                          </p>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                      
-                    </div>
-                  </div>
-                  
-                </div>
-
-                <script>
-                $(document).ready(function(){
-                    $("#myBtn").click(function(){
-                        $("#myModal").modal();
-                    });
-                });
-                </script>
-
-                </body>
-                </html>
-
-
-
-
-
-
-
-
                   <td><button type="button" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i><%= link_to ' Rechazar', calificar_path(:id => favor.postulations.first.id) %></button></td>
-              </div></div></div>      
+              </div></div></div>
           <%end%>
-
           <div class="panel panel-info">
             <div class="panel-heading">
-            <div class="modal fade">
               <h4 class="panel-title">Favores cancelados</h4>
           </div></div>
           <% @user.favors.where(:estado => "cancelado").all.each do |favor|%>
@@ -171,6 +105,20 @@
               <div class="row">
                 <td><%= link_to favor.titulo, favor %></td>
             </div></div>
+          <%end%>
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h4 class="panel-title">Favores no realizados</h4>
+          </div></div>
+          <% @user.favors.where(:estado => "rechazado").all.each do |favor|%>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-6 col-lg-6" align="right">
+                  <td><%= link_to favor.titulo, favor %></td>
+                </div>
+                <div class="col-md-6 col-lg-6" align="center">
+                  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-refresh"></i><%= link_to ' Reabrir', reabrir_favors_path(:id => favor.id) %></button></td>
+            </div></div></div>
           <%end%>
           <div class="panel panel-info">
             <div class="panel-heading">

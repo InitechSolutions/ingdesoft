@@ -111,6 +111,21 @@ class FavorsController < ApplicationController
       end
     end
   end
+  def reabrir
+    @favor = Favor.find(params[:id])
+    if (@favor.estado=="rechazado")
+      @favor.estado="activo"
+      @favor.postulacion_id=nil
+      @favor.save
+      if !(@favor.postulations.nil?)
+         @favor.postulations.delete_all
+      end
+      redirect_to (favor_path(@favor.id))
+      flash[:notice] = "Has reabrierto el favor"
+    else
+      flash[:notice] = "Solo se pueden reabrir favores que no se resolvieron bien"
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
