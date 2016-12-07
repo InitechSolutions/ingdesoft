@@ -24,11 +24,6 @@ class FavorsController < ApplicationController
     render action: :index
   end
 
-  # def titulo_descripcion
-  #   @favors = Favor.titulo_descripcion(params[:busqueda]).order('created_at DESC').all
-  #   render action: :index
-  # end
-
   def show
   end
 
@@ -89,10 +84,12 @@ class FavorsController < ApplicationController
 
   def eliminar
     @favor = Favor.find(params[:favor_id])
-    if (current_user.admi n?)
-      @favor.destroy
-    else
-      redirect_to (root_path), error: "No tenes permiso."
+    if (user_signed_in?)
+      if (current_user.admin?)
+        @favor.destroy
+      else
+        redirect_to (root_path), error: "No tenes permiso."
+      end
     end
   end
   # DELETE /favors/1
@@ -112,19 +109,6 @@ class FavorsController < ApplicationController
     else
       redirect_to (root_path), error: "Debes iniciar sesion o registrarte"
       flash[:notice] = "Debes iniciar sesion o registrarte"
-    end
-  end
-
-  def eliminar
-    if user_signed_in?
-      if current_user.admin?
-        @favor = Favor.find(params[:favor_id])
-        @favor.destroy
-        respond_to do |format|
-         format.html { redirect_to root_path, notice: 'Se ha borrado el favor correctamente.' }
-         format.json { head :no_content }
-        end
-      end
     end
   end
 

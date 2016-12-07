@@ -6,7 +6,7 @@
 <!-- Field de busqueda -->
 <br>
 <%= form_tag(buscar_favors_path , :method => "get") do %>
-  <%= text_field_tag :busqueda,nil, placeholder: 'Palabra a buscar...' %>
+  <%= text_field_tag :busqueda,nil, placeholder: 'Palabras a buscar...' %>
   <%= submit_tag 'Buscar', class:"btn-lg btn-warning" %>
 <% end %>
 
