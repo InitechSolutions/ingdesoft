@@ -29,8 +29,6 @@ class FavorsController < ApplicationController
     render action: :index
   end
 
-
-
   def show
   end
 
@@ -61,7 +59,6 @@ class FavorsController < ApplicationController
   # POST /favors
   # POST /favors.json
   def create
-
     @favor = current_user.favors.build(favor_params)
     respond_to do |format|
       if @favor.save
@@ -91,9 +88,13 @@ class FavorsController < ApplicationController
   end
 
   def eliminar
-    @favor = Favor.find(params[:id])
-    if (current_user.admin?)
-      @favor.destroy
+    if user_signed_in?
+      @favor = Favor.find(params[:id])
+      if (current_user.admin?)
+        @favor.destroy
+      else
+        redirect_to (root_path), error: "No tenes permiso."
+      end
     else
       redirect_to (root_path), error: "No tenes permiso."
     end
@@ -101,39 +102,59 @@ class FavorsController < ApplicationController
   # DELETE /favors/1
   # DELETE /favors/1.json
   def destroy
-    if current_user.id == @favor.user_id
-      @favor.update_attribute(:estado, "cancelado")
-      respond_to do |format|
-          format.html { redirect_to favors_url, notice: 'Favor cancelado con exito.' }
-          format.json { head :no_content }
+    if user_signed_in?
+      if current_user.id == @favor.user_id
+        @favor.update_attribute(:estado, "cancelado")
+        respond_to do |format|
+            format.html { redirect_to favors_url, notice: 'Favor cancelado con exito.' }
+            format.json { head :no_content }
+        end
+      else
+        redirect_to (root_path), error: "No tenes permiso."
+        flash[:notice] = "No tenes permiso."
       end
     else
-      redirect_to (root_path), error: "No tenes permiso."
+      redirect_to (root_path), error: "Debes iniciar sesion o registrarte"
+      flash[:notice] = "Debes iniciar sesion o registrarte"
     end
   end
+
   def eliminar
-    if current_user.admin?
-      @favor = Favor.find(params[:favor_id])
-      @favor.destroy
-      respond_to do |format|
-       format.html { redirect_to root_path, notice: 'Se ha borrado el favor correctamente.' }
-       format.json { head :no_content }
+    if user_signed_in?
+      if current_user.admin?
+        @favor = Favor.find(params[:favor_id])
+        @favor.destroy
+        respond_to do |format|
+         format.html { redirect_to root_path, notice: 'Se ha borrado el favor correctamente.' }
+         format.json { head :no_content }
+        end
       end
     end
   end
+
   def reabrir
-    @favor = Favor.find(params[:id])
-    if (@favor.estado=="rechazado")
-      @favor.estado="activo"
-      @favor.postulacion_id=nil
-      @favor.save
-      if !(@favor.postulations.nil?)
-         @favor.postulations.delete_all
+    if user_signed_in?
+      if current_user.id == @favor.user_id
+        @favor = Favor.find(params[:id])
+        if (@favor.estado=="rechazado")
+          @favor.estado="activo"
+          @favor.postulacion_id=nil
+          @favor.save
+          if !(@favor.postulations.nil?)
+             @favor.postulations.delete_all
+          end
+          redirect_to (favor_path(@favor.id))
+          flash[:notice] = "Has reabrierto el favor"
+        else
+          flash[:notice] = "Solo se pueden reabrir favores que no se resolvieron bien"
+        end
+      else
+        redirect_to (root_path)
+        flash[:notice] = "No tenes permiso"
       end
-      redirect_to (favor_path(@favor.id))
-      flash[:notice] = "Has reabrierto el favor"
     else
-      flash[:notice] = "Solo se pueden reabrir favores que no se resolvieron bien"
+      redirect_to (root_path)
+      flash[:notice] = "Debes iniciar sesion o registrarte"
     end
   end
 

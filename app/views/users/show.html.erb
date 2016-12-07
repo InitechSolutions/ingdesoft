@@ -71,7 +71,9 @@
                   <td>Tiene <%= Postulation.where(:favor_id => favor.id).count %> postulados</td>
                 </div>
                 <div class="col-md-4 col-lg-4" align="left">
-                  <td><%= link_to 'Ver Postulados', postulation_path(favor) %></td>
+                  <% if current_user.id == @user.id %>
+                    <td><%= link_to 'Ver Postulados', postulation_path(favor) %></td>
+                  <%end%>
                 </div></div></div>
           <%end%>
           <div class="panel panel-info">
@@ -88,8 +90,10 @@
                   <td><%= link_to 'Ver Postulado', user_path(favor.postulacion_id) %></td>
                 </div>
                 <div class="col-md-4 col-lg-4" align="left">
-                  <td><button type="button" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-ok"></i><%= link_to ' Aceptar', positivo_postulations_path(:id => favor.postulations.first.id) %></button></td>
-                  <td><button type="button" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i><%= link_to ' Rechazar', calificar_path(:id => favor.postulations.first.id) %></button></td>
+                  <% if current_user.id == @user.id %>
+                    <td><button type="button" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-ok"></i><%= link_to ' Aceptar', positivo_postulations_path(:id => favor.postulations.first.id) %></button></td>
+                    <td><button type="button" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i><%= link_to ' Rechazar', calificar_path(:id => favor.postulations.first.id) %></button></td>
+                  <% end %>
               </div></div></div>
           <%end%>
           <div class="panel panel-info">
@@ -123,7 +127,9 @@
                   <td><%= link_to favor.titulo, favor %></td>
                 </div>
                 <div class="col-md-6 col-lg-6" align="center">
-                  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-refresh"></i><%= link_to ' Reabrir', reabrir_favors_path(:id => favor.id) %></button></td>
+                  <% if current_user.id == @user.id %>
+                    <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-refresh"></i><%= link_to ' Reabrir', reabrir_favors_path(:id => favor.id) %></button></td>
+                  <% end %>
             </div></div></div>
           <%end%>
           <div class="panel panel-info">
@@ -147,7 +153,9 @@
                   <td><%= link_to p.favor.titulo, p.favor %></td>
                 </div>
                 <div class="col-md-6 col-lg-6" align="left">
-                  <td><%= link_to 'Ver Dueño', user_path(p.favor.user_id) %></td>
+                  <% if current_user.id == @user.id %>
+                    <td><%= link_to 'Ver Dueño', user_path(p.favor.user_id) %></td>
+                  <% end %>
                 </div>
             </div></div>
           <%end%>

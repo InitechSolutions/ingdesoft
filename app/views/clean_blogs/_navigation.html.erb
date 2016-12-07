@@ -26,15 +26,18 @@
         </ul>
 
     <% if user_signed_in? %>
-        <% current_user.favors.all.each do |p| %>
-            <% p.postulations.all.each do |c| %>
-                <%if (c.estado == "pendiente")%>
-                    <p align="center"><%= link_to 'Usted tiene postulaciones pendientes!',user_path(current_user.id) %> </p>
-                    <% break %>
-                <% end %>
-            <% end %>
+      <% puede_ver=false %>
+      <% current_user.favors.all.each do |p| %>
+        <% p.postulations.all.each do |c| %>
+          <%if (c.estado == "pendiente")%>
+            <%puede_ver=true %>
+          <% end %>
         <% end %>
+      <% end %>
+      <% if puede_ver == true %>
+        <p align="center"><%= link_to 'Usted tiene postulaciones pendientes!',user_path(current_user.id) %> </p>
+      <% end %>
     <% end %>
 </div>
-    
+
 </nav>
