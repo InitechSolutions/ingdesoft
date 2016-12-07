@@ -15,6 +15,8 @@ end
     collection do
       get :eliminar
       get :buscar
+      get :lugar
+      get :titulo_descripcion
       get :reabrir
     end
   end
