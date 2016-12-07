@@ -88,13 +88,9 @@ class FavorsController < ApplicationController
   end
 
   def eliminar
-    if user_signed_in?
-      @favor = Favor.find(params[:id])
-      if (current_user.admin?)
-        @favor.destroy
-      else
-        redirect_to (root_path), error: "No tenes permiso."
-      end
+    @favor = Favor.find(params[:favor_id])
+    if (current_user.admi n?)
+      @favor.destroy
     else
       redirect_to (root_path), error: "No tenes permiso."
     end

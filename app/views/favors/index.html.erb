@@ -48,7 +48,7 @@
                   <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-remove"></i><%=link_to 'Cancelar', favor, method: :delete, data: { confirm: 'Estas seguro?' } %></button></td>
                 <% end %>
                 <% if current_user.admin? %>
-                  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i><%= link_to 'ELIMINAR', eliminar_favors_path(:favor_id => favor.id), method: :delete, data: { confirm: 'Estas seguro?' } %></button></td>
+                  <td><button type="button" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i><%= link_to 'ELIMINAR', eliminar_favors_path(:favor_id => favor.id), data: { confirm: 'Estas seguro?' } %></button></td>
                 <% end %>
                 </br>
               <%end%>

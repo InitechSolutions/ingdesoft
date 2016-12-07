@@ -5,7 +5,7 @@ class Favor < ApplicationRecord
   validate :fecha, :validacion_fecha
   before_save :set_imagen_default, only: [:create, :edit]
   belongs_to :user
-  has_many :comentarios
+  has_many :comentarios, dependent: :destroy 
   has_many :answers
   has_many :postulations
   default_scope -> { order("created_at desc") }
