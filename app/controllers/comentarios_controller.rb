@@ -13,7 +13,7 @@ def create
   @comentario.favor_id = params[:comentario][:favor_id]
   if @comentario.save
     flash[:success] = "Comentario creado con exito"
-    redirect_to comentarios_path(@comentario)
+    redirect_to favor_path(@comentario.favor_id)
   else
     render 'new'
   end
