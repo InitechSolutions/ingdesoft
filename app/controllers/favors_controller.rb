@@ -22,9 +22,13 @@ class FavorsController < ApplicationController
   def buscar
     if !(params[:localidad] == "")
       @favors = Favor.where(:estado => "activo").lugar(params[:localidad])
-    end
-    if !(params[:busqueda] == "")
-      @favors = @favors + Favor.where(:estado => "activo").titulo_descripcion(params[:busqueda])
+      if !(params[:busqueda] == "")
+        @favors = @favors + Favor.where(:estado => "activo").titulo_descripcion(params[:busqueda])
+      end
+    else
+      if !(params[:busqueda] == "")
+        @favors = Favor.where(:estado => "activo").titulo_descripcion(params[:busqueda])
+      end
     end
     render action: :index
   end
