@@ -7,6 +7,7 @@ class FavorsController < ApplicationController
   # GET /favors
   # GET /favors.json
   def index
+    Visit.create
     @favors = Favor.where(:estado=> 'activo').order('created_at DESC').all
   end
 

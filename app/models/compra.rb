@@ -14,6 +14,8 @@ class Compra < ApplicationRecord
   validates_length_of :code, :is => 3, :message => "El codigo ingresado es incorrecto. "
   validates :code, :presence => {:message => "Debe ingresar el codigo de su tarjeta, que se encuentra al reverso de la misma."}
 
+  scope :creado_entre, lambda {|start_date, end_date| where("created_at >= ? AND created_at <= ?", start_date, end_date )}
+
   validate :vencimiento , :vencimiento_mes
 
   def vencimiento_mes

@@ -1,6 +1,30 @@
 class ComprasController < ApplicationController
   before_action :set_compra, only: [:show, :update, :new]
 
+  def fechas
+    total=0
+    ini = params["inicial"].map{|k,v| v}.join("-").to_date
+    fin = params["final"].map{|k,v| v}.join("-").to_date
+    @compras = Compra.all
+    @compras.each do |c|
+      creado = c.created_at.to_date
+      if creado > ini and creado < fin
+        total= total + c.monto
+      end
+    end
+  #inicial = params[:inicial]
+  #final = params[:final]
+  #d = Date.new(params[:inicial(1i)].to_i, params[:inicial(2i)].to_i, params[:inicial(3i)].to_i)
+   #@compras = Compra.where("created_at >= ? AND created_at <= ?", ini, fin).all
+      #@compra = Compra.where(:created_at => params[:inicial]...params[:final]).all
+    #@compras = Compra.where(created_at: [params[:inicial]..params[:final]]).all
+    #@compras.each do |c|
+     #  total += c.monto
+    #end
+    redirect_to ganancias_estadisticas_path, notice: "La ganancia total entre las fechas "+ ini.to_formatted_s + " y " + fin.to_formatted_s + " es de $"+total.to_s
+    #redirect_to root_path, notice: params[:inicial]
+   #@compras = Compra.creado_entre(params[:inicial], params[:final])
+  end
   # GET /compras
   # GET /compras.json
   def index
@@ -82,6 +106,6 @@ class ComprasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def compra_params
-      params.require(:compra).permit(:puntos, :tarjeta, :code, :vencimiento, :name, :user_id)
+      params.require(:compra).permit(:puntos, :tarjeta, :code, :vencimiento, :name, :user_id, :inicial, :final)
     end
 end

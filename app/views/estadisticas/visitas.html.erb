@@ -3,6 +3,10 @@
   <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
     <div class="well" style="border-radius: 35px;">
       <div class="media">
-
+      	<%= form_tag(fechas_visits_path, :method => "get") do %>
+		<%= date_select :inicial, start_year: 2025, end_year: 2016%>
+		<%= date_select :final, start_year: 2025, end_year: 2016%>
+		<%= submit_tag 'Buscar', class:"btn btn-link"%>
+	<% end %>
 
 </div></div></div></div>

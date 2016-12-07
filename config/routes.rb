@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  resources :compras
+  resources :visits do
+  collection do
+    get :fechas
+  end
+end
+  resources :compras do
+  collection do
+    get :fechas
+  end
+  end
   resources :answers
   resources :comentarios
   resources :favors do
@@ -23,6 +32,7 @@ Rails.application.routes.draw do
     collection do
       get :elegir
       get :positivo
+      get :fechas
     end
   end
   devise_for :users do
