@@ -4,6 +4,20 @@ class PostulationsController < ApplicationController
 	before_action :autorizado, only: [:show]
 
 
+  def fechas
+    total=0
+    ini = params["inicial"].map{|k,v| v}.join("-").to_date
+    fin = params["final"].map{|k,v| v}.join("-").to_date
+    @postulations = Postulation.where(:estado => "aceptado").all
+    @postulations.each do |c|
+      creado = c.created_at.to_date
+      if creado > ini and creado < fin
+        total= total + 1
+      end
+    end
+    redirect_to favores_resueltos_estadisticas_path, notice: "Cantidad total de favores realizados con exito entre "+ ini.to_formatted_s + " y " + fin.to_formatted_s + ": "+total.to_s
+  end
+
 	def verificar_estado_favor
 		if (Postulation.where(:favor_id => params[:favor_id]).where(:estado => "seleccionado").exists?)
 			redirect_to root_url, alert: "No puedes postularte ya que este favor esta siendo realizado por otra persona"
@@ -61,23 +75,22 @@ class PostulationsController < ApplicationController
 	end
 
 	def calificar
-		@postulation = Postulation.find(params[:id])
+	   @postulation = Postulation.find(params[:id])
 	end
 
-	def update
-		@postulation = Postulation.find(params[:id])
-		respond_to do |format|
-			if @postulation.update(postulation_params)
-				flash[:notice] = "Bien"
-				format.html { redirect_to user_path(current_user.id), notice: 'Has calificado negativamente al postulado elegido' }
-				format.json { render :show, status: :ok, location: @postulation }
-			else
-				flash[:notice] = "Error"
-				format.html { render :calificar }
-				format.json { render json: @postulation.errors, status: :unprocessable_entity }
-			end
-		end
-	end
+  def update
+      @postulation = Postulation.find(params[:id])
+        if @postulation.update_attribute(:explicacion, postulation_params[:explicacion])
+         @postulation.favor.update_attribute(:estado, "rechazado")
+         @usuario=User.find(@postulation.user_id)
+         @usuario.puntos=@usuario.puntos-2
+         @usuario.save
+         flash[:notice] = "Has calificado negativamente al postulado elegido"
+          redirect_to user_path(current_user.id)
+        else
+         flash[:notice] = "Ha sucedido un error"
+        end
+    end
 
 	#NO ESCRIBIR DEBAJO DE ESTA LINEA
 	private

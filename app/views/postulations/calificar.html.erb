@@ -1,23 +1,11 @@
-<h1 style="color:#FF8000">Calificar postulado</h1>
-<div class="container" style="margin-top:20px;">
-  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-    <div class="well" style="border-radius: 35px;">
-      <div class="media">
-        <%= form_for(@postulation) do |p| %>
-          <%= p.hidden_field(:descripcion, :value=> @postulation.descripcion)%>
-          <%= p.hidden_field(:estado, :value=>'rechazado') %>
-          <div class="field">
-            <%= p.label :explicacion %><br>
-            <%= p.text_area :explicacion,  size: "60x10" , placeholder: "Describa el motivo de su calificacion", required:true %>
-          </div>
-          <%= p.hidden_field(:favor_id, :value=> @postulation.favor_id)%>
-          <%= p.hidden_field(:id, :value=> @postulation.id) %>
-          <%= p.hidden_field(:user_id, :value=> @postulation.user_id)%>
-
-        	<%= p.submit "Confirmar", class:"btn-lg btn-warning" %>
-         <br><br>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+     <div class="well" style="border-radius: 35px;">
+        <div class="media">
+          <%= form_for (@postulation) do |p| %>
+            <%= p.hidden_field(:descripcion, :value=> @postulation.descripcion)%>
+            <%= p.hidden_field(:estado, :value=>'rechazado') %>
+            <div class="field">
+              <%= p.label :explicacion %><br>
+              <%= p.text_area :explicacion,  size: "60x10" , placeholder: "Describa el motivo de su calificacion", required:true %>
+            </div>
+            <%= p.hidden_field(:favor_id, :value=> @postulation.favor_id)%>
+            <%= p.hidden_field(:user_id, :value=> @postulation.user_id)%>

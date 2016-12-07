@@ -10,6 +10,7 @@ def visitas
 end
 
 def ganancias
-	
+	@compras = Compra.all
 end
+
 end
