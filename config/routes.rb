@@ -14,8 +14,7 @@ end
   resources :favors do
     collection do
       get :eliminar
-      get :lugar
-      get :titulo_descripcion
+      get :buscar
       get :reabrir
     end
   end
@@ -37,7 +36,7 @@ end
   end
   devise_for :users do
   end
-  resources :users, only: [:show] 
+  resources :users, only: [:show]
   resources :users, path: "show" do
     collection do
       get :buscar_logro

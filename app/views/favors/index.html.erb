@@ -4,19 +4,10 @@
     <%= link_to ' Crear Favor', new_favor_path %></button>
 <%end%>
 <!-- Field de busqueda -->
-<%= form_tag(lugar_favors_path , :method => "get") do %>
-<%= text_field_tag :busqueda,nil, placeholder: 'Palabra a buscar...' %>
-
-<!-- Botones de submit de filtro agrupados -->
-<div class="btn-group">
-  <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Buscar Favor por <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <li> <a> <%= submit_tag 'Localidad', class:"btn btn-link"%></a></li>
-    <li> <a> <%= submit_tag 'Titulo/descripcion', class: "btn btn-link", formaction: titulo_descripcion_favors_path%></a></li>
-  </ul>
-</div>
+<br>
+<%= form_tag(buscar_favors_path , :method => "get") do %>
+  <%= text_field_tag :busqueda,nil, placeholder: 'Palabra a buscar...' %>
+  <%= submit_tag 'Buscar', class:"btn-lg btn-warning" %>
 <% end %>
 
 

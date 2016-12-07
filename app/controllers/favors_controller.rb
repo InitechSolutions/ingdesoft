@@ -19,15 +19,15 @@ class FavorsController < ApplicationController
   end
   # GET /favors/1
   # GET /favors/1.json
-  def lugar
-    @favors = Favor.lugar(params[:busqueda]).order('created_at DESC').all
+  def buscar
+    @favors = Favor.buscar(params[:busqueda]).order('created_at DESC').all
     render action: :index
   end
 
-  def titulo_descripcion
-    @favors = Favor.titulo_descripcion(params[:busqueda]).order('created_at DESC').all
-    render action: :index
-  end
+  # def titulo_descripcion
+  #   @favors = Favor.titulo_descripcion(params[:busqueda]).order('created_at DESC').all
+  #   render action: :index
+  # end
 
   def show
   end

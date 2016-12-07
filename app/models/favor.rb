@@ -9,8 +9,7 @@ class Favor < ApplicationRecord
   has_many :answers
   has_many :postulations
   default_scope -> { order("created_at desc") }
-  scope :lugar, -> (busqueda){where('lower(lugar) like lower(?)', "%#{busqueda}%")}
-  scope :titulo_descripcion, -> (busqueda){where('lower(titulo) like lower(?) or lower(descripcion) like lower(?)', "%#{busqueda}%", "%#{busqueda}%")}
+  scope :buscar, -> (busqueda){where('lower(lugar) like lower(?) or lower(titulo) like lower(?) or lower(descripcion) like lower(?)', "%#{busqueda}%", "%#{busqueda}%", "%#{busqueda}%")}
   # belongs_to :user, required: true
   # con esta linea tira otro error
   #validates :user, presence: true, allow_nil: true
