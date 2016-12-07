@@ -91,8 +91,8 @@
                 </div>
                 <div class="col-md-4 col-lg-4" align="left">
                   <% if current_user.id == @user.id %>
-                    <td><button type="button" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-ok"></i><%= link_to ' Aceptar', positivo_postulations_path(:id => favor.postulations.first.id) %></button></td>
-                    <td><button type="button" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i><%= link_to ' Rechazar', calificar_path(:id => favor.postulations.first.id) %></button></td>
+                    <td><button type="button" class="btn btn-success btn-xs"><i class="glyphicon glyphicon-ok"></i><%= link_to ' Aceptar', positivo_postulations_path(:id => favor.postulations.first.id),  data: { confirm: 'Estas seguro?' } %></button></td>
+                    <td><button type="button" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-remove"></i><%= link_to ' Rechazar', calificar_path(:id => favor.postulations.first.id),  data: { confirm: 'Estas seguro?' }  %></button></td>
                   <% end %>
               </div></div></div>
           <%end%>
