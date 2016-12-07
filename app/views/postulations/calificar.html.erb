@@ -5,7 +5,6 @@
       <div class="media">
         <%= form_for (@postulation) do |p| %>
           <%= p.hidden_field(:descripcion, :value=> @postulation.descripcion)%>
-          <%= p.hidden_field(:estado, :value=>'rechazado') %>
           <div class="field">
             <%= p.label :explicacion %><br>
             <%= p.text_area :explicacion,  size: "60x10" , placeholder: "Describa el motivo de su calificacion", required:true %>

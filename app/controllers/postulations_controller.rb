@@ -67,6 +67,7 @@ class PostulationsController < ApplicationController
 	def update
 		@postulation = Postulation.find(params[:id])
 			if @postulation.update_attribute(:explicacion, postulation_params[:explicacion])
+				@postulation.update_attribute(:estado, "rechazado")
 				@postulation.favor.update_attribute(:estado, "rechazado")
 				@usuario=User.find(@postulation.user_id)
 				@usuario.puntos=@usuario.puntos-2
