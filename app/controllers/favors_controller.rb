@@ -23,7 +23,7 @@ class FavorsController < ApplicationController
     if !(params[:localidad] == "")
       @favors = Favor.where(:estado => "activo").lugar(params[:localidad])
       if !(params[:busqueda] == "")
-        @favors = @favors + Favor.where(:estado => "activo").titulo_descripcion(params[:busqueda])
+        @favors = @favors.where(:estado => "activo").titulo_descripcion(params[:busqueda])
       end
       if @favors.count > 0
         render action: :index
