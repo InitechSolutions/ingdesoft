@@ -24,18 +24,23 @@
           </p>
           <br>
           <br>
-          <%= link_to 'Crear comentario', new_comentario_path(:favor_id => @favor.id) %>
+          <%if (current_user.id != @favor.user_id)%>
+             <td><button type="button" class="btn btn-warning"><%= link_to 'Crear comentario', new_comentario_path(:favor_id => @favor.id) %></button></td>
+          <% end %>
           <h3>Comentarios</h3>
             <% @favor.comentarios.each do |c| %>
           <div class="container2" style="margin-top:0px;">
             <div class="col-lg-0 col-lg-offset-0 col-md-30 col-md-offset-10">
               <div class="well" style="border-radius: 0px;">
                 <div class="media">
-                <p><%= c.coment %></p>
-                 <p align="left"><%= link_to 'Responder', new_answer_path(:favor_id => @favor.id, :comentario_id => c.id) %></p>
-                  <p align="right"><%= "Enviado por: " + User.find(c.user_id).nombre + " " + User.find(c.user_id).apellido%></p>
+                <p><%="Comentario: " +  c.coment %></p>
+                <p align="right"><%= "Enviado por: " + User.find(c.user_id).nombre + " " + User.find(c.user_id).apellido%></p>
                   <% if c.answer != nil %>
                   <div><%= "Respuesta: " + c.answer.cuerpo %></div>
+                  <% else %>
+                    <%if (current_user.id == @favor.user_id)%>
+                    <td><button type="button" class="btn btn-warning"><%= link_to 'Responder', new_answer_path(:favor_id => @favor.id, :comentario_id => c.id) %></button></td>
+                    <% end  %>
                   <% end %>
           </div></div></div></div>
           <%end%>

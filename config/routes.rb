@@ -37,8 +37,12 @@ end
   end
   devise_for :users do
   end
-  resources :users, only: [:show]
-
+  resources :users, only: [:show] 
+  resources :users, path: "show" do
+    collection do
+      get :buscar_logro
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'favors#index'
 get  'about'    => 'clean_blogs#about'

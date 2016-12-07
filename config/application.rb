@@ -15,7 +15,6 @@ module Gauchada2
 
   config.assets.initialize_on_precompile = false
   config.i18n.default_locale = :es
-  config.i18n.default_locale = "es"
   end
 
 end

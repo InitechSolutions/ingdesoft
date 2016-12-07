@@ -30,7 +30,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       if @answer.save
-        format.html { redirect_to @answer, notice: 'Respuesta creada exitosamente.' }
+        format.html { redirect_to favor_path(@answer.favor_id), notice: 'Respuesta creada exitosamente.' }
         format.json { render :show, status: :created, location: @answer }
       else
         format.html { render :new }

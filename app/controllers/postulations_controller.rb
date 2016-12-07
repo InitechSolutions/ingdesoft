@@ -5,16 +5,37 @@
 
   def fechas
     total=0
+    rechazados=0
+    aceptados=0
     ini = params["inicial"].map{|k,v| v}.join("-").to_date
     fin = params["final"].map{|k,v| v}.join("-").to_date
-    @postulations = Postulation.where(:estado => "aceptado").all
-    @postulations.each do |c|
+    if (ini > fin)
+      redirect_to favores_resueltos_estadisticas_path, notice: "La fecha inicial no puede ser mayor o igual que la final"
+      return
+    else
+      @aceptados = Postulation.where(:estado => "aceptado").all
+      @aceptados.each do |c|
       creado = c.created_at.to_date
-      if creado > ini and creado < fin
-        total= total + 1
+        if creado > ini and creado < fin
+          aceptados= aceptados + 1
+        end
+      end
+      @rechazados = Postulation.where(:estado => "rechazado").all
+      @rechazados.each do |c|
+        creado = c.created_at.to_date
+        if creado > ini and creado < fin
+          rechazados= rechazados + 1
+        end
       end
     end
-    redirect_to favores_resueltos_estadisticas_path, notice: "Cantidad total de favores realizados con exito entre "+ ini.to_formatted_s + " y " + fin.to_formatted_s + ": "+total.to_s
+      terminados = aceptados+rechazados
+      if terminados == 0
+        mensaje = "No hay favores terminados entre fechas"
+      else
+        total = (aceptados*100)/(rechazados+aceptados)
+        mensaje = "Porcentaje total de favores realizados con exito entre "+ ini.to_formatted_s + " y " + fin.to_formatted_s + ": "+total.to_s+"%"
+      end
+      redirect_to favores_resueltos_estadisticas_path, notice: mensaje
   end
 
   def verificar_estado_favor
@@ -23,7 +44,7 @@
     end
   end
   def autorizado
-    if current_user.id != Favor.where(:id => params[:id]).first.user_id
+    if (current_user.id != Favor.where(:id => params[:id]).first.user_id and !current_user.admin?)
       redirect_to root_url, alert: "Acceso limitado solo al dueño del favor"
     end
   end

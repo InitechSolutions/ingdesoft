@@ -2,6 +2,7 @@ class FavorsController < ApplicationController
   before_action :set_favor, only: [:show, :edit, :update, :destroy]
   #before_filter :authorize_owner, only: [:edit, :create, :new, :update, :destroy]
   before_action :verificar_estado, only: [:destroy]
+  before_action :authenticate_user!, only: [:show]
 
 
   # GET /favors
@@ -89,6 +90,14 @@ class FavorsController < ApplicationController
     end
   end
 
+  def eliminar
+    @favor = Favor.find(params[:id])
+    if (current_user.admin?)
+      @favor.destroy
+    else
+      redirect_to (root_path), error: "No tenes permiso."
+    end
+  end
   # DELETE /favors/1
   # DELETE /favors/1.json
   def destroy

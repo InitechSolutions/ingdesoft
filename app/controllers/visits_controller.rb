@@ -11,14 +11,19 @@ class VisitsController < ApplicationController
     total=0
     ini = params["inicial"].map{|k,v| v}.join("-").to_date
     fin = params["final"].map{|k,v| v}.join("-").to_date
-    @visits = Visit.all
-    @visits.each do |c|
+    if (ini > fin)
+      redirect_to visitas_estadisticas_path, notice: "La fecha inicial no puede ser mayor que la final"
+    else
+      @visits = Visit.all
+      @visits.each do |c|
       creado = c.created_at.to_date
       if creado > ini and creado < fin
         total= total + 1
       end
     end
     redirect_to visitas_estadisticas_path, notice: "La cantidad total de visitas entre "+ ini.to_formatted_s + " y " + fin.to_formatted_s + " es de "+total.to_s
+      return
+    end
   end
   # GET /visits/1
   # GET /visits/1.json

@@ -4,7 +4,7 @@ class CreateLogros < ActiveRecord::Migration[5.0]
       t.string :nombre
       t.integer :min
       t.integer :max
-
+      t.string :imagen
       t.timestamps
     end
   end
