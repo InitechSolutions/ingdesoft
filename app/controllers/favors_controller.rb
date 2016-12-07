@@ -24,12 +24,22 @@ class FavorsController < ApplicationController
       @favors = Favor.where(:estado => "activo").lugar(params[:localidad])
       if !(params[:busqueda] == "")
         @favors = @favors + Favor.where(:estado => "activo").titulo_descripcion(params[:busqueda])
+      end
+      if @favors.count > 0
         render action: :index
+      else
+        flash[:notice] = "No se encontro nada"
+        redirect_to root_path
       end
     else
       if !(params[:busqueda] == "")
         @favors = Favor.where(:estado => "activo").titulo_descripcion(params[:busqueda])
-        render action: :index
+        if @favors.count >0
+          render action: :index
+        else
+          flash[:notice] = "No se encontro nada"
+          redirect_to root_path
+        end
       else
         redirect_to root_path
       end
