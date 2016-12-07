@@ -5,7 +5,7 @@ class CreatePostulations < ActiveRecord::Migration[5.0]
       t.integer :favor_id
       t.text :descripcion
       t.string :estado
-
+      t.string :explicacion
       t.timestamps
     end
   end
