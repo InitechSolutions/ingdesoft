@@ -7,5 +7,6 @@ class Addcampos < ActiveRecord::Migration[5.0]
   	add_column :users, :admin, :boolean, default: false
   	add_column :users, :telefono, :string
   	add_column :users, :localidad, :string
+  	add_column :users, :imagen, :string
   end
 end
