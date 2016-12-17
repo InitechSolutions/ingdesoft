@@ -7,17 +7,22 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       puntos= @user.puntos
       @logro = Logro.buscar_logro(puntos, puntos).order('created_at DESC').all
-      
+      puedo_ver=false
       if current_user.admin?
         puedo_ver = true
-      else
-        puedo_ver=false
       end
       #El dueño puede ver el perfil del postulado elegid
-      #El postulado puede ver el perfil del dueño del favor
       if current_user.favors.where(:estado => "procesando").count > 0
         current_user.favors.where(:estado => "procesando").all.each do |favor|
-          if (favor.postulacion_id == @user.id) || (current_user.id == favor.postulacion_id)
+          if (favor.postulacion_id == @user.id)
+            puedo_ver=true
+          end
+        end
+      end
+      #El postulado puede ver el perfil del dueño del favor
+      if Favor.where(:estado => "procesando").count > 0
+        Favor.where(:estado => "procesando").all.each do |favor|
+          if (favor.postulacion_id == current_user.id) && (favor.user_id == @user.id)
             puedo_ver=true
           end
         end

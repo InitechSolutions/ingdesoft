@@ -152,8 +152,8 @@ class FavorsController < ApplicationController
 
   def reabrir
     if user_signed_in?
+      @favor = Favor.find(params[:id])
       if current_user.id == @favor.user_id
-        @favor = Favor.find(params[:id])
         if (@favor.estado=="rechazado")
           @favor.estado="activo"
           @favor.postulacion_id=nil
